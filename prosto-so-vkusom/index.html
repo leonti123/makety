@@ -657,7 +657,7 @@ h1,h2,h3{font-family:var(--serif);line-height:1.08;margin:0;font-weight:800;lett
 (() => {
   const $ = id => document.getElementById(id);
   const rub = n => n.toLocaleString("ru-RU").replace(/[\u00a0\u202f\s]/g, "\u00a0") + "\u00a0₽";
-  const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
+  const LEAD_URL = "https://script.google.com/macros/s/AKfycbwv8WNHu-JZX7OQSJY2OpiKf86_4lYAcgRdACrxlacwla8CqwseByJsQQTzPhUTB--5/exec";
 
   const DOODLE = {
   };
@@ -934,7 +934,7 @@ h1,h2,h3{font-family:var(--serif);line-height:1.08;margin:0;font-weight:800;lett
     let ok = false;
     try {
       const res = await fetch(LEAD_URL, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, signal: AbortSignal.timeout(20000),
-        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: ph.value, details: ["Макет prosto-so-vkusom (Домашняя выпечка, просто и со вкусом)", ...details()].join("; "), comment: form.comment.value.trim(), website: form.website.value})});
+        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: ph.value, details: ["Сайт Домашняя выпечка", ...details()].join("; "), comment: form.comment.value.trim(), website: form.website.value})});
       ok = (await res.json()).ok === true;
     } catch (x) {}
     submitBtn.disabled = false; submitBtn.textContent = "Отправить записку";
