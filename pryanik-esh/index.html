@@ -26,7 +26,7 @@
 @font-face{font-family:'M PLUS Rounded 1c';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/MPLUSRounded1c-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 @font-face{font-family:'M PLUS Rounded 1c';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/MPLUSRounded1c-800-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
 @font-face{font-family:'M PLUS Rounded 1c';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/MPLUSRounded1c-800-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-:root{--sun:#FFD12B;--sun-d:#F2AE12;--sun-l:#FFF0B5;--cocoa:#3B2314;--cocoa2:#4D2E1B;--ginger:#9A5426;--ginger-l:#D08A45;--cream:#FFF9EC;--paper:#FFFFFF;--ink:#2B1A10;--muted:#76604F;--line:#EEDFC2;--berry:#D2383E;--pine:#2E7B4E;--disp:"Dela Gothic One",Impact,"Arial Black",sans-serif;--sans:"M PLUS Rounded 1c",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--r:22px;--sh:0 18px 40px -26px rgba(59,35,20,.55)}
+:root{--dots:radial-gradient(#fff 21%,transparent 23%) 0 0/24px 24px,radial-gradient(#fff 21%,transparent 23%) 12px 12px/24px 24px,#F8F1C2;--sw:44px;--sun:#FFD12B;--sun-d:#F2AE12;--sun-l:#FFF0B5;--cocoa:#3B2314;--cocoa2:#4D2E1B;--ginger:#9A5426;--ginger-l:#D08A45;--cream:#FFF9EC;--paper:#FFFFFF;--ink:#2B1A10;--muted:#76604F;--line:#EEDFC2;--berry:#D2383E;--pine:#2E7B4E;--disp:"Dela Gothic One",Impact,"Arial Black",sans-serif;--sans:"M PLUS Rounded 1c",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--r:22px;--sh:0 18px 40px -26px rgba(59,35,20,.55)}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -38,10 +38,10 @@ input,select,textarea{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--ginger);outline-offset:3px}
 .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
 h1,h2,h3{margin:0;font-weight:400;line-height:1.08}
-h2{font-family:var(--disp);font-size:clamp(28px,4.4vw,46px);letter-spacing:-.01em}
+h2{font-family:var(--disp);font-size:clamp(30px,4.9vw,54px);letter-spacing:-.01em}
 .sub{color:var(--muted);font-size:17px;margin:12px 0 0;max-width:640px}
-.kick{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ginger)}
-.kick::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 3px var(--sun-l)}
+.kick{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:16px;letter-spacing:.07em;text-transform:uppercase;color:var(--ginger)}
+.kick::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 3px var(--sun-l)}
 section{padding:84px 0;position:relative}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:800;font-size:16px;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s;white-space:nowrap}
 .btn:hover{transform:translateY(-2px)}
@@ -63,22 +63,23 @@ section{padding:84px 0;position:relative}
 .promo .x:hover{background:rgba(255,255,255,.18)}
 
 /* awning (like the VK cover) */
-.awning{height:40px;position:relative;z-index:41;background:repeating-linear-gradient(90deg,var(--sun) 0 44px,#fff 44px 88px);filter:drop-shadow(0 4px 3px rgba(59,35,20,.16))}
-.awning::after{content:"";position:absolute;left:0;right:0;top:100%;height:16px;background:radial-gradient(circle at 22px 0,var(--sun) 21px,transparent 22px) 0 0/88px 16px repeat-x,radial-gradient(circle at 66px 0,#fff 21px,transparent 22px) 0 0/88px 16px repeat-x}
+.awning{height:40px;position:relative;z-index:41;background:repeating-linear-gradient(90deg,var(--sun) 0 var(--sw),#fff var(--sw) calc(var(--sw)*2));filter:drop-shadow(0 4px 3px rgba(59,35,20,.16))}
+.awning::after{content:"";position:absolute;left:0;right:0;top:100%;height:calc(var(--sw)/2);background:radial-gradient(circle at calc(var(--sw)/2) 0,var(--sun) calc(var(--sw)/2 - .5px),transparent calc(var(--sw)/2 + .5px)) 0 0/calc(var(--sw)*2) 100% repeat-x,radial-gradient(circle at calc(var(--sw)*1.5) 0,#fff calc(var(--sw)/2 - .5px),transparent calc(var(--sw)/2 + .5px)) 0 0/calc(var(--sw)*2) 100% repeat-x}
 
 /* header */
-header{position:sticky;top:0;z-index:40;background:rgba(255,249,236,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s,box-shadow .2s}
+header{position:sticky;top:0;z-index:40;padding-top:calc(var(--sw)/2 - 2px);background:rgba(255,249,236,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s,box-shadow .2s}
 header.sc{border-color:var(--line);box-shadow:0 10px 30px -24px rgba(59,35,20,.6)}
-.hd{display:flex;align-items:center;gap:22px;height:74px}
+.hd{display:flex;align-items:center;gap:20px;height:92px}
+header .wrap{max-width:1400px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none}
-.brand img{width:54px;height:54px;border-radius:50%;box-shadow:0 0 0 3px var(--sun),0 6px 14px -6px rgba(0,0,0,.4)}
-.brand b{font-family:var(--disp);font-size:22px;font-weight:400;letter-spacing:.01em;display:block;line-height:1}
-.brand small{display:block;font-size:12px;color:var(--muted);margin-top:4px;font-weight:500}
+.brand img{width:80px;height:80px;background:#fff;border-radius:50%;box-shadow:0 0 0 3px var(--sun),0 6px 14px -6px rgba(0,0,0,.4)}
+.brand b{font-family:var(--disp);font-size:25px;font-weight:400;letter-spacing:.01em;display:block;line-height:1}
+.brand small{display:block;font-size:13px;color:var(--muted);margin-top:4px;font-weight:500}
 nav.mn{display:flex;gap:4px;margin-left:auto}
-nav.mn a{text-decoration:none;font-weight:700;font-size:15px;padding:8px 11px;border-radius:999px;white-space:nowrap}
+nav.mn a{text-decoration:none;font-weight:800;font-size:17.5px;padding:8px 11px;border-radius:999px;white-space:nowrap}
 nav.mn a:hover{background:var(--sun-l)}
-.hd-tel{font-weight:800;text-decoration:none;white-space:nowrap;font-size:15px}
-.hd-tel small{display:block;font-weight:500;font-size:12px;color:var(--muted)}
+.hd-tel{font-weight:800;text-decoration:none;white-space:nowrap;font-size:20px;line-height:1.2}
+.hd-tel small{display:block;font-weight:600;font-size:13px;color:var(--muted)}
 .cartbtn{position:relative;min-height:46px;padding:0 18px}
 .cartbtn .n{position:absolute;top:-6px;right:-6px;min-width:22px;height:22px;border-radius:11px;background:var(--berry);color:#fff;font-size:12px;line-height:22px;text-align:center;padding:0 6px;font-weight:800;transform:scale(0);transition:transform .2s}
 .cartbtn .n.on{transform:scale(1)}
@@ -86,28 +87,28 @@ nav.mn a:hover{background:var(--sun-l)}
 .burger span{display:block;width:20px;height:2px;background:var(--ink);margin:4px auto;border-radius:2px}
 
 /* hero */
-.hero{padding:56px 0 70px;background:radial-gradient(var(--sun-l) 17%,transparent 18%) 0 0/36px 36px,radial-gradient(var(--sun-l) 17%,transparent 18%) 18px 18px/36px 36px,var(--cream)}
+.hero{padding:56px 0 70px;background:var(--dots)}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:22px;background:radial-gradient(circle at 11px 22px,var(--paper) 10px,transparent 11px) 0 0/22px 22px repeat-x;pointer-events:none}
 .hero-g{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
 .hero h1{font-family:var(--disp);font-size:clamp(32px,4.5vw,54px);letter-spacing:-.015em;line-height:1.06}
 .hero h1 span{display:inline;background:linear-gradient(transparent 58%,var(--sun) 58%,var(--sun) 92%,transparent 92%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.hero p.lead{font-size:19px;margin:22px 0 0;max-width:540px;color:#4B392C}
+.hero p.lead{font-size:20px;margin:22px 0 0;max-width:540px;color:#4B392C}
 .hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
 .chip{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px 8px 8px;font-weight:700;font-size:14px}
 .chip i{width:30px;height:30px;border-radius:50%;background:var(--sun);display:grid;place-items:center;flex:none}
 .chip i svg{width:17px;height:17px}
-.vitrina{position:relative;max-width:480px;margin:0 auto;width:100%}
-.win{position:relative;aspect-ratio:1/1.08;border-radius:240px 240px 26px 26px;overflow:hidden;background:#fff;border:14px solid var(--ginger);box-shadow:inset 0 0 0 4px var(--ginger-l),0 30px 60px -30px rgba(59,35,20,.7)}
-.win::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.28) 0 18%,transparent 18% 26%,rgba(255,255,255,.14) 26% 31%,transparent 31%)}
+.vitrina{position:relative;max-width:500px;margin:0 auto;width:100%;aspect-ratio:480/560}
+.vitrina .izba{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 26px 30px rgba(59,35,20,.28))}
+.win{position:absolute;left:22.08%;top:26.43%;width:55.83%;height:54.64%;overflow:hidden;background:#fff;box-shadow:inset 0 0 0 3px rgba(59,35,20,.25)}
+.win::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.3) 0 16%,transparent 16% 24%,rgba(255,255,255,.15) 24% 29%,transparent 29%)}
 .win img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
 .win img.on{opacity:1}
-.sill{height:26px;margin:-6px -16px 0;border-radius:6px;background:linear-gradient(var(--ginger-l),var(--ginger));box-shadow:0 14px 24px -14px rgba(59,35,20,.8);position:relative;z-index:2}
-.ptag{position:absolute;top:44px;right:-14px;z-index:4;background:var(--sun);padding:12px 18px 12px 30px;border-radius:6px 14px 14px 6px;font-weight:800;line-height:1.1;transform:rotate(7deg);box-shadow:0 10px 18px -10px rgba(0,0,0,.5);clip-path:polygon(16px 0,100% 0,100% 100%,16px 100%,0 50%)}
+.ptag{position:absolute;top:27%;right:-10px;z-index:4;background:var(--sun);padding:12px 18px 12px 30px;border-radius:6px 14px 14px 6px;font-weight:800;line-height:1.1;transform:rotate(7deg);box-shadow:0 10px 18px -10px rgba(0,0,0,.5);clip-path:polygon(16px 0,100% 0,100% 100%,16px 100%,0 50%)}
 .ptag::before{content:"";position:absolute;left:14px;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:var(--cream);box-shadow:inset 0 1px 2px rgba(0,0,0,.4)}
 .ptag small{display:block;font-size:12px;font-weight:700}
 .ptag b{font-family:var(--disp);font-weight:400;font-size:26px}
-.cnt{position:absolute;left:-18px;bottom:46px;z-index:4;width:132px;height:132px;border-radius:50%;background:var(--cocoa);color:#FFF4D6;display:grid;place-content:center;text-align:center;transform:rotate(-9deg);box-shadow:0 0 0 6px var(--cream),0 16px 30px -12px rgba(0,0,0,.55)}
+.cnt{position:absolute;left:-14px;bottom:13%;z-index:4;width:132px;height:132px;border-radius:50%;background:var(--cocoa);color:#FFF4D6;display:grid;place-content:center;text-align:center;transform:rotate(-9deg);box-shadow:0 0 0 6px var(--cream),0 16px 30px -12px rgba(0,0,0,.55)}
 .cnt b{font-family:var(--disp);font-weight:400;font-size:40px;line-height:1;color:var(--sun)}
 .cnt small{font-size:12px;line-height:1.2;font-weight:700;display:block;padding:0 14px}
 .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:56px}
@@ -119,12 +120,12 @@ nav.mn a:hover{background:var(--sun-l)}
 .st-g{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px;counter-reset:s}
 .st{position:relative;background:var(--cream);border-radius:var(--r);padding:30px 26px 28px}
 .st b.no{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--sun);font-family:var(--disp);font-weight:400;font-size:32px;margin-bottom:18px;transform:rotate(-6deg);box-shadow:0 8px 16px -8px rgba(194,128,0,.9)}
-.st h3{font-weight:800;font-size:21px}
-.st p{margin:8px 0 0;color:var(--muted)}
+.st h3{font-weight:800;font-size:23px}
+.st p{margin:8px 0 0;color:var(--muted);font-size:17px}
 .st:not(:last-child)::after{content:"";position:absolute;top:58px;right:-22px;width:22px;border-top:3px dashed var(--sun-d)}
 
 /* stickers (her album covers) */
-.povod{background:radial-gradient(var(--sun-l) 15%,transparent 16%) 0 0/30px 30px,var(--cream)}
+.povod{background:var(--dots)}
 .stk-g{display:grid;grid-template-columns:repeat(6,1fr);gap:22px 18px;margin-top:40px}
 .stk-w{position:relative;display:flex;flex-direction:column;align-items:center}
 .stk{position:relative;width:100%;aspect-ratio:1;border-radius:50%;background:var(--sun);display:grid;place-items:center;text-align:center;font-family:var(--disp);font-size:clamp(13px,1.55vw,19px);line-height:1.08;text-transform:uppercase;color:#1C120B;padding:12%;white-space:pre-line;transform:rotate(var(--r,0deg));box-shadow:0 14px 22px -14px rgba(120,80,0,.85),inset 0 -5px 0 rgba(0,0,0,.06);transition:transform .2s,box-shadow .2s}
@@ -214,7 +215,7 @@ body.admin .addcard{display:grid}
 .try h3{font-family:var(--disp);font-size:28px}
 .try p.s{margin:6px 0 0;color:var(--muted);font-size:15px}
 .try-g{display:grid;grid-template-columns:230px 1fr;gap:22px;margin-top:20px;align-items:start}
-.prev{position:relative;aspect-ratio:1;border-radius:20px;background:radial-gradient(var(--sun-l) 15%,transparent 16%) 0 0/22px 22px,#fff;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden}
+.prev{position:relative;aspect-ratio:1;border-radius:20px;background:var(--dots);border:1px solid var(--line);display:grid;place-items:center;overflow:hidden}
 .prev svg{width:100%;height:100%;transition:transform .35s}
 .prev .dia{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:800;background:#fff;border:1px solid var(--line);border-radius:999px;padding:2px 10px;white-space:nowrap}
 .fld{margin-bottom:14px}
@@ -256,8 +257,8 @@ body.admin .addcard{display:grid}
 .about{background:var(--paper)}
 .ab-g{display:grid;grid-template-columns:420px 1fr;gap:56px;align-items:center}
 .ab-ph{position:relative}
-.ab-ph img{border-radius:50% 50% 28px 28px/38% 38% 28px 28px;border:12px solid var(--sun);box-shadow:var(--sh);width:100%}
-.ab-ph .lg{position:absolute;right:-18px;bottom:-18px;width:132px;height:132px;border-radius:50%;box-shadow:0 0 0 6px #fff,0 14px 26px -12px rgba(0,0,0,.5);transform:rotate(8deg)}
+.ab-ph img{border-radius:40px;border:12px solid var(--sun);aspect-ratio:1;object-fit:cover;box-shadow:var(--sh);width:100%}
+.ab-ph .lg{position:absolute;right:-18px;bottom:-18px;width:140px;height:140px;border-radius:50%;background:#fff;aspect-ratio:auto;border:0;box-shadow:0 0 0 6px #fff,0 14px 26px -12px rgba(0,0,0,.5);transform:rotate(8deg)}
 .about p{font-size:18px;color:#4B392C;margin:16px 0 0}
 .about blockquote{margin:26px 0 0;padding:20px 24px;background:var(--cream);border-radius:22px;font-size:18px;font-weight:500;position:relative}
 .about blockquote::before{content:"“";position:absolute;top:-18px;left:18px;font-family:var(--disp);font-size:70px;line-height:1;color:var(--sun-d)}
@@ -362,7 +363,7 @@ form .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 
 /* footer */
 footer{background:var(--cocoa);color:#E9D7BE;padding:60px 0 120px;position:relative}
-footer::before{content:"";position:absolute;left:0;right:0;top:-16px;height:16px;background:radial-gradient(circle at 22px 16px,var(--cocoa) 21px,transparent 22px) 0 0/44px 16px repeat-x}
+footer::before{content:"";position:absolute;left:0;right:0;top:calc(var(--sw)/-2);height:calc(var(--sw)/2);background:radial-gradient(circle at calc(var(--sw)/2) 100%,var(--cocoa) calc(var(--sw)/2 - .5px),transparent calc(var(--sw)/2 + .5px)) 0 0/var(--sw) 100% repeat-x}
 .fg{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:30px}
 footer h4{margin:0 0 12px;color:var(--sun);font-size:15px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
 footer a{text-decoration:none}
@@ -443,10 +444,18 @@ body.admin .demo-pill{display:none}
 .anim .rv-in{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
 .anim .rv-in.vis{opacity:1;transform:none}
 
-@media (max-width:1240px){.brand small,.hd-tel small{display:none}}
-@media (max-width:1080px){
+@media (max-width:1380px){.brand small{display:none}}
+@media (max-width:1300px){.cartbtn .lbl{display:none}.cartbtn{padding:0 14px}}
+@media (max-width:1240px){.hd-tel small{display:none}nav.mn a{font-size:16.5px;padding:8px 8px}}
+@media (max-width:1180px){
  nav.mn{display:none}
  .burger{display:block}
+ .hd{gap:12px}
+ .hd-tel{margin-left:auto}
+ nav.mn.open{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:var(--cream);padding:10px 20px 18px;border-bottom:1px solid var(--line);box-shadow:0 20px 30px -20px rgba(0,0,0,.4)}
+ nav.mn.open a{padding:12px 6px;font-size:17px;border-bottom:1px dashed var(--line);border-radius:0}
+}
+@media (max-width:1080px){
  .hd{gap:12px}
  .hd-tel{margin-left:auto}
  nav.mn.open{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:var(--cream);padding:10px 20px 18px;border-bottom:1px solid var(--line);box-shadow:0 20px 30px -20px rgba(0,0,0,.4)}
@@ -460,7 +469,7 @@ body.admin .demo-pill{display:none}
  section{padding:64px 0}
  .hero{padding:34px 0 56px}
  .hero-g{grid-template-columns:1fr;gap:40px}
- .vitrina{max-width:400px}
+ .vitrina{max-width:460px}
  .trust{grid-template-columns:1fr 1fr;margin-top:40px}
  .st-g{grid-template-columns:1fr}
  .st:not(:last-child)::after{display:none}
@@ -481,9 +490,10 @@ body.admin .demo-pill{display:none}
 }
 @media (max-width:620px){
  .wrap{padding:0 16px}
- .brand b{font-size:18px}
+ .brand b{font-size:19px}
  .brand small{display:none}
- .brand img{width:46px;height:46px}
+ .brand img{width:62px;height:62px}
+ .hd{height:80px}
  .cartbtn{padding:0 14px;min-height:44px}
  .cartbtn .lbl{display:none}
  .stk-g{grid-template-columns:repeat(3,1fr);gap:16px 12px}
@@ -534,10 +544,11 @@ body.admin .demo-pill{display:none}
 <div class="abar" id="abar"><div class="wrap"><b>Режим мастера</b><small>Демо: изменения видны только на этом устройстве. После запуска они сохранятся на сайте для всех покупателей</small><button id="aAdd" type="button">+ Добавить пряник</button><button id="aPromo" type="button">Акция</button><button id="aReset" class="o" type="button">Сбросить</button><button id="aExit" class="o" type="button">Выйти</button></div></div>
 <div class="promo" id="promo" hidden><span id="promoT"></span><a href="#zakaz">Заказать</a><button class="x" id="promoX" type="button" aria-label="Скрыть">×</button></div>
 <div class="awning" aria-hidden="true"></div>
+<script>(function(){function f(){var w=document.documentElement.clientWidth,n=Math.max(9,Math.round(w/44));if(n%2==0)n++;document.documentElement.style.setProperty("--sw",(w/n)+"px")}f();addEventListener("resize",f)})()</script>
 
 <header id="hdr">
  <div class="wrap hd">
-  <a class="brand" href="#top" aria-label="Пряник_ешь, наверх"><img src="img/logo.png" alt="Логотип Пряник_ешь" width="54" height="54"><span><b>Пряник_ешь</b><small>имбирные пряники ручной работы</small></span></a>
+  <a class="brand" href="#top" aria-label="Пряник_ешь, наверх"><img src="img/logo2.jpg" alt="Логотип Пряник_ешь" width="54" height="54"><span><b>Пряник_ешь</b><small>имбирные пряники ручной работы</small></span></a>
   <nav class="mn" id="mn">
    <a href="#katalog" data-cat="ny">Новый год</a>
    <a href="#kompaniyam">С логотипом</a>
@@ -570,6 +581,28 @@ body.admin .demo-pill{display:none}
    </div>
   </div>
   <div class="vitrina">
+   <svg class="izba" viewBox="0 0 480 560" aria-hidden="true">
+     <defs>
+      <linearGradient id="wd" x1="0" x2="1"><stop offset="0" stop-color="#8E4A1F"/><stop offset=".5" stop-color="#A65C2A"/><stop offset="1" stop-color="#8E4A1F"/></linearGradient>
+      <linearGradient id="wdv" y1="0" y2="1"><stop offset="0" stop-color="#C98845"/><stop offset="1" stop-color="#9A5426"/></linearGradient>
+      <g id="shut"><rect x="0" y="0" width="74" height="300" rx="5" fill="url(#wd)"/><path d="M8 0v300M24 0v300M40 0v300M56 0v300" stroke="#7A3D16" stroke-width="1.2" opacity=".45"/><rect x="7" y="8" width="60" height="135" rx="4" fill="none" stroke="#FFF8EA" stroke-width="5"/><rect x="7" y="157" width="60" height="135" rx="4" fill="none" stroke="#FFF8EA" stroke-width="5"/><path d="M37 30l20 45-20 45-20-45z" fill="#FFF8EA"/><path d="M37 179l20 45-20 45-20-45z" fill="#FFF8EA"/><circle cx="37" cy="75" r="7" fill="#FFD12B"/><circle cx="37" cy="224" r="7" fill="#FFD12B"/><circle cx="68" cy="60" r="3" fill="#5A2E12"/><circle cx="68" cy="240" r="3" fill="#5A2E12"/></g>
+     </defs>
+     <use href="#shut" x="20" y="146"/>
+     <use href="#shut" transform="translate(460 146) scale(-1 1)"/>
+     <rect x="94" y="136" width="292" height="324" fill="url(#wd)"/>
+     <rect x="100" y="142" width="280" height="312" fill="none" stroke="#FFF8EA" stroke-width="4"/>
+     <path d="M66 140C66 78 186 84 240 18C294 84 414 78 414 140Z" fill="#FFF8EA"/>
+     <path d="M88 130C92 90 196 96 240 44C284 96 388 90 392 130Z" fill="#A65C2A"/>
+     <path d="M110 124C118 100 204 106 240 70C276 106 362 100 370 124Z" fill="none" stroke="#FFF8EA" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+     <circle cx="240" cy="104" r="17" fill="#FFD12B"/><circle cx="240" cy="104" r="25" fill="none" stroke="#FFF8EA" stroke-width="3" stroke-dasharray="5 6"/>
+     <circle cx="160" cy="118" r="6" fill="#FFF8EA"/><circle cx="320" cy="118" r="6" fill="#FFF8EA"/>
+     <rect x="58" y="132" width="364" height="16" rx="3" fill="#FFF8EA"/>
+     <path d="M66 148h348l-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12-10-12-10 12z" fill="#FFF8EA"/>
+     <rect x="52" y="456" width="376" height="22" rx="5" fill="url(#wdv)"/>
+     <path d="M80 478h320v14c-14 0-14 18-28 18s-14-18-28-18-14 18-28 18-14-18-28-18-14 18-28 18-14-18-28-18-14 18-28 18-14-18-28-18-14 18-28 18-14-18-28-18-14 18-28 18-14-18-28-18z" fill="#FFF8EA"/>
+     <path d="M240 506l12 18-12 18-12-18z" fill="#FFF8EA"/><circle cx="240" cy="524" r="4" fill="#FFD12B"/>
+     <circle cx="128" cy="500" r="4" fill="#A65C2A"/><circle cx="184" cy="500" r="4" fill="#A65C2A"/><circle cx="296" cy="500" r="4" fill="#A65C2A"/><circle cx="352" cy="500" r="4" fill="#A65C2A"/>
+    </svg>
    <div class="win" id="win" aria-label="Мои новогодние пряники">
     <img class="on" src="img/hero-0.jpg" alt="Пряничный венок в коробке" width="900" height="900">
     <img src="img/hero-1.jpg" alt="Пряники варежка и сапожок" width="900" height="900" loading="lazy">
@@ -577,7 +610,6 @@ body.admin .demo-pill{display:none}
     <img src="img/hero-3.jpg" alt="Пряник лошадка-качалка" width="900" height="900" loading="lazy">
     <img src="img/hero-4.jpg" alt="Пряники Снегурочки" width="900" height="900" loading="lazy">
    </div>
-   <div class="sill"></div>
    <div class="ptag"><small>пряники</small><b>от 130 ₽</b></div>
    <div class="cnt" id="cnt"><b id="cntN">49</b><small id="cntT">дней до Нового года</small></div>
   </div>
@@ -664,7 +696,7 @@ body.admin .demo-pill{display:none}
       </div>
       <div class="fld"><label for="tryName">или впишите название</label><input class="tinp" id="tryName" maxlength="24" placeholder="Например, Ромашка"></div>
       <div class="fld"><span>Размер</span><div class="seg" id="trySize"></div></div>
-      <div class="fld"><span>Форма</span><div class="seg" id="tryShape"><button type="button" class="on" data-v="circle">Круг</button><button type="button" data-v="wave">Волна</button></div></div>
+      <div class="fld"><span>Форма</span><div class="seg" id="tryShape"></div></div>
       <div class="fld" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><span style="margin:0">Сколько штук</span>
        <div class="qty"><button type="button" id="tqM" aria-label="Меньше">−</button><input id="tryQ" type="number" inputmode="numeric" min="1" value="50" aria-label="Количество"><button type="button" id="tqP" aria-label="Больше">+</button></div>
       </div>
@@ -672,8 +704,8 @@ body.admin .demo-pill{display:none}
      </div>
     </div>
     <div class="calc">
-     <div class="row"><span id="tryLine">50 шт × 150 ₽</span><b class="sum" id="trySum">7 500 ₽</b></div>
-     <div class="note" id="tryNote">Опт от 50 штук: точную цену назову, когда увижу ваш логотип.</div>
+     <div class="row"><span id="tryLine"></span><b class="sum" id="trySum"></b></div>
+     <div class="note" id="tryNote"></div>
      <button class="btn btn-cocoa" type="button" id="tryAdd" style="width:100%;margin-top:14px">Добавить в заказ</button>
     </div>
    </div>
@@ -695,7 +727,7 @@ body.admin .demo-pill{display:none}
 <!-- ABOUT -->
 <section class="about" id="o-nas">
  <div class="wrap ab-g">
-  <div class="ab-ph rv-in"><img src="img/marianna.jpg" alt="Марианна, мастер Пряник_ешь" width="700" height="700" loading="lazy"><img class="lg" src="img/logo.png" alt="" width="132" height="132" loading="lazy"></div>
+  <div class="ab-ph rv-in"><img src="img/marianna2.jpg" alt="Марианна, мастер Пряник_ешь, с новогодними пряниками" width="639" height="639" loading="lazy"><img class="lg" src="img/logo2.jpg" alt="" width="132" height="132" loading="lazy"></div>
   <div class="rv-in">
    <span class="kick">О мастерской</span>
    <h2 style="margin-top:12px">Привет, я Марианна</h2>
@@ -730,7 +762,7 @@ body.admin .demo-pill{display:none}
   <h2 style="margin-top:12px">Что пишут покупатели</h2>
   <p class="sub">Из книги отзывов в группе ВКонтакте. Рейтинг 5,0 в ВК и 5,0 на Авито: там 135 отзывов.</p>
   <div class="rv-g" id="rvs"></div>
-  <div class="rv-more"><a class="btn btn-line" href="https://vk.com/topic-28442263_39296109" target="_blank" rel="noopener">Отзывы ВКонтакте</a><a class="btn btn-line" href="https://www.avito.ru/brands/i181382694" target="_blank" rel="noopener">135 отзывов на Авито</a></div>
+  <div class="rv-more"><a class="btn btn-line" href="https://vk.com/topic-28442263_39296109" target="_blank" rel="noopener">Отзывы ВКонтакте</a></div>
  </div>
 </section>
 
@@ -768,6 +800,7 @@ body.admin .demo-pill{display:none}
       </div></div>
       <div class="fl"><span>Как получить</span><div class="rad">
        <label><input type="radio" name="get" value="Самовывоз в Славянке" checked><span>Самовывоз в Славянке</span></label>
+       <label><input type="radio" name="get" value="Самовывоз с Витебского 11Ж"><span>Самовывоз с Витебского</span></label>
        <label><input type="radio" name="get" value="Доставка по Петербургу"><span>Доставка по СПб</span></label>
        <label><input type="radio" name="get" value="Доставка в другой город"><span>В другой город</span></label>
       </div></div>
@@ -797,12 +830,13 @@ body.admin .demo-pill{display:none}
   <div class="kg">
    <div class="kc">
     <div class="ln"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></i><div><a href="tel:+79522404665">+7 952 240-46-65</a><small>Звонок, Telegram и MAX на этом номере</small></div></div>
-    <div class="ln"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></i><div><b>Самовывоз: Славянка, Ростовская ул., 14-16</b><small>Время забора согласуем заранее</small></div></div>
-    <div class="ln"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></i><div><b>Доставка</b><small>По Петербургу Яндекс курьером, по России СДЭК и транспортными компаниями. Доставку оплачивает покупатель</small></div></div>
+    <div class="ln"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></i><div><b>Самовывоз: Славянка, Ростовская ул., 14-16</b><small>Время забора согласуем заранее</small><b style="display:block;margin-top:8px">или Витебский проспект, 11Ж</b><small>По будням с 11 до 17, в субботу с 11 до 15</small></div></div>
+    <div class="ln"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></i><div><b>Доставка</b><small>По городу Яндекс курьером, доставку оформляет покупатель. Предоплата 100% на карту Сбербанка или по безналу</small></div></div>
     <div class="cta">
      <a class="btn btn-sun" href="tel:+79522404665">Позвонить</a>
      <a class="btn btn-line" href="https://t.me/+79522404665" target="_blank" rel="noopener">Telegram</a>
      <a class="btn btn-line" href="https://vk.me/club28442263" target="_blank" rel="noopener">ВКонтакте</a>
+     <a class="btn btn-line" href="https://max.ru/u/f9LHodD0cOIGv0fN-HsQklEtJI5JzbjP_2ybeK4H7kAi87T1UZr2oCEd7jc" target="_blank" rel="noopener">Написать в MAX</a>
      <a class="btn btn-line" href="https://max.ru/channel_pryanikesh" target="_blank" rel="noopener">Канал в MAX</a>
     </div>
    </div>
@@ -819,7 +853,7 @@ body.admin .demo-pill{display:none}
 <footer>
  <div class="wrap">
   <div class="fg">
-   <div><div class="fb"><img src="img/logo.png" alt="" width="64" height="64" loading="lazy"><div><b>Пряник_ешь</b><span>имбирные пряники ручной работы</span></div></div><p class="fslog">Санкт-Петербург, Славянка. Сделано с любовью.</p></div>
+   <div><div class="fb"><img src="img/logo2.jpg" alt="" width="64" height="64" loading="lazy"><div><b>Пряник_ешь</b><span>имбирные пряники ручной работы</span></div></div><p class="fslog">Санкт-Петербург, Славянка. Сделано с любовью.</p></div>
    <div><h4>Каталог</h4><ul id="fcats"></ul></div>
    <div><h4>Покупателям</h4><ul><li><a href="#kak">Как заказать</a></li><li><a href="#kompaniyam">Для компаний</a></li><li><a href="#voprosy">Вопросы и ответы</a></li><li><a href="#otzyvy">Отзывы</a></li><li><a href="privacy.html">Обработка данных</a></li></ul></div>
    <div><h4>Контакты</h4><ul><li><a href="tel:+79522404665">+7 952 240-46-65</a></li><li><a href="https://t.me/+79522404665" target="_blank" rel="noopener">Telegram</a></li><li><a href="https://max.ru/channel_pryanikesh" target="_blank" rel="noopener">Канал в MAX</a></li><li><a href="https://vk.com/club28442263" target="_blank" rel="noopener">Группа ВКонтакте</a></li></ul></div>
@@ -876,9 +910,9 @@ const BASE = {
   {id: "ny-goat", cat: "ny", name: "Пряник «Коза», символ 2027 года", price: 350, unit: "шт", fresh: true, facts: ["11×11 см", "Пакетик с лентой, коробочка за доплату"], text: "Новогодний сувенир и сладкий комплимент: коллегам, сотрудникам, друзьям и близким.", photos: ["p/goat-1", "p/goat-2"]},
   {id: "ny-dm", cat: "ny", name: "Дед Мороз и Снегурочка 2027", price: 250, unit: "шт", art: true, facts: ["Высота 9 см", "Пищевая печать", "Пакетик с ленточкой"], text: "Красочная картинка с Дедом Морозом или Снегурочкой на имбирном прянике. Подойдёт коллегам, учителям и детям.", photos: ["p/dm-1", "p/dm-2"]},
   {id: "ny-idea", cat: "ny", name: "Пряники по вашей идее", price: null, facts: ["Любые фигуры, имена и надписи", "Набор под ваш бюджет"], text: "Посмотрите мои новогодние работы ниже на странице или пришлите свою картинку. Посчитаю стоимость и предложу варианты.", photos: ["p/idea-1", "p/idea-2", "p/idea-3"]},
-  {id: "lg-5", cat: "logo", name: "Пряники с логотипом, 5–6 см", price: 110, unit: "шт", min: 30, hit: true, facts: ["Прямая пищевая печать", "Пакетик с клапаном, с ленточкой +20 ₽", "Минимальный заказ 30 шт"], text: "Ваш логотип, фирменная символика или надпись прямо на прянике. Удобный размер для раздачи на выставке, конференции или в подарочный бокс.", photos: ["p/logo5-1"]},
-  {id: "lg-8", cat: "logo", name: "Пряники с логотипом, 8–10 см", vars: [{l: "8 см", p: 150}, {l: "9 см", p: 180}, {l: "10 см", p: 200}], unit: "шт", min: 10, facts: ["Пищевая печать логотипа", "Можно от 10 шт, выгоднее от 50 шт", "Помогу с макетом бесплатно"], text: "Брендированные пряники к юбилею компании, для клиентов, партнёров и сотрудников. Логотип, фирменные цвета или любое изображение.", photos: ["p/logo8-1", "p/logo8-3", "p/logo8-2"]},
-  {id: "lg-event", cat: "logo", name: "Пряники с картинкой к событию", vars: [{l: "8 см", p: 150}, {l: "9 см", p: 180}, {l: "10 см", p: 200}], unit: "шт", min: 10, facts: ["Бал, юбилей, конференция", "Картинка или фото на прянике"], text: "Картинка мероприятия, фото или надпись: пряники станут комплиментом гостям и памятью о событии.", photos: ["p/event-1", "p/event-3", "p/event-2"]},
+  {id: "lg-5", cat: "logo", name: "Пряники с логотипом, 5–6 см", price: 100, from: true, unit: "шт", hit: true, facts: ["1–10 шт 130 ₽, 11–30 шт 120 ₽", "31–100 шт 110 ₽, от 101 шт 100 ₽", "Пакетик с клапаном, с ленточкой +20 ₽"], text: "Ваш логотип, фирменная символика или надпись прямо на прянике. Удобный размер для раздачи на выставке, конференции или в подарочный бокс.", photos: ["p/logo5-1"]},
+  {id: "lg-8", cat: "logo", name: "Пряники с логотипом, 7–10 см", vars: [{l: "7 см", p: 190}, {l: "8 см", p: 210}, {l: "9 см", p: 230}, {l: "10 см", p: 260}], unit: "шт", facts: ["Цена за 1–10 шт, чем больше тираж, тем дешевле", "От 101 шт: 7 см 150 ₽, 8 см 160 ₽, 9 см 180 ₽, 10 см 200 ₽", "Круг или закруглённый квадрат 8 и 10 см"], text: "Брендированные пряники к юбилею компании, для клиентов, партнёров и сотрудников. Логотип, фирменные цвета или любое изображение. Точную цену по вашему тиражу посчитает калькулятор в разделе для компаний.", photos: ["p/logo8-1", "p/logo8-3", "p/logo8-2"]},
+  {id: "lg-event", cat: "logo", name: "Пряники с картинкой к событию", vars: [{l: "7 см", p: 190}, {l: "8 см", p: 210}, {l: "9 см", p: 230}, {l: "10 см", p: 260}], unit: "шт", facts: ["Бал, юбилей, конференция", "Картинка или фото на прянике", "Цена за 1–10 шт, от 11 шт дешевле"], text: "Картинка мероприятия, фото или надпись: пряники станут комплиментом гостям и памятью о событии.", photos: ["p/event-1", "p/event-3", "p/event-2"]},
   {id: "lg-ny", cat: "logo", name: "Новогодние пряники для сотрудников и клиентов", price: 130, from: true, unit: "шт", facts: ["Человечки от 130 ₽/шт", "С новогодней картинкой 170 ₽/шт", "Снеговик от 100 шт — 230 ₽/шт", "Наборы в коробках от 600 ₽"], text: "Одинаковые пряники для всей команды или наборы в коробках для клиентов. Подскажу, что выбрать под ваш бюджет и количество.", photos: ["p/opt-1", "p/opt-2"]},
   {id: "lg-spb", cat: "logo", name: "Пряники «Петербург» для гостей и партнёров", price: null, facts: ["Медный всадник, Аврора, мосты", "Ручная роспись глазурью"], text: "Набор с видами Петербурга: сувенир для иногородних партнёров и гостей мероприятия. Стоимость зависит от количества.", photos: ["p/spb-1"]},
   {id: "lg-char", cat: "logo", name: "Персонаж или символ компании", price: null, facts: ["Роспись по вашему эскизу", "Для брендов, клубов и событий"], text: "Распишу вашего персонажа или символ вручную, как этих динозавров для большого заказа.", photos: ["p/char-1", "p/char-2"]}
@@ -898,13 +932,14 @@ const REV = [
 ];
 const FAQ = [
  ["Как сделать заказ?", "Нажмите на кружок с поводом, добавьте пряники кнопкой «В заказ» и отправьте заявку внизу страницы. Я свяжусь с вами, уточню дизайн, дату и сумму. Можно и сразу позвонить или написать в Telegram или MAX: +7 952 240-46-65."],
- ["За сколько дней заказывать?", "Изготовление от 3 рабочих дней. К праздникам лучше за 5 рабочих дней и раньше: перед Новым годом свободные даты быстро заканчиваются."],
- ["Какой минимальный заказ?", "1 000 ₽. Пряники с логотипом 5–6 см от 30 штук, 8–10 см от 10 штук."],
+ ["За сколько дней заказывать?", "Срок изготовления от 7 рабочих дней. К праздникам лучше заказывать заранее: перед Новым годом свободные даты быстро заканчиваются."],
+ ["Какой минимальный заказ?", "1 000 ₽. Пряники с логотипом можно заказать от 1 штуки, чем больше тираж, тем ниже цена за пряник: шаги 1–10, 11–30, 31–100 и от 101 штуки."],
  ["Из чего пряники?", "Мука, яйца, сахар, сливочное масло 82,5%, сода и пять специй. В тесте нет мёда. Роспись белково-сахарной глазурью и пищевыми красителями."],
  ["Сколько хранятся пряники?", "6 месяцев. Храните в закрытом пакетике, без прямого солнца и не в холодильнике. Если пряник подсох, положите на ночь в пакет половинку яблока, и он снова станет мягким."],
  ["Можно сделать по моему эскизу или с моим логотипом?", "Да. Пришлите картинку или логотип, помогу подготовить макет бесплатно. Роспись ручная, поэтому каждый пряник немного индивидуален."],
- ["Как получить заказ?", "Самовывоз в Славянке, Ростовская улица 14-16, время согласуем. По Петербургу доставка Яндекс курьером, по России СДЭК и транспортными компаниями. Доставку оплачивает покупатель."],
- ["Как оплатить?", "Наличными или переводом, для компаний безналичный расчёт. Заказ беру в работу после предоплаты."]
+ ["Как получить заказ?", "Самовывоз в Славянке, Ростовская улица 14-16, время согласуем. Или на Витебском проспекте 11Ж: по будням с 11 до 17, в субботу с 11 до 15. По городу доставка Яндекс курьером, её оформляет покупатель."],
+ ["Как оплатить?", "Предоплата 100% на карту Сбербанка или по безналичному расчёту для компаний. Заказ беру в работу после оплаты."],
+ ["Как упакованы пряники?", "Каждый пряник в отдельном пакетике с клеевым клапаном. Пакетик с атласной лентой +20 ₽ за пряник."]
 ];
 
 // ===== state (demo admin changes live in this browser only) =====
@@ -1081,41 +1116,51 @@ $("cart").addEventListener("change", e => {
 });
 
 // ===== corporate try-on =====
-const SIZES = [{l: "5–6 см", d: "⌀ 6 см", p: 110, min: 30, k: .74}, {l: "8 см", d: "⌀ 8 см", p: 150, min: 10, k: .86}, {l: "9 см", d: "⌀ 9 см", p: 180, min: 10, k: .93}, {l: "10 см", d: "⌀ 10 см", p: 200, min: 10, k: 1}];
-let tSize = 1, tShape = "circle", tLogo = "";
-$("trySize").innerHTML = SIZES.map((s, i) => `<button type="button" class="${i === tSize ? "on" : ""}" data-s="${i}">${s.l}</button>`).join("");
-function shapePath(R, wave) {
- if (!wave) return `M${150 - R},150a${R},${R} 0 1,0 ${2 * R},0a${R},${R} 0 1,0 ${-2 * R},0`;
- let d = "";
- for (let i = 0; i <= 360; i += 2) { const a = i * Math.PI / 180, r = R * (1 + .045 * Math.cos(16 * a)); d += (i ? "L" : "M") + (150 + r * Math.cos(a)).toFixed(1) + "," + (150 + r * Math.sin(a)).toFixed(1); }
- return d + "Z";
+const TIERS = [[1, "1–10 шт"], [11, "11–30 шт"], [31, "31–100 шт"], [101, "от 101 шт"]];
+const SIZES = [{l: "5–6 см", d: "⌀ 6 см", ps: [130, 120, 110, 100], k: .74}, {l: "7 см", d: "⌀ 7 см", ps: [190, 175, 160, 150], k: .8}, {l: "8 см", d: "⌀ 8 см", ps: [210, 190, 170, 160], k: .86}, {l: "9 см", d: "⌀ 9 см", ps: [230, 210, 190, 180], k: .93}, {l: "10 см", d: "⌀ 10 см", ps: [260, 230, 210, 200], k: 1}];
+// формы: мастер включает и выключает их сама; sizes = какие размеры есть у формы
+const SHAPES = [{id: "circle", name: "Круг", sizes: ["5–6 см", "7 см", "8 см", "9 см", "10 см"]}, {id: "rsq", name: "Закруглённый квадрат", sizes: ["8 см", "10 см"]}];
+let tSize = 2, tShape = "circle", tLogo = "";
+const tierOf = q => TIERS.reduce((a, t, i) => q >= t[0] ? i : a, 0);
+const shapeOf = () => SHAPES.find(x => x.id === tShape) || SHAPES[0];
+function drawTryButtons() {
+ const sh = shapeOf();
+ if (!sh.sizes.includes(SIZES[tSize].l)) tSize = SIZES.findIndex(s => s.l === sh.sizes[0]);
+ $("trySize").innerHTML = SIZES.map((s, i) => sh.sizes.includes(s.l) ? `<button type="button" class="${i === tSize ? "on" : ""}" data-s="${i}">${s.l}</button>` : "").join("");
+ $("tryShape").innerHTML = SHAPES.map(x => `<button type="button" class="${x.id === tShape ? "on" : ""}" data-v="${x.id}">${x.name}</button>`).join("");
+}
+drawTryButtons();
+function shapePath(R, shape) {
+ if (shape === "rsq") { const a = R * .9, r = R * .38, x0 = 150 - a, y0 = 150 - a, w = 2 * a; return `M${x0 + r},${y0}h${w - 2 * r}a${r},${r} 0 0 1 ${r},${r}v${w - 2 * r}a${r},${r} 0 0 1 ${-r},${r}h${-(w - 2 * r)}a${r},${r} 0 0 1 ${-r},${-r}v${-(w - 2 * r)}a${r},${r} 0 0 1 ${r},${-r}z`; }
+ return `M${150 - R},150a${R},${R} 0 1,0 ${2 * R},0a${R},${R} 0 1,0 ${-2 * R},0`;
 }
 function renderTry() {
- const s = SIZES[tSize], wave = tShape === "wave";
- $("tryRim").setAttribute("d", shapePath(132, wave));
- $("tryGlz").setAttribute("d", shapePath(120, wave));
+ const s = SIZES[tSize];
+ $("tryRim").setAttribute("d", shapePath(132, tShape));
+ $("tryGlz").setAttribute("d", shapePath(120, tShape));
  $("tryG").style.transform = `scale(${s.k})`;
  $("tryDia").textContent = s.d;
  const img = $("tryImg"), txt = $("tryTxt"), name = $("tryName").value.trim();
  if (tLogo) { img.setAttribute("href", tLogo); txt.textContent = ""; } else { img.setAttribute("href", ""); txt.textContent = name ? name.toUpperCase() : "ЛОГОТИП"; txt.setAttribute("font-size", Math.max(12, Math.min(30, 170 / (.8 * (name || "ЛОГОТИП").length))).toFixed(1)); }
  $("tryClear").hidden = !tLogo;
- const q = Math.max(1, Math.round(+$("tryQ").value || 1)), rib = $("tryRib").checked, unit = s.p + (rib ? 20 : 0);
+ const q = Math.max(1, Math.round(+$("tryQ").value || 1)), rib = $("tryRib").checked, ti = tierOf(q), unit = s.ps[ti] + (rib ? 20 : 0);
  $("tryLine").textContent = `${fmt(q)} шт × ${fmt(unit)} ₽${rib ? " (с ленточкой)" : ""}`;
  $("trySum").textContent = fmt(q * unit) + " ₽";
- $("tryNote").innerHTML = q < s.min ? `<span class="warn">Для размера ${s.l} минимум ${s.min} шт.</span>` : q >= 50 ? "Опт от 50 штук: точную цену назову, когда увижу ваш логотип." : "Точную цену назову, когда увижу ваш логотип.";
+ const nx = TIERS[ti + 1];
+ $("tryNote").innerHTML = `Цена за ${TIERS[ti][1]}: ${fmt(s.ps[ti])} ₽ за пряник.` + (nx ? ` От ${nx[0]} шт будет ${fmt(s.ps[ti + 1])} ₽.` : " Это самая выгодная цена.");
 }
-$("trySize").addEventListener("click", e => { const b = e.target.closest("[data-s]"); if (!b) return; tSize = +b.dataset.s; $("trySize").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); renderTry(); });
-$("tryShape").addEventListener("click", e => { const b = e.target.closest("[data-v]"); if (!b) return; tShape = b.dataset.v; $("tryShape").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); renderTry(); });
+$("trySize").addEventListener("click", e => { const b = e.target.closest("[data-s]"); if (!b) return; tSize = +b.dataset.s; drawTryButtons(); renderTry(); });
+$("tryShape").addEventListener("click", e => { const b = e.target.closest("[data-v]"); if (!b) return; tShape = b.dataset.v; drawTryButtons(); renderTry(); });
 $("tryName").addEventListener("input", renderTry);
 $("tryQ").addEventListener("input", renderTry);
 $("tryRib").addEventListener("change", renderTry);
-$("tqM").onclick = () => { $("tryQ").value = Math.max(10, (+$("tryQ").value || 0) - 10); renderTry(); };
+$("tqM").onclick = () => { $("tryQ").value = Math.max(1, (+$("tryQ").value || 0) - 10); renderTry(); };
 $("tqP").onclick = () => { $("tryQ").value = (+$("tryQ").value || 0) + 10; renderTry(); };
 $("tryFile").addEventListener("change", e => { const f = e.target.files[0]; if (!f) return; if (f.size > 8e6) return toast("Картинка больше 8 МБ, выберите поменьше"); const r = new FileReader(); r.onload = () => { tLogo = r.result; renderTry(); }; r.readAsDataURL(f); e.target.value = ""; });
 $("tryClear").onclick = () => { tLogo = ""; renderTry(); };
 $("tryAdd").onclick = () => {
- const s = SIZES[tSize], q = Math.max(s.min, Math.round(+$("tryQ").value || 1)), rib = $("tryRib").checked, name = $("tryName").value.trim();
- addToCart({key: "try|" + s.l + (rib ? "|r" : "") + (tShape === "wave" ? "|w" : ""), pid: "lg-try", name: "Пряники с логотипом " + s.l, variant: [tShape === "wave" ? "форма волна" : "круг", rib ? "с ленточкой" : "", name ? "«" + name + "»" : "", tLogo ? "логотип пришлю" : ""].filter(Boolean).join(", "), price: s.p + (rib ? 20 : 0), unit: "шт", qty: q, img: "p/logo8-1"});
+ const s = SIZES[tSize], q = Math.max(1, Math.round(+$("tryQ").value || 1)), rib = $("tryRib").checked, name = $("tryName").value.trim(), sh = shapeOf();
+ addToCart({key: "try|" + s.l + "|" + q + (rib ? "|r" : "") + "|" + sh.id, pid: "lg-try", name: "Пряники с логотипом " + s.l, variant: [sh.name.toLowerCase(), rib ? "с ленточкой" : "", name ? "«" + name + "»" : "", tLogo ? "логотип пришлю" : ""].filter(Boolean).join(", "), price: s.ps[tierOf(q)] + (rib ? 20 : 0), unit: "шт", qty: q, img: "p/logo8-1"});
  const f = $("f"); f.corp.checked = true; if (tLogo && !/логотип пришлю/i.test(f.comment.value)) f.comment.value = (f.comment.value ? f.comment.value + "\n" : "") + "Логотип пришлю в мессенджер";
  toast("Добавила расчёт в заказ"); $("zakaz").scrollIntoView({behavior: "smooth"});
 };
