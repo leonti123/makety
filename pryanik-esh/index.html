@@ -14,6 +14,7 @@
 <meta property="og:image" content="img/hero-0.jpg">
 <link rel="preload" href="fonts/DelaGothicOne-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/MPLUSRounded1c-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Neucha-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("anim")</script>
 <style>
 @font-face{font-family:'Dela Gothic One';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/DelaGothicOne-400-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
@@ -26,7 +27,7 @@
 @font-face{font-family:'M PLUS Rounded 1c';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/MPLUSRounded1c-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 @font-face{font-family:'M PLUS Rounded 1c';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/MPLUSRounded1c-800-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
 @font-face{font-family:'M PLUS Rounded 1c';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/MPLUSRounded1c-800-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-:root{--dots:radial-gradient(#fff 21%,transparent 23%) 0 0/24px 24px,radial-gradient(#fff 21%,transparent 23%) 12px 12px/24px 24px,#F8F1C2;--sw:44px;--sun:#FFD12B;--sun-d:#F2AE12;--sun-l:#FFF0B5;--cocoa:#3B2314;--cocoa2:#4D2E1B;--ginger:#9A5426;--ginger-l:#D08A45;--cream:#FFF9EC;--paper:#FFFFFF;--ink:#2B1A10;--muted:#76604F;--line:#EEDFC2;--berry:#D2383E;--pine:#2E7B4E;--disp:"Dela Gothic One",Impact,"Arial Black",sans-serif;--sans:"M PLUS Rounded 1c",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--r:22px;--sh:0 18px 40px -26px rgba(59,35,20,.55)}
+:root{--hl:#FFD12B;--promo:#D2383E;--dots:radial-gradient(#fff 21%,transparent 23%) 0 0/24px 24px,radial-gradient(#fff 21%,transparent 23%) 12px 12px/24px 24px,#F8F1C2;--sw:44px;--sun:#FFD12B;--sun-d:#F2AE12;--sun-l:#FFF0B5;--cocoa:#3B2314;--cocoa2:#4D2E1B;--ginger:#9A5426;--ginger-l:#D08A45;--cream:#FFF9EC;--paper:#FFFFFF;--ink:#2B1A10;--muted:#76604F;--line:#EEDFC2;--berry:#D2383E;--pine:#2E7B4E;--disp:"Dela Gothic One",Impact,"Arial Black",sans-serif;--sans:"M PLUS Rounded 1c",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--r:22px;--sh:0 18px 40px -26px rgba(59,35,20,.55)}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -57,7 +58,7 @@ section{padding:84px 0;position:relative}
 .mock{background:var(--cocoa);color:#F6E7CF;font-size:13px;text-align:center;padding:9px 16px;line-height:1.45}
 .mock b{color:var(--sun);font-weight:700}
 .mock a{color:var(--sun)}
-.promo{background:var(--berry);color:#fff;font-size:14px;font-weight:700;text-align:center;padding:8px 44px;position:relative;line-height:1.4}
+.promo{background:var(--promo);color:#fff;font-size:14px;font-weight:700;text-align:center;padding:8px 44px;position:relative;line-height:1.4}
 .promo a{color:#fff;text-decoration:underline;text-underline-offset:3px;margin-left:6px}
 .promo .x{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;color:#fff;font-size:20px;line-height:28px}
 .promo .x:hover{background:rgba(255,255,255,.18)}
@@ -91,7 +92,7 @@ nav.mn a:hover{background:var(--sun-l)}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:22px;background:radial-gradient(circle at 11px 22px,var(--paper) 10px,transparent 11px) 0 0/22px 22px repeat-x;pointer-events:none}
 .hero-g{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
 .hero h1{font-family:var(--disp);font-size:clamp(32px,4.5vw,54px);letter-spacing:-.015em;line-height:1.06}
-.hero h1 span{display:inline;background:linear-gradient(transparent 58%,var(--sun) 58%,var(--sun) 92%,transparent 92%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hero h1 .hl{display:inline;background:linear-gradient(transparent 58%,var(--sun) 58%,var(--sun) 92%,transparent 92%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .hero p.lead{font-size:20px;margin:22px 0 0;max-width:540px;color:#4B392C}
 .hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
@@ -536,27 +537,156 @@ body.admin .demo-pill{display:none}
  .adm{right:6px;top:6px}
  .adm button{padding:5px 8px;font-size:11px}
 }
+/* handwritten font from her example (Neucha); switch in master mode: f-hand / f-mix / f-classic */
+@font-face{font-family:'Neucha';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/Neucha-400-cyrillic.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Neucha';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/Neucha-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+body.f-hand{--disp:"Neucha","M PLUS Rounded 1c",sans-serif;--sans:"Neucha","M PLUS Rounded 1c",sans-serif;font-size:17.5px}
+body.f-mix{--disp:"Neucha","M PLUS Rounded 1c",sans-serif}
+body:is(.f-hand,.f-mix) :is(h1,h2,h3,.brand b,.stk,.st b.no,.ptag b,.cnt b,.stats div b,.fb b,.pr b,.addcard span,.calc b.sum,.tot b,.box h3,.pm h3,.ef h3,.try h3,.sh-h h3){font-weight:700;letter-spacing:0}
+body:is(.f-hand,.f-mix) h2{font-size:clamp(34px,5.4vw,60px);line-height:1.05}
+body:is(.f-hand,.f-mix) .hero h1{font-size:clamp(40px,5.6vw,68px);line-height:1.04}
+body:is(.f-hand,.f-mix) .brand b{font-size:31px}
+body:is(.f-hand,.f-mix) .fb b{font-size:30px}
+body:is(.f-hand,.f-mix) .stk{font-size:clamp(16px,1.9vw,23px)}
+body:is(.f-hand,.f-mix) .ptag b{font-size:31px}
+body:is(.f-hand,.f-mix) .cnt b{font-size:46px}
+body:is(.f-hand,.f-mix) .pr b{font-size:30px}
+body:is(.f-hand,.f-mix) .stats div b{font-size:42px}
+body.f-hand .kick{font-size:18px;letter-spacing:.05em}
+body.f-hand .btn{font-size:18px}
+body.f-hand .hero p.lead{font-size:22px}
+body.f-hand .sub,body.f-hand .about p,body.f-hand .ticks li{font-size:19px}
+body.f-hand nav.mn a{font-size:19.5px}
+body.f-hand .hd-tel{font-size:22px}
+body.f-hand .card h4{font-size:20px}
+body.f-hand .card ul,body.f-hand .why p,body.f-hand .rv p,body.f-hand .st p{font-size:17px}
+
+/* holiday theme colors and decorations */
+.hero>.wrap{position:relative;z-index:1}
+.deco{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.deco i{position:absolute;top:-40px;display:block;opacity:.8;animation:fall linear infinite}
+.deco i svg{width:100%;height:100%;display:block;filter:drop-shadow(0 1px 1px rgba(59,35,20,.18))}
+@keyframes fall{from{transform:translate3d(0,0,0) rotate(0)}to{transform:translate3d(var(--dx),1500px,0) rotate(var(--rt))}}
+html:not(.anim) .deco i{animation:none;top:var(--y)}
+.cnt.sm b{font-size:24px!important}
+
+/* master mode */
+body.admin [data-t]{outline:2px dashed rgba(46,123,78,.6);outline-offset:3px;border-radius:4px;cursor:text}
+body.admin [data-t]:hover{outline-color:var(--pine)}
+body.admin [data-t]:focus{outline:2px solid var(--pine);background:rgba(255,255,255,.7);color:var(--ink)}
+body.admin .corp [data-t]:focus,body.admin footer [data-t]:focus{background:rgba(0,0,0,.35);color:#fff}
+body.admin [data-t]:empty::before{content:"пусто, нажмите и напишите";opacity:.5;font-style:italic}
+.aedit{display:none;align-items:center;justify-content:center;gap:6px;background:var(--pine);color:#fff;border-radius:999px;padding:9px 16px;font-weight:800;font-size:14px;line-height:1.2;box-shadow:0 8px 18px -8px rgba(0,0,0,.55);position:relative;z-index:6}
+.aedit::before{content:"✎";font-size:15px}
+body.admin .aedit{display:inline-flex}
+.aedit.ov{position:absolute;left:50%;top:10px;transform:translateX(-50%);white-space:nowrap}
+.cedit{display:none;margin-top:6px;font-size:12px;font-weight:800;color:var(--pine);text-decoration:underline;text-underline-offset:3px}
+body.admin .cedit{display:inline}
+.stk{white-space:pre-line}
+.stk.addstk{background:#fff;color:var(--pine);box-shadow:inset 0 0 0 3px var(--pine);font-size:clamp(12px,1.3vw,16px)}
+.abar{background:var(--pine)}
+.abar .wrap{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:8px}
+.abar .wrap::-webkit-scrollbar{display:none}
+.abar button{white-space:nowrap;flex:none}
+.abar .ast{font-size:13px;opacity:.95;white-space:nowrap;flex:none;margin-right:4px}
+.abar .ast button{background:transparent;color:#fff;text-decoration:underline;padding:0 2px;font-size:13px;font-weight:800}
+.abar button.sv{background:var(--sun);color:var(--ink)}
+.abar button.sv.on{animation:svp 1.6s infinite}
+@keyframes svp{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}50%{box-shadow:0 0 0 6px rgba(255,255,255,0)}}
+.le-i{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px 14px 4px;margin-bottom:12px}
+.le-b{display:flex;gap:8px;flex-wrap:wrap;margin:-2px 0 10px}
+.le-b button{border:2px solid var(--line);border-radius:999px;padding:4px 12px;font-weight:800;font-size:13px;background:#fff}
+.le-b button[disabled]{opacity:.35;cursor:default}
+.le-b .dang{color:var(--berry);border-color:#F2C4C6}
+.le-ph{display:flex;gap:12px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.le-ph img{width:92px;height:92px;object-fit:cover;border-radius:14px;background:var(--cream);border:1px solid var(--line)}
+.le-ph label,label.le-add{position:relative;cursor:pointer;min-height:44px;font-size:14px}
+.le-ph input,label.le-add input{position:absolute;opacity:0;width:1px;height:1px;left:0;top:0}
+.le-add{margin:4px 0 14px;min-height:44px;font-size:14px}
+.lerr{color:var(--berry);font-weight:800;min-height:22px;margin:4px 0}
+.dangb{color:var(--berry)!important;border-color:var(--berry)!important}
+.eh{margin:22px 0 4px;font-size:18px;font-weight:800}
+.help{padding-left:20px;margin:0 0 10px}
+.help li{margin:8px 0}
+.thm-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:8px}
+.thm{background:#fff;border:2px solid var(--line);border-radius:18px;padding:12px;display:flex;flex-direction:column;gap:6px}
+.thm.on{border-color:var(--pine);box-shadow:0 0 0 2px var(--pine)}
+.thm i{display:block;height:10px;border-radius:5px}
+.thm b{font-weight:800}
+.thm small{color:var(--muted);font-size:13px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.thm small input{width:66px;border:2px solid var(--line);border-radius:8px;padding:3px 6px;font:inherit;background:#fff}
+.thm small input[type=date]{width:auto}
+.thb{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+.thb button{border:2px solid var(--line);border-radius:999px;padding:4px 10px;font-weight:800;font-size:13px;background:#fff}
+.thb button.on{background:var(--pine);border-color:var(--pine);color:#fff}
+.fopt{display:grid;gap:10px}
+.fo{position:relative;cursor:pointer;display:block}
+.fo input{position:absolute;opacity:0;width:1px;height:1px;left:0;top:0}
+.fo>span{display:block;background:#fff;border:2px solid var(--line);border-radius:18px;padding:14px 16px}
+.fo input:checked+span{border-color:var(--pine);box-shadow:0 0 0 2px var(--pine)}
+.fo b{display:block;font-weight:800}
+.fo small{display:block;color:var(--muted);font-size:13px}
+.fo em{display:block;font-style:normal;font-size:28px;margin-top:6px;line-height:1.1}
+.fo.f-hand em,.fo.f-mix em{font-family:"Neucha",sans-serif;font-weight:700}
+.fo.f-classic em{font-family:"Dela Gothic One",sans-serif;font-weight:400}
+.tiers{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-weight:700}
+.tiers input,.pt input,.addp input{width:72px;min-height:38px;border:2px solid var(--line);border-radius:10px;padding:4px 8px;text-align:center;background:#fff;font:inherit}
+.pt-w{overflow-x:auto;margin:6px 0 4px}
+.pt{border-collapse:collapse;min-width:540px}
+.pt th{font-size:13px;color:var(--muted);text-align:left;padding:4px;font-weight:800}
+.pt td{padding:4px}
+.pt td:first-child input{width:100px;text-align:left}
+.pt button{width:32px;height:32px;border-radius:50%;background:#fff;border:2px solid var(--line);color:var(--berry);font-weight:800}
+.shp-l{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-top:8px}
+.shp{display:flex;gap:12px;align-items:flex-start;background:#fff;border:2px solid var(--line);border-radius:16px;padding:10px}
+.shp.on{border-color:var(--sun-d)}
+.shp svg{width:48px;height:48px;flex:none;fill:var(--ginger-l)}
+.shp-b{min-width:0}
+.shp-s{display:flex;flex-wrap:wrap;gap:4px;margin:8px 0}
+.mini{position:relative;cursor:pointer}
+.mini input{position:absolute;opacity:0;width:1px;height:1px;left:0;top:0}
+.mini span{display:inline-block;border:2px solid var(--line);border-radius:999px;padding:2px 8px;font-size:12px;font-weight:800;background:#fff}
+.mini input:checked+span{background:var(--cocoa);border-color:var(--cocoa);color:#fff}
+.addp{font-size:13px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:6px}
+.abar .more{display:none}
+.amenu{display:grid;gap:8px}
+.amenu button{text-align:left;background:#fff;border:2px solid var(--line);border-radius:16px;padding:14px 16px;font-weight:800;font-size:17px}
+@media (max-width:760px){.abar .wrap>button:not(.sv):not(.more){display:none}.abar .more{display:inline-flex;background:#fff;color:var(--pine)}.abar .ab-t{font-size:14px}.abar .ast{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+@media (max-width:620px){.ef{padding:26px 16px}.thm-g,.shp-l{grid-template-columns:1fr}.aedit.ov{top:6px;font-size:13px;padding:8px 12px}}
 </style>
 </head>
-<body>
+<body class="f-hand">
 
-<div class="mock">Макет сайта для группы <b>«ПРЯНИК_ЕШЬ»</b>: фото, цены и тексты взяты из вашей группы ВКонтакте. Всё можно поменять. Внизу страницы есть <a href="#master" data-master>режим мастера</a>: попробуйте сами добавить или скрыть пряник</div>
-<div class="abar" id="abar"><div class="wrap"><b>Режим мастера</b><small>Демо: изменения видны только на этом устройстве. После запуска они сохранятся на сайте для всех покупателей</small><button id="aAdd" type="button">+ Добавить пряник</button><button id="aPromo" type="button">Акция</button><button id="aReset" class="o" type="button">Сбросить</button><button id="aExit" class="o" type="button">Выйти</button></div></div>
+<div class="mock">Макет сайта для группы <b>«ПРЯНИК_ЕШЬ»</b>: фото, цены и тексты взяты из вашей группы ВКонтакте. Внизу страницы есть <a href="#master" data-master>вход для мастера</a>: там вы сами меняете тексты, фото, цены, формы пряников и оформление к праздникам</div>
+<div class="abar" id="abar"><div class="wrap">
+ <b class="ab-t">Режим мастера</b><span class="ast" id="aSt"></span>
+ <button type="button" class="sv" id="aSave">Сохранить на сайте</button>
+ <button type="button" id="aTheme">Оформление</button>
+ <button type="button" id="aFont">Шрифт</button>
+ <button type="button" id="aPromo">Акция</button>
+ <button type="button" id="aCont">Контакты</button>
+ <button type="button" id="aShapes">Формы и цены</button>
+ <button type="button" id="aAdd">+ Пряник</button>
+ <button type="button" class="o" id="aHelp">Подсказка</button>
+ <button type="button" class="o" id="aUndo">Отменить правки</button>
+ <button type="button" class="o" id="aExit">Выйти</button>
+ <button type="button" class="more" id="aMore">Ещё ▾</button>
+</div></div>
 <div class="promo" id="promo" hidden><span id="promoT"></span><a href="#zakaz">Заказать</a><button class="x" id="promoX" type="button" aria-label="Скрыть">×</button></div>
 <div class="awning" aria-hidden="true"></div>
 <script>(function(){function f(){var w=document.documentElement.clientWidth,n=Math.max(9,Math.round(w/44));if(n%2==0)n++;document.documentElement.style.setProperty("--sw",(w/n)+"px")}f();addEventListener("resize",f)})()</script>
 
 <header id="hdr">
  <div class="wrap hd">
-  <a class="brand" href="#top" aria-label="Пряник_ешь, наверх"><img src="img/logo2.jpg" alt="Логотип Пряник_ешь" width="54" height="54"><span><b>Пряник_ешь</b><small>имбирные пряники ручной работы</small></span></a>
+  <a class="brand" href="#top" aria-label="Пряник_ешь, наверх"><img src="img/logo2.jpg" alt="Логотип Пряник_ешь" width="54" height="54"><span><b data-t="brand">Пряник_ешь</b><small data-t="brandSub">имбирные пряники ручной работы</small></span></a>
   <nav class="mn" id="mn">
-   <a href="#katalog" data-cat="ny">Новый год</a>
-   <a href="#kompaniyam">С логотипом</a>
-   <a href="#povod">Все поводы</a>
-   <a href="#otzyvy">Отзывы</a>
-   <a href="#kontakty">Контакты</a>
+   <a href="#katalog" data-cat="ny" id="nav1">Новый год</a>
+   <a href="#kompaniyam"><span data-t="nav2">С логотипом</span></a>
+   <a href="#povod"><span data-t="nav3">Все поводы</span></a>
+   <a href="#otzyvy"><span data-t="nav4">Отзывы</span></a>
+   <a href="#kontakty"><span data-t="nav5">Контакты</span></a>
   </nav>
-  <a class="hd-tel" href="tel:+79522404665">+7 952 240-46-65<small>звонок, Telegram, MAX</small></a>
+  <a class="hd-tel" id="hdTel" href="tel:+79522404665">+7 952 240-46-65<small>звонок, Telegram, MAX</small></a>
   <a class="btn btn-sun cartbtn" href="#zakaz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="lbl">Мой заказ</span><span class="n" id="hN">0</span></a>
   <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
  </div>
@@ -564,20 +694,21 @@ body.admin .demo-pill{display:none}
 
 <main id="top">
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="hero">
+ <div class="deco" id="deco" aria-hidden="true"></div>
  <div class="wrap hero-g">
   <div>
-   <span class="kick">Пряничная мастерская в Петербурге</span>
-   <h1 style="margin-top:16px">Имбирные пряники ручной работы <span>к Новому году и&nbsp;с&nbsp;вашим логотипом</span></h1>
-   <p class="lead">Пеку и расписываю пряники сама. Выберите повод, нажмите «В заказ» у понравившихся пряников и отправьте заявку. Я перезвоню, помогу с дизайном и назову точную цену.</p>
+   <span class="kick" data-t="h.kick">Пряничная мастерская в Петербурге</span>
+   <h1 style="margin-top:16px"><span data-t="h.h1a">Имбирные пряники ручной работы</span> <span class="hl" data-t="h.h1b">к Новому году и с вашим логотипом</span></h1>
+   <p class="lead" data-t="h.lead">Пеку и расписываю пряники сама. Выберите повод, нажмите «В заказ» у понравившихся пряников и отправьте заявку. Я перезвоню, помогу с дизайном и назову точную цену.</p>
    <div class="cta">
-    <a class="btn btn-sun" href="#katalog" data-cat="ny">Новогодние пряники</a>
-    <a class="btn btn-line" href="#kompaniyam">Пряники с логотипом</a>
+    <a class="btn btn-sun" href="#katalog" data-cat="ny" id="hBtn1"><span data-t="h.btn1">Новогодние пряники</span></a>
+    <a class="btn btn-line" href="#kompaniyam"><span data-t="btn2">Пряники с логотипом</span></a>
    </div>
    <div class="chips">
-    <span class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l6 6-9.5 9.5H4.5v-6z"/><path d="M12 6l6 6"/></svg></i>Ручная роспись</span>
-    <span class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19l7-7"/></svg></i>Без мёда</span>
-    <span class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V4h10v5"/><rect x="4" y="9" width="16" height="8" rx="2"/><path d="M7 14h10v6H7z"/></svg></i>Пищевая печать</span>
+    <span class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l6 6-9.5 9.5H4.5v-6z"/><path d="M12 6l6 6"/></svg></i><span data-t="chip1">Ручная роспись</span></span>
+    <span class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19l7-7"/></svg></i><span data-t="chip2">Без мёда</span></span>
+    <span class="chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V4h10v5"/><rect x="4" y="9" width="16" height="8" rx="2"/><path d="M7 14h10v6H7z"/></svg></i><span data-t="chip3">Пищевая печать</span></span>
    </div>
   </div>
   <div class="vitrina">
@@ -603,23 +734,24 @@ body.admin .demo-pill{display:none}
      <path d="M240 506l12 18-12 18-12-18z" fill="#FFF8EA"/><circle cx="240" cy="524" r="4" fill="#FFD12B"/>
      <circle cx="128" cy="500" r="4" fill="#A65C2A"/><circle cx="184" cy="500" r="4" fill="#A65C2A"/><circle cx="296" cy="500" r="4" fill="#A65C2A"/><circle cx="352" cy="500" r="4" fill="#A65C2A"/>
     </svg>
-   <div class="win" id="win" aria-label="Мои новогодние пряники">
+   <div class="win" id="win" aria-label="Мои пряники">
     <img class="on" src="img/hero-0.jpg" alt="Пряничный венок в коробке" width="900" height="900">
     <img src="img/hero-1.jpg" alt="Пряники варежка и сапожок" width="900" height="900" loading="lazy">
     <img src="img/hero-2.jpg" alt="Пряники снежинки и ангел" width="900" height="900" loading="lazy">
     <img src="img/hero-3.jpg" alt="Пряник лошадка-качалка" width="900" height="900" loading="lazy">
     <img src="img/hero-4.jpg" alt="Пряники Снегурочки" width="900" height="900" loading="lazy">
    </div>
-   <div class="ptag"><small>пряники</small><b>от 130 ₽</b></div>
+   <div class="ptag"><small data-t="tagS">пряники</small><b data-t="tagB">от 130 ₽</b></div>
    <div class="cnt" id="cnt"><b id="cntN">49</b><small id="cntT">дней до Нового года</small></div>
+   <button type="button" class="aedit ov" data-a="hero">Фото в окне</button>
   </div>
  </div>
  <div class="wrap">
   <div class="trust">
-   <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Санкт-Петербург, Славянка</div>
-   <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>Самовывоз и доставка по городу</div>
-   <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 13.5c1 1.6 2.2 2.4 3.5 2.4s2.5-.8 3.5-2.4"/><path d="M9 9.5h.01M15 9.5h.01"/></svg>Ваш дизайн, имя или логотип</div>
-   <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4z"/><path d="M4 7l3-3h10l3 3"/><path d="M12 7v12"/></svg>Заказ от 1 000 ₽, опт и розница</div>
+   <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-t="trust1">Санкт-Петербург, Славянка</span></div>
+   <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg><span data-t="trust2">Самовывоз и доставка по городу</span></div>
+   <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 13.5c1 1.6 2.2 2.4 3.5 2.4s2.5-.8 3.5-2.4"/><path d="M9 9.5h.01M15 9.5h.01"/></svg><span data-t="trust3">Ваш дизайн, имя или логотип</span></div>
+   <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4z"/><path d="M4 7l3-3h10l3 3"/><path d="M12 7v12"/></svg><span data-t="trust4">Заказ от 1 000 ₽, опт и розница</span></div>
   </div>
  </div>
 </section>
@@ -627,12 +759,12 @@ body.admin .demo-pill{display:none}
 <!-- STEPS -->
 <section class="steps" id="kak">
  <div class="wrap">
-  <span class="kick">Как заказать</span>
-  <h2 style="margin-top:12px">Заказать проще простого</h2>
+  <span class="kick" data-t="st.kick">Как заказать</span>
+  <h2 style="margin-top:12px" data-t="st.h">Заказать проще простого</h2>
   <div class="st-g">
-   <div class="st rv-in"><b class="no">1</b><h3>Выберите повод</h3><p>Нажмите на жёлтый кружок: «Новый год», «С логотипом» или другой праздник.</p></div>
-   <div class="st rv-in"><b class="no">2</b><h3>Добавьте пряники</h3><p>У каждого пряника есть кнопка «В заказ». Количество меняется плюсом и минусом.</p></div>
-   <div class="st rv-in"><b class="no">3</b><h3>Отправьте заявку</h3><p>Оставьте имя и телефон. Я свяжусь с вами там, где удобно: звонок, Telegram, MAX или ВКонтакте.</p></div>
+   <div class="st rv-in"><b class="no">1</b><h3 data-t="st1h">Выберите повод</h3><p data-t="st1p">Нажмите на жёлтый кружок: «Новый год», «С логотипом» или другой праздник.</p></div>
+   <div class="st rv-in"><b class="no">2</b><h3 data-t="st2h">Добавьте пряники</h3><p data-t="st2p">У каждого пряника есть кнопка «В заказ». Количество меняется плюсом и минусом.</p></div>
+   <div class="st rv-in"><b class="no">3</b><h3 data-t="st3h">Отправьте заявку</h3><p data-t="st3p">Оставьте имя и телефон. Я свяжусь с вами там, где удобно: звонок, Telegram, MAX или ВКонтакте.</p></div>
   </div>
  </div>
 </section>
@@ -640,9 +772,9 @@ body.admin .demo-pill{display:none}
 <!-- POVOD + CATALOG -->
 <section class="povod" id="povod">
  <div class="wrap">
-  <span class="kick">Каталог</span>
-  <h2 style="margin-top:12px">Выберите повод</h2>
-  <p class="sub">Сейчас открыты новогодние пряники и пряники с логотипом для компаний. Остальные праздники появятся ближе к датам.</p>
+  <span class="kick" data-t="pv.kick">Каталог</span>
+  <h2 style="margin-top:12px" data-t="pv.h">Выберите повод</h2>
+  <p class="sub" data-t="pv.sub">Сейчас открыты новогодние пряники и пряники с логотипом для компаний. Остальные праздники появятся ближе к датам.</p>
   <div class="stk-g" id="stk"></div>
   <div class="shelf" id="katalog"></div>
  </div>
@@ -653,31 +785,32 @@ body.admin .demo-pill{display:none}
  <div class="wrap">
   <div class="cg">
    <div>
-    <span class="kick">Для компаний</span>
-    <h2 style="margin-top:12px">Пряник с логотипом: подарок, который съедят с удовольствием</h2>
-    <p class="sub">Ручки и блокноты забываются, а пряник с вашим логотипом фотографируют и показывают друзьям. Печатаю логотип, фирменную символику или надпись прямо на прянике.</p>
+    <span class="kick" data-t="co.kick">Для компаний</span>
+    <h2 style="margin-top:12px" data-t="co.h">Пряник с логотипом: подарок, который съедят с удовольствием</h2>
+    <p class="sub" data-t="co.sub">Ручки и блокноты забываются, а пряник с вашим логотипом фотографируют и показывают друзьям. Печатаю логотип, фирменную символику или надпись прямо на прянике.</p>
     <ul class="ticks">
-     <li>Логотип, фирменные цвета, надпись или фото</li>
-     <li>Помогу подготовить макет бесплатно</li>
-     <li>От 1 штуки, чем больше тираж, тем ниже цена</li>
-     <li>Каждый пряник в отдельном пакетике, ленточка по желанию</li>
-     <li>Предоплата на карту или безналичный расчёт для компаний</li>
+     <li><span data-t="co.t1">Логотип, фирменные цвета, надпись или фото</span></li>
+     <li><span data-t="co.t2">Помогу подготовить макет бесплатно</span></li>
+     <li><span data-t="co.t3">От 1 штуки, чем больше тираж, тем ниже цена</span></li>
+     <li><span data-t="co.t4">Каждый пряник в отдельном пакетике, ленточка по желанию</span></li>
+     <li><span data-t="co.t5">Предоплата на карту или безналичный расчёт для компаний</span></li>
     </ul>
     <div class="cta">
-     <a class="btn btn-sun" href="#try">Рассчитать тираж</a>
-     <a class="btn btn-line" href="#zakaz" id="corpCta">Получить предложение</a>
+     <a class="btn btn-sun" href="#try"><span data-t="co.b1">Рассчитать тираж</span></a>
+     <a class="btn btn-line" href="#zakaz" id="corpCta"><span data-t="co.b2">Получить предложение</span></a>
     </div>
-    <div class="quote-c">«Заказали много пряников клиентам к Новому году. Упаковано очень хорошо, легко перевозить, а дарить приятно такую красоту. Все клиенты довольны, а мы тем более»<b>Екатерина Г., отзыв в группе ВКонтакте</b></div>
+    <div class="quote-c"><span data-t="co.q">«Заказали много пряников клиентам к Новому году. Упаковано очень хорошо, легко перевозить, а дарить приятно такую красоту. Все клиенты довольны, а мы тем более»</span><b data-t="co.qa">Екатерина Г., отзыв в группе ВКонтакте</b></div>
    </div>
    <div class="try" id="try">
-    <h3>Примерьте свой логотип</h3>
-    <p class="s">Загрузите картинку: покажу, как она будет выглядеть на прянике, и посчитаю тираж. Картинка никуда не отправляется.</p>
+    <h3 data-t="try.h">Примерьте свой логотип</h3>
+    <p class="s" data-t="try.s">Загрузите картинку: покажу, как она будет выглядеть на прянике, и посчитаю тираж. Картинка никуда не отправляется.</p>
+    <button type="button" class="aedit" data-a="shapes" style="margin-top:12px">Формы, размеры и цены</button>
     <div class="try-g">
      <div class="prev"><svg viewBox="0 0 300 300" id="tryS" role="img" aria-label="Пряник с вашим логотипом">
       <defs>
        <radialGradient id="gRim" cx="45%" cy="40%" r="65%"><stop offset="0" stop-color="#D99A58"/><stop offset=".7" stop-color="#B26A31"/><stop offset="1" stop-color="#8A4A1E"/></radialGradient>
        <radialGradient id="gGlz" cx="42%" cy="38%" r="70%"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F4EEE4"/></radialGradient>
-       <clipPath id="tryClip"><circle cx="150" cy="150" r="96"/></clipPath>
+       <clipPath id="tryClip" clipPathUnits="userSpaceOnUse"><path id="tryCl"/></clipPath>
        <filter id="fSh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#3B2314" flood-opacity=".35"/></filter>
       </defs>
       <g id="tryG" style="transform-origin:150px 150px">
@@ -687,7 +820,7 @@ body.admin .demo-pill{display:none}
         <image id="tryImg" x="62" y="62" width="176" height="176" preserveAspectRatio="xMidYMid meet" href=""/>
         <text id="tryTxt" x="150" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Dela Gothic One, Impact, sans-serif" font-size="26" fill="#3B2314">ЛОГОТИП</text>
        </g>
-       <circle cx="150" cy="150" r="104" fill="none" stroke="#EADFCF" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round"/>
+       <path id="tryDash" fill="none" stroke="#EADFCF" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
       </g>
      </svg><span class="dia" id="tryDia">⌀ 8 см</span></div>
      <div>
@@ -700,7 +833,7 @@ body.admin .demo-pill{display:none}
       <div class="fld" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><span style="margin:0">Сколько штук</span>
        <div class="qty"><button type="button" id="tqM" aria-label="Меньше">−</button><input id="tryQ" type="number" inputmode="numeric" min="1" value="50" aria-label="Количество"><button type="button" id="tqP" aria-label="Больше">+</button></div>
       </div>
-      <label class="ck"><input type="checkbox" id="tryRib"><i></i>Пакетик с ленточкой (+20 ₽/шт)</label>
+      <label class="ck"><input type="checkbox" id="tryRib"><i></i><span id="tryRibL">Пакетик с ленточкой (+20 ₽/шт)</span></label>
      </div>
     </div>
     <div class="calc">
@@ -710,6 +843,7 @@ body.admin .demo-pill{display:none}
     </div>
    </div>
   </div>
+  <button type="button" class="aedit" data-a="corp" style="margin-top:40px">Изменить фото и подписи</button>
   <div class="cstrip" id="cstrip"></div>
  </div>
 </section>
@@ -717,9 +851,10 @@ body.admin .demo-pill{display:none}
 <!-- GALLERY -->
 <section id="raboty">
  <div class="wrap">
-  <span class="kick">Мои работы</span>
-  <h2 style="margin-top:12px">Новогодние пряники прошлых сезонов</h2>
-  <p class="sub">Нравится какой-то пряник? Нажмите на фото, потом «Хочу такой». Повторю дизайн или сделаю похожий и посчитаю стоимость.</p>
+  <span class="kick" data-t="ga.kick">Мои работы</span>
+  <h2 style="margin-top:12px" data-t="ga.h">Новогодние пряники прошлых сезонов</h2>
+  <p class="sub" data-t="ga.sub">Нравится какой-то пряник? Нажмите на фото, потом «Хочу такой». Повторю дизайн или сделаю похожий и посчитаю стоимость.</p>
+  <button type="button" class="aedit" data-a="gal" style="margin-top:16px">Изменить работы</button>
   <div class="gal" id="gal"></div>
  </div>
 </section>
@@ -727,14 +862,14 @@ body.admin .demo-pill{display:none}
 <!-- ABOUT -->
 <section class="about" id="o-nas">
  <div class="wrap ab-g">
-  <div class="ab-ph rv-in"><img src="img/marianna2.jpg" alt="Марианна, мастер Пряник_ешь, с новогодними пряниками" width="639" height="639" loading="lazy"><img class="lg" src="img/logo2.jpg" alt="" width="132" height="132" loading="lazy"></div>
+  <div class="ab-ph rv-in"><img id="abImg" src="img/marianna2.jpg" alt="Марианна, мастер Пряник_ешь, с новогодними пряниками" width="639" height="639" loading="lazy"><img class="lg" src="img/logo2.jpg" alt="" width="140" height="140" loading="lazy"><button type="button" class="aedit ov" data-a="about">Заменить фото</button></div>
   <div class="rv-in">
-   <span class="kick">О мастерской</span>
-   <h2 style="margin-top:12px">Привет, я Марианна</h2>
-   <p>Пеку имбирные пряники и расписываю их вручную. Делаю новогодние пряники и наборы, пряники с логотипом для компаний, именные пряники, топперы на торты и наборы для мастер-классов.</p>
-   <p>Каждый пряник расписываю сама, поэтому двух одинаковых не бывает. Если нужно, помогу придумать дизайн и подготовить макет.</p>
-   <blockquote>Хочется, чтобы вы были не просто покупателями, а частью нашей маленькой пряничной истории<small>Марианна, из поста в группе</small></blockquote>
-   <div class="stats"><div><b>с 2011</b><span>группа ВКонтакте</span></div><div><b>5,0</b><span>135 отзывов на Авито</span></div><div><b>2,5 тыс.</b><span>подписчиков в ВК</span></div></div>
+   <span class="kick" data-t="ab.kick">О мастерской</span>
+   <h2 style="margin-top:12px" data-t="ab.h">Привет, я Марианна</h2>
+   <p data-t="ab.p1">Пеку имбирные пряники и расписываю их вручную. Делаю новогодние пряники и наборы, пряники с логотипом для компаний, именные пряники, топперы на торты и наборы для мастер-классов.</p>
+   <p data-t="ab.p2">Каждый пряник расписываю сама, поэтому двух одинаковых не бывает. Если нужно, помогу придумать дизайн и подготовить макет.</p>
+   <blockquote><span data-t="ab.q">Хочется, чтобы вы были не просто покупателями, а частью нашей маленькой пряничной истории</span><small data-t="ab.qa">Марианна, из поста в группе</small></blockquote>
+   <div class="stats"><div><b data-t="ab.s1b">с 2011</b><span data-t="ab.s1">группа ВКонтакте</span></div><div><b data-t="ab.s2b">5,0</b><span data-t="ab.s2">135 отзывов на Авито</span></div><div><b data-t="ab.s3b">2,5 тыс.</b><span data-t="ab.s3">подписчиков в ВК</span></div></div>
   </div>
  </div>
 </section>
@@ -742,15 +877,15 @@ body.admin .demo-pill{display:none}
 <!-- WHY -->
 <section id="pochemu">
  <div class="wrap">
-  <span class="kick">Почему выбирают</span>
-  <h2 style="margin-top:12px">Вкусно, красиво и надолго</h2>
+  <span class="kick" data-t="wy.kick">Почему выбирают</span>
+  <h2 style="margin-top:12px" data-t="wy.h">Вкусно, красиво и надолго</h2>
   <div class="why-g">
-   <div class="why rv-in"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v6c0 4-3 7-7 8-4-1-7-4-7-8V7z"/><path d="M9 12l2 2 4-4"/></svg></i><div><h3>Без мёда</h3><p>Тесто без мёда: такие пряники подойдут и тем, кто мёд не ест.</p></div></div>
-   <div class="why rv-in"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19l7-7"/></svg></i><div><h3>Натуральный состав</h3><p>Мука, яйца, сахар, сливочное масло 82,5% и пять специй.</p></div></div>
-   <div class="why rv-in"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></i><div><h3>Хранятся 6 месяцев</h3><p>Можно заказать заранее и спокойно раздать к празднику.</p></div></div>
-   <div class="why rv-in"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l6 6-9.5 9.5H4.5v-6z"/><path d="M12 6l6 6"/></svg></i><div><h3>Ручная роспись</h3><p>Каждый пряник расписываю сама, вручную, глазурью.</p></div></div>
-   <div class="why rv-in"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V4h10v5"/><rect x="4" y="9" width="16" height="8" rx="2"/><path d="M7 14h10v6H7z"/></svg></i><div><h3>Пищевая печать</h3><p>Логотипы, фото и картинки печатаю пищевыми красками прямо на прянике.</p></div></div>
-   <div class="why rv-in"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></i><div><h3>Опт и розница</h3><p>Один пряник или тираж на всю компанию. Нал и безнал, продукция сертифицирована.</p></div></div>
+   <div class="why rv-in"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v6c0 4-3 7-7 8-4-1-7-4-7-8V7z"/><path d="M9 12l2 2 4-4"/></svg></i><div><h3 data-t="wy1h">Без мёда</h3><p data-t="wy1p">Тесто без мёда: такие пряники подойдут и тем, кто мёд не ест.</p></div></div>
+   <div class="why rv-in"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19l7-7"/></svg></i><div><h3 data-t="wy2h">Натуральный состав</h3><p data-t="wy2p">Мука, яйца, сахар, сливочное масло 82,5% и пять специй.</p></div></div>
+   <div class="why rv-in"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></i><div><h3 data-t="wy3h">Хранятся 6 месяцев</h3><p data-t="wy3p">Можно заказать заранее и спокойно раздать к празднику.</p></div></div>
+   <div class="why rv-in"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l6 6-9.5 9.5H4.5v-6z"/><path d="M12 6l6 6"/></svg></i><div><h3 data-t="wy4h">Ручная роспись</h3><p data-t="wy4p">Каждый пряник расписываю сама, вручную, глазурью.</p></div></div>
+   <div class="why rv-in"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V4h10v5"/><rect x="4" y="9" width="16" height="8" rx="2"/><path d="M7 14h10v6H7z"/></svg></i><div><h3 data-t="wy5h">Пищевая печать</h3><p data-t="wy5p">Логотипы, фото и картинки печатаю пищевыми красками прямо на прянике.</p></div></div>
+   <div class="why rv-in"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></i><div><h3 data-t="wy6h">Опт и розница</h3><p data-t="wy6p">Один пряник или тираж на всю компанию. Нал и безнал, продукция сертифицирована.</p></div></div>
   </div>
  </div>
 </section>
@@ -758,19 +893,21 @@ body.admin .demo-pill{display:none}
 <!-- REVIEWS -->
 <section class="rev" id="otzyvy">
  <div class="wrap">
-  <span class="kick">Отзывы</span>
-  <h2 style="margin-top:12px">Что пишут покупатели</h2>
-  <p class="sub">Из книги отзывов в группе ВКонтакте. Рейтинг 5,0 в ВК и 5,0 на Авито: там 135 отзывов.</p>
+  <span class="kick" data-t="rv.kick">Отзывы</span>
+  <h2 style="margin-top:12px" data-t="rv.h">Что пишут покупатели</h2>
+  <p class="sub" data-t="rv.sub">Из книги отзывов в группе ВКонтакте. Рейтинг 5,0 в ВК и 5,0 на Авито: там 135 отзывов.</p>
+  <button type="button" class="aedit" data-a="reviews" style="margin-top:16px">Изменить отзывы</button>
   <div class="rv-g" id="rvs"></div>
-  <div class="rv-more"><a class="btn btn-line" href="https://vk.com/topic-28442263_39296109" target="_blank" rel="noopener">Отзывы ВКонтакте</a></div>
+  <div class="rv-more"><a class="btn btn-line" id="rvVk" href="https://vk.com/topic-28442263_39296109" target="_blank" rel="noopener"><span data-t="rv.btn">Отзывы ВКонтакте</span></a></div>
  </div>
 </section>
 
 <!-- FAQ -->
 <section id="voprosy">
  <div class="wrap">
-  <span class="kick">Вопросы</span>
-  <h2 style="margin-top:12px">Частые вопросы</h2>
+  <span class="kick" data-t="fq.kick">Вопросы</span>
+  <h2 style="margin-top:12px" data-t="fq.h">Частые вопросы</h2>
+  <button type="button" class="aedit" data-a="faq" style="margin-top:16px">Изменить вопросы</button>
   <div class="faq" id="faq"></div>
  </div>
 </section>
@@ -778,9 +915,9 @@ body.admin .demo-pill{display:none}
 <!-- ORDER -->
 <section class="order" id="zakaz">
  <div class="wrap">
-  <span class="kick">Заказ</span>
-  <h2 style="margin-top:12px">Оформить заказ</h2>
-  <p class="sub">Проверьте список и оставьте телефон. Дизайн, дату, предоплату и доставку обсудим, когда я вам напишу.</p>
+  <span class="kick" data-t="or.kick">Заказ</span>
+  <h2 style="margin-top:12px" data-t="or.h">Оформить заказ</h2>
+  <p class="sub" data-t="or.sub">Проверьте список и оставьте телефон. Дизайн, дату, предоплату и доставку обсудим, когда я вам напишу.</p>
   <div class="og">
    <div class="box"><h3>Ваш заказ</h3><div id="cart"></div></div>
    <div class="box">
@@ -798,23 +935,18 @@ body.admin .demo-pill{display:none}
        <label><input type="radio" name="via" value="MAX"><span>MAX</span></label>
        <label><input type="radio" name="via" value="ВКонтакте"><span>ВКонтакте</span></label>
       </div></div>
-      <div class="fl"><span>Как получить</span><div class="rad">
-       <label><input type="radio" name="get" value="Самовывоз в Славянке" checked><span>Самовывоз в Славянке</span></label>
-       <label><input type="radio" name="get" value="Самовывоз с Витебского 11Ж"><span>Самовывоз с Витебского</span></label>
-       <label><input type="radio" name="get" value="Доставка по Петербургу"><span>Доставка по СПб</span></label>
-       <label><input type="radio" name="get" value="Доставка в другой город"><span>В другой город</span></label>
-      </div></div>
+      <div class="fl"><span>Как получить</span><div class="rad" id="getR"><label><input type="radio" name="get" value="Самовывоз" checked><span>Самовывоз</span></label><label><input type="radio" name="get" value="Доставка по городу"><span>Доставка по городу</span></label></div></div>
       <label class="ck" style="margin:2px 0 14px"><input type="checkbox" name="corp"><i></i>Заказ для компании, нужен счёт</label>
       <label class="fl"><span>Комментарий</span><textarea name="comment" maxlength="500" placeholder="Размер, дизайн, надпись, имя, цвет. Логотип пришлю в мессенджер..."></textarea></label>
       <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
       <label class="ck" style="margin-bottom:6px"><input type="checkbox" name="consent"><i></i><span>Согласен(на) на <a href="privacy.html" target="_blank" style="color:var(--ginger)">обработку данных</a></span></label>
       <div id="err" role="alert"></div>
       <button class="btn btn-sun sbtn" id="sbtn" type="submit">Отправить заказ</button>
-      <p class="small">Или сразу позвоните: <a href="tel:+79522404665">+7 952 240-46-65</a>. Telegram и MAX на этом же номере.</p>
+      <p class="small" id="fSmall">Или сразу позвоните: <a href="tel:+79522404665">+7 952 240-46-65</a>. Telegram и MAX на этом же номере.</p>
      </div>
      <div id="sent"><div class="stk" style="--r:-6deg">СПАСИБО!</div><b>Спасибо, заявка принята!</b><p>Марианна свяжется с вами, уточнит дизайн, дату и назовёт точную стоимость.</p></div>
      <div id="fallback"><b>Не получилось отправить заявку.</b><p style="margin:6px 0 0">Проверьте интернет и попробуйте ещё раз или свяжитесь напрямую. Текст заказа можно скопировать.</p>
-      <div class="cta"><a class="btn btn-sun" href="tel:+79522404665">Позвонить</a><a class="btn btn-line" href="https://vk.me/club28442263" target="_blank" rel="noopener">Написать ВКонтакте</a><a class="btn btn-line" href="https://t.me/+79522404665" target="_blank" rel="noopener">Telegram</a><button class="btn btn-line" type="button" id="fbCopy">Скопировать заказ</button></div>
+      <div class="cta"><span id="fbBtns" style="display:contents"><a class="btn btn-sun" href="tel:+79522404665">Позвонить</a><a class="btn btn-line" href="https://vk.me/club28442263" target="_blank" rel="noopener">Написать ВКонтакте</a><a class="btn btn-line" href="https://t.me/+79522404665" target="_blank" rel="noopener">Telegram</a></span><button class="btn btn-line" type="button" id="fbCopy">Скопировать заказ</button></div>
      </div>
     </form>
    </div>
@@ -825,10 +957,11 @@ body.admin .demo-pill{display:none}
 <!-- CONTACTS -->
 <section id="kontakty">
  <div class="wrap">
-  <span class="kick">Контакты</span>
-  <h2 style="margin-top:12px">Как связаться и забрать заказ</h2>
+  <span class="kick" data-t="ko.kick">Контакты</span>
+  <h2 style="margin-top:12px" data-t="ko.h">Как связаться и забрать заказ</h2>
+  <button type="button" class="aedit" data-a="contacts" style="margin-top:16px">Изменить контакты и адреса</button>
   <div class="kg">
-   <div class="kc">
+   <div class="kc" id="kc">
     <div class="ln"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></i><div><a href="tel:+79522404665">+7 952 240-46-65</a><small>Звонок, Telegram и MAX на этом номере</small></div></div>
     <div class="ln"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></i><div><b>Самовывоз: Славянка, Ростовская ул., 14-16</b><small>Время забора согласуем заранее</small><b style="display:block;margin-top:8px">или Витебский проспект, 11Ж</b><small>По будням с 11 до 17, в субботу с 11 до 15</small></div></div>
     <div class="ln"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></i><div><b>Доставка</b><small>По городу Яндекс курьером, доставку оформляет покупатель. Предоплата 100% на карту Сбербанка или по безналу</small></div></div>
@@ -843,7 +976,7 @@ body.admin .demo-pill{display:none}
    <div class="map" role="img" aria-label="Карта: Славянка, Ростовская улица 14-16">
     <span class="osm">© участники OpenStreetMap</span>
     <div class="pin"><img src="img/favicon.png" alt=""></div>
-    <div class="lab"><span>Ростовская ул., 14-16<small>Славянка, Пушкинский район</small></span><a class="btn btn-sun" href="https://yandex.ru/maps/?rtext=~59.7400573,30.4663749" target="_blank" rel="noopener">Маршрут</a></div>
+    <div class="lab"><span id="mapLab">Ростовская ул., 14-16<small>Славянка, Пушкинский район</small></span><a class="btn btn-sun" href="https://yandex.ru/maps/?rtext=~59.7400573,30.4663749" target="_blank" rel="noopener">Маршрут</a></div>
    </div>
   </div>
  </div>
@@ -853,37 +986,46 @@ body.admin .demo-pill{display:none}
 <footer>
  <div class="wrap">
   <div class="fg">
-   <div><div class="fb"><img src="img/logo2.jpg" alt="" width="64" height="64" loading="lazy"><div><b>Пряник_ешь</b><span>имбирные пряники ручной работы</span></div></div><p class="fslog">Санкт-Петербург, Славянка. Сделано с любовью.</p></div>
+   <div><div class="fb"><img src="img/logo2.jpg" alt="" width="64" height="64" loading="lazy"><div><b data-t="brand">Пряник_ешь</b><span data-t="brandSub">имбирные пряники ручной работы</span></div></div><p class="fslog" data-t="ft.slog">Санкт-Петербург, Славянка. Сделано с любовью.</p></div>
    <div><h4>Каталог</h4><ul id="fcats"></ul></div>
    <div><h4>Покупателям</h4><ul><li><a href="#kak">Как заказать</a></li><li><a href="#kompaniyam">Для компаний</a></li><li><a href="#voprosy">Вопросы и ответы</a></li><li><a href="#otzyvy">Отзывы</a></li><li><a href="privacy.html">Обработка данных</a></li></ul></div>
-   <div><h4>Контакты</h4><ul><li><a href="tel:+79522404665">+7 952 240-46-65</a></li><li><a href="https://t.me/+79522404665" target="_blank" rel="noopener">Telegram</a></li><li><a href="https://max.ru/channel_pryanikesh" target="_blank" rel="noopener">Канал в MAX</a></li><li><a href="https://vk.com/club28442263" target="_blank" rel="noopener">Группа ВКонтакте</a></li></ul></div>
+   <div><h4>Контакты</h4><ul id="fcont"><li><a href="tel:+79522404665">+7 952 240-46-65</a></li><li><a href="https://t.me/+79522404665" target="_blank" rel="noopener">Telegram</a></li><li><a href="https://max.ru/channel_pryanikesh" target="_blank" rel="noopener">Канал в MAX</a></li><li><a href="https://vk.com/club28442263" target="_blank" rel="noopener">Группа ВКонтакте</a></li></ul></div>
   </div>
-  <div class="fbot"><span>© Пряник_ешь, имбирные пряники ручной работы</span><button type="button" data-master>Вход для мастера (демо)</button></div>
+  <div class="fbot"><span>© Пряник_ешь, имбирные пряники ручной работы</span><button type="button" data-master>Вход для мастера</button></div>
  </div>
 </footer>
 
 <a class="fcart" id="fcart" href="#zakaz">Мой заказ <b id="fcN">0 · 0 ₽</b></a>
-<div class="mbar" id="mbar"><a class="btn btn-line" href="tel:+79522404665">Позвонить</a><a class="btn btn-sun" href="#zakaz" id="mbN">Мой заказ</a></div>
-<div class="demo-pill" id="dpill">Показаны ваши изменения из режима мастера<button type="button" id="dpReset">Сбросить</button></div>
+<div class="mbar" id="mbar"><a class="btn btn-line" id="mbCall" href="tel:+79522404665">Позвонить</a><a class="btn btn-sun" href="#zakaz" id="mbN">Мой заказ</a></div>
 
 <div class="mdl" id="mP" role="dialog" aria-modal="true" aria-label="Пряник"><div class="in"><button class="cls" type="button" data-close aria-label="Закрыть">×</button><div id="mPin"></div></div></div>
-<div class="mdl" id="mE" role="dialog" aria-modal="true" aria-label="Редактирование"><div class="in" style="max-width:640px"><button class="cls" type="button" data-close aria-label="Закрыть">×</button><div id="mEin"></div></div></div>
+<div class="mdl" id="mE" role="dialog" aria-modal="true" aria-label="Редактирование"><div class="in" style="max-width:760px"><button class="cls" type="button" data-close aria-label="Закрыть">×</button><div id="mEin"></div></div></div>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Фото"><button class="cls" type="button" id="lbX" aria-label="Закрыть">×</button><button class="nv pv" type="button" id="lbP" aria-label="Предыдущее">‹</button><img id="lbI" alt=""><div class="cap"><span id="lbC"></span><button class="btn btn-sun" type="button" id="lbW" style="min-height:44px;padding:0 18px">Хочу такой</button></div><button class="nv nx" type="button" id="lbN" aria-label="Следующее">›</button></div>
 <div class="toast" id="toast" role="status"></div>
 
+<script>document.write('<script src="data.js?t=' + Math.floor(Date.now() / 6e4) + '"><\/script>')</script>
 <script>
 (() => {
 "use strict";
 const $ = id => document.getElementById(id);
 const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
-const KEY = "pe-demo-v1", CKEY = "pe-cart-v1";
+// Apps Script «Пряник_ешь мастер»: вход по паролю и сохранение правок на сайт (пусто = демо-режим)
+const MASTER_URL = "";
+const CKEY = "pe-cart-v1", DKEY = "pe-draft-v2", TKEY = "pe-master-v2", PKEY = "pe-pub-v2";
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
 const fmt = n => Math.round(n).toLocaleString("ru-RU");
-const src = p => p && p.startsWith("data:") ? p : "img/" + p + ".jpg";
+const LOCAL = {};
+const isData = p => typeof p === "string" && p.startsWith("data:");
+const src = p => !p ? "" : isData(p) ? p : LOCAL[p] || "img/" + p + ".jpg";
+const thumb = p => /^g\/\d+$/.test(p || "") ? "img/g/t/" + p.slice(2) + ".jpg" : src(p);
 const rot = i => ((i * 37) % 11 - 5) + "deg";
+const clone = o => JSON.parse(JSON.stringify(o));
+const mkStore = w => ({get: k => { try { return JSON.parse(w().getItem(k)); } catch (e) { return null; } }, set: (k, v) => { try { w().setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } }, del: k => { try { w().removeItem(k); } catch (e) {} }});
+const LS = mkStore(() => localStorage), SS = mkStore(() => sessionStorage);
+const plural = (n, a, b, c) => { const m10 = n % 10, m100 = n % 100; return m10 === 1 && m100 !== 11 ? a : m10 >= 2 && m10 <= 4 && (m100 < 10 || m100 >= 20) ? b : c; };
 
 // ===== data: her VK group, posts 2026 and the market =====
-const BASE = {
+const BASE0 = {
  v: 1,
  promo: {on: true, text: "До 20 ноября скидка 11% при заказе от 5 000 ₽", until: "2026-11-20"},
  cats: [
@@ -942,19 +1084,237 @@ const FAQ = [
  ["Как упакованы пряники?", "Каждый пряник в отдельном пакетике с клеевым клапаном. Пакетик с атласной лентой +20 ₽ за пряник."]
 ];
 
-// ===== state (demo admin changes live in this browser only) =====
-const clone = o => JSON.parse(JSON.stringify(o));
-let S = (() => { try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.v === 1 && s.products) return s; } catch (e) {} return clone(BASE); })();
-let custom = (() => { try { return !!localStorage.getItem(KEY); } catch (e) { return false; } })();
-function save() {
- try { localStorage.setItem(KEY, JSON.stringify(S)); custom = true; return true; }
- catch (e) { toast("В демо-режиме не хватило места для фото. Удалите лишние фото или выберите поменьше"); return false; }
+
+// ===== holiday themes: texts, colors, decorations, countdown =====
+// t: texts of the first screen for this holiday (the master can change them on the page)
+const THEMES = {
+ base: {name: "Без праздника", cat: "", hl: "#FFD12B", promo: "#D2383E", deco: "", t: {
+  "h.h1b": "к любому празднику и с вашим логотипом",
+  "h.btn1": "Выбрать повод",
+  "pv.sub": "Выберите повод: открытые разделы можно заказать прямо сейчас, остальные появятся ближе к датам.",
+  "ga.h": "Мои пряники"}},
+ ny: {name: "Новый год", cat: "ny", date: "01-01", to: "до Нового года", hl: "#FFD12B", promo: "#D2383E", deco: "snow", t: {}},
+ feb14: {name: "14 февраля", cat: "feb14", date: "02-14", to: "до 14 февраля", hl: "#FFC2CF", promo: "#D63A64", deco: "hearts", t: {
+  "h.h1b": "ко Дню всех влюблённых и с вашим логотипом",
+  "h.lead": "Пеку и расписываю пряники сама. Сердечки, валентинки и наборы для любимых: выберите пряники, нажмите «В заказ» и отправьте заявку. Я перезвоню, помогу с надписью и назову точную цену.",
+  "h.btn1": "Пряники к 14 февраля",
+  "pv.sub": "Сейчас открыты пряники к 14 февраля и пряники с логотипом. Остальные праздники появятся ближе к датам.",
+  "ga.h": "Мои пряники прошлых лет"}},
+ feb23: {name: "23 февраля", cat: "feb23", date: "02-23", to: "до 23 февраля", hl: "#BFD6F2", promo: "#2F5D8C", deco: "stars", t: {
+  "h.h1b": "к 23 февраля и с вашим логотипом",
+  "h.lead": "Пеку и расписываю пряники сама. Подарки папе, мужу и коллегам: выберите пряники, нажмите «В заказ» и отправьте заявку. Я перезвоню, помогу с дизайном и назову точную цену.",
+  "h.btn1": "Пряники к 23 февраля",
+  "pv.sub": "Сейчас открыты пряники к 23 февраля и пряники с логотипом. Остальные праздники появятся ближе к датам.",
+  "ga.h": "Мои пряники прошлых лет"}},
+ mar8: {name: "8 марта", cat: "mar8", date: "03-08", to: "до 8 Марта", hl: "#FFC7DA", promo: "#D9487A", deco: "flowers", t: {
+  "h.h1b": "к 8 Марта и с вашим логотипом",
+  "h.lead": "Пеку и расписываю пряники сама. Цветы, восьмёрки и наборы для мам, коллег и подруг: выберите пряники, нажмите «В заказ» и отправьте заявку. Я перезвоню и назову точную цену.",
+  "h.btn1": "Пряники к 8 Марта",
+  "pv.sub": "Сейчас открыты пряники к 8 Марта и пряники с логотипом. Остальные праздники появятся ближе к датам.",
+  "ga.h": "Мои пряники прошлых лет"}},
+ easter: {name: "Пасха", cat: "easter", date: "2027-05-02", to: "до Пасхи", hl: "#CDEFB8", promo: "#3E8E5A", deco: "eggs", t: {
+  "h.h1b": "к Пасхе и с вашим логотипом",
+  "h.lead": "Пеку и расписываю пряники сама. Яйца, куличи, зайчики и пасхальные наборы: выберите пряники, нажмите «В заказ» и отправьте заявку. Я перезвоню и назову точную цену.",
+  "h.btn1": "Пряники к Пасхе",
+  "pv.sub": "Сейчас открыты пасхальные пряники и пряники с логотипом. Остальные праздники появятся ближе к датам.",
+  "ga.h": "Мои пряники прошлых лет"}},
+ grad: {name: "Выпускной", cat: "grad", date: "05-25", to: "до последнего звонка", hl: "#FFE07A", promo: "#6C4BB5", deco: "confetti", t: {
+  "h.h1b": "на выпускной и последний звонок",
+  "h.lead": "Пеку и расписываю пряники сама. Колокольчики, именные пряники для учеников и подарки учителям: выберите пряники, нажмите «В заказ» и отправьте заявку. Я перезвоню и назову точную цену.",
+  "h.btn1": "Пряники на выпускной",
+  "pv.sub": "Сейчас открыты пряники на выпускной и пряники с логотипом. Остальные праздники появятся ближе к датам.",
+  "ga.h": "Мои пряники прошлых лет"}},
+ sep1: {name: "1 сентября", cat: "sep1", date: "09-01", to: "до 1 сентября", hl: "#FFD3A1", promo: "#C8551E", deco: "leaves", t: {
+  "h.h1b": "к 1 сентября и с вашим логотипом",
+  "h.lead": "Пеку и расписываю пряники сама. Пряники первоклашкам, всему классу и учителю: выберите пряники, нажмите «В заказ» и отправьте заявку. Я перезвоню и назову точную цену.",
+  "h.btn1": "Пряники к 1 сентября",
+  "pv.sub": "Сейчас открыты пряники к 1 сентября и пряники с логотипом. Остальные праздники появятся ближе к датам.",
+  "ga.h": "Мои пряники прошлых лет"}},
+ teacher: {name: "День учителя", cat: "teacher", date: "10-05", to: "до Дня учителя", hl: "#FFD3A1", promo: "#C8551E", deco: "leaves", t: {
+  "h.h1b": "ко Дню учителя и с вашим логотипом",
+  "h.lead": "Пеку и расписываю пряники сама. Именные пряники и наборы для учителей и воспитателей: выберите пряники, нажмите «В заказ» и отправьте заявку. Я перезвоню и назову точную цену.",
+  "h.btn1": "Пряники учителю",
+  "pv.sub": "Сейчас открыты пряники ко Дню учителя и пряники с логотипом. Остальные праздники появятся ближе к датам.",
+  "ga.h": "Мои пряники прошлых лет"}}
+};
+const THEME_KEYS = new Set(["h.kick", "h.h1a", "h.h1b", "h.lead", "h.btn1", "pv.sub", "ga.h"]);
+const DECO = {
+ snow: {c: ["#8DC3E6", "#B4D8F0", "#FFFFFF", "#9FCBE9"], s: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M12 5.5 9.8 3.3M12 5.5l2.2-2.2M12 18.5l-2.2 2.2M12 18.5l2.2 2.2"/></svg>'},
+ hearts: {c: ["#E8507A", "#FF8FA8", "#D63A64", "#FFB3C4"], s: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 3 5 6.5 5c2.1 0 3.6 1.2 4.5 2.6C11.9 6.2 13.4 5 15.5 5 19 5 21 8.6 21.6 11.8 19.5 16.4 12 21 12 21z"/></svg>'},
+ stars: {c: ["#2F5D8C", "#E8B21C", "#5C86B5", "#C0392B"], s: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"/></svg>'},
+ flowers: {c: ["#F27BA0", "#FFB3C7", "#F5C400", "#E8507A"], s: '<svg viewBox="0 0 24 24"><g fill="currentColor"><circle cx="12" cy="6.6" r="3.9"/><circle cx="17.1" cy="10.3" r="3.9"/><circle cx="15.2" cy="16.4" r="3.9"/><circle cx="8.8" cy="16.4" r="3.9"/><circle cx="6.9" cy="10.3" r="3.9"/></g><circle cx="12" cy="11.8" r="3" fill="#FFE27A"/></svg>'},
+ eggs: {c: ["#9BD38A", "#F7B5C8", "#9CCBF0", "#F9D56E"], s: '<svg viewBox="0 0 24 24"><ellipse cx="12" cy="13" rx="7" ry="9" fill="currentColor"/><path d="M5.6 12.4c2.1-1.5 4.3-1.5 6.4 0s4.3 1.5 6.4 0" stroke="#fff" stroke-width="1.6" fill="none"/></svg>'},
+ confetti: {c: ["#E8507A", "#2F8F5B", "#2F5D8C", "#F2AE12", "#8E5BD0"], s: '<svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="18" rx="2" fill="currentColor"/></svg>'},
+ leaves: {c: ["#E07B2E", "#C8551E", "#E8B21C", "#B5432A"], s: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 22c0-6.5.4-12 8.5-18.5C20 12.8 17.2 18.3 12 22zM12 22C7.6 18.4 3.6 14 3.5 6.5 8.6 8.8 11.5 13.4 12 22z"/></svg>'}
+};
+
+// ===== gingerbread shapes for the logo calculator (outline in a 200×200 box) =====
+const poly = pts => "M" + pts.map(p => p[0].toFixed(1) + "," + p[1].toFixed(1)).join("L") + "Z";
+const starD = (n, ri) => { const pts = []; for (let i = 0; i < n * 2; i++) { const a = -Math.PI / 2 + i * Math.PI / n, r = i % 2 ? 100 * ri : 100; pts.push([100 + r * Math.cos(a), 100 + r * Math.sin(a)]); } return poly(pts); };
+const waveD = (k, amp) => { const pts = []; for (let i = 0; i < 360; i += 2) { const a = i * Math.PI / 180, r = 100 * (1 - amp + amp * Math.cos(k * a)); pts.push([100 + r * Math.cos(a), 100 + r * Math.sin(a)]); } return poly(pts); };
+const eggD = () => { const pts = []; for (let i = 0; i < 360; i += 3) { const t = i * Math.PI / 180; pts.push([100 + 76 * Math.cos(t) * (1 + .14 * Math.sin(t)), 100 + 100 * Math.sin(t)]); } return poly(pts); };
+const SHAPE_LIB = [
+ {id: "circle", name: "Круг", d: "M0,100A100,100 0 1,1 200,100A100,100 0 1,1 0,100Z"},
+ {id: "rsq", name: "Закруглённый квадрат", d: "M50,10H150A40,40 0 0 1 190,50V150A40,40 0 0 1 150,190H50A40,40 0 0 1 10,150V50A40,40 0 0 1 50,10Z"},
+ {id: "square", name: "Квадрат", d: "M24,10H176A14,14 0 0 1 190,24V176A14,14 0 0 1 176,190H24A14,14 0 0 1 10,176V24A14,14 0 0 1 24,10Z"},
+ {id: "rect", name: "Прямоугольник", d: "M24,30H176A22,22 0 0 1 198,52V148A22,22 0 0 1 176,170H24A22,22 0 0 1 2,148V52A22,22 0 0 1 24,30Z"},
+ {id: "oval", name: "Овал", d: "M24,100A76,100 0 1,1 176,100A76,100 0 1,1 24,100Z"},
+ {id: "heart", name: "Сердце", d: "M100,186C80,168 6,122 6,64C6,30 32,8 60,8C80,8 94,20 100,34C106,20 120,8 140,8C168,8 194,30 194,64C194,122 120,168 100,186Z"},
+ {id: "star", name: "Звезда", d: starD(5, .5)},
+ {id: "tree", name: "Ёлочка", d: "M100,4L150,64H128L170,118H140L184,170H112V196H88V170H16L60,118H30L72,64H50Z"},
+ {id: "snow", name: "Снежинка", d: starD(6, .62)},
+ {id: "eight", name: "Восьмёрка", d: "M52,52A48,48 0 1,1 148,52A48,48 0 1,1 52,52ZM46,146A54,54 0 1,1 154,146A54,54 0 1,1 46,146Z"},
+ {id: "egg", name: "Яйцо", d: eggD()},
+ {id: "bell", name: "Колокольчик", d: "M100,6C112,6 118,14 118,22C150,32 160,70 160,104C160,134 170,150 188,164C192,168 190,176 182,176H18C10,176 8,168 12,164C30,150 40,134 40,104C40,70 50,32 82,22C82,14 88,6 100,6ZM86,184A14,14 0 1,1 114,184A14,14 0 1,1 86,184Z"},
+ {id: "mitten", name: "Варежка", d: "M64,196C52,196 44,188 44,176V150C30,140 22,122 22,100V62C22,30 46,6 80,6C114,6 138,30 138,62V84L150,70C160,58 178,58 186,70C194,82 190,96 182,106L150,146V176C150,188 142,196 130,196Z"},
+ {id: "man", name: "Человечек", d: "M66,42A34,34 0 1,1 134,42A34,34 0 1,1 66,42ZM70,74H130C140,74 146,80 150,86L184,110C194,116 194,130 184,134C176,138 168,136 162,130L142,114V136L160,182C164,192 158,198 148,198C140,198 134,194 130,186L100,140L70,186C66,194 60,198 52,198C42,198 36,192 40,182L58,136V114L38,130C32,136 24,138 16,134C6,130 6,116 16,110L50,86C54,80 60,74 70,74Z"},
+ {id: "flower", name: "Цветок", d: waveD(8, .12)}
+];
+
+const BASE = Object.assign(BASE0, {
+ v: 2, rev: 0,
+ theme: {cur: "ny", auto: true, plan: [{id: "ny", from: "11-01", to: "01-12"}, {id: "feb14", from: "01-20", to: "02-14"}, {id: "feb23", from: "02-15", to: "02-23"}, {id: "mar8", from: "02-24", to: "03-08"}, {id: "easter", from: "04-10", to: "05-02"}, {id: "grad", from: "05-10", to: "06-30"}, {id: "sep1", from: "08-10", to: "09-01"}, {id: "teacher", from: "09-15", to: "10-05"}]},
+ dates: {},
+ font: "hand",
+ t: {}, tt: {}, img: {about: "marianna2"},
+ heroPh: {ny: ["hero-0", "hero-1", "hero-2", "hero-3", "hero-4"]},
+ contacts: {phone: "79522404665", phoneNote: "звонок, Telegram, MAX", tg: true, maxU: "https://max.ru/u/f9LHodD0cOIGv0fN-HsQklEtJI5JzbjP_2ybeK4H7kAi87T1UZr2oCEd7jc", maxCh: "https://max.ru/channel_pryanikesh", vk: "https://vk.com/club28442263", vkRev: "https://vk.com/topic-28442263_39296109", addr1: "Славянка, Ростовская ул., 14-16", addr1n: "Время забора согласуем заранее", addr2: "Витебский проспект, 11Ж", addr2n: "По будням с 11 до 17, в субботу с 11 до 15", deliv: "По городу Яндекс курьером, доставку оформляет покупатель", pay: "Предоплата 100% на карту Сбербанка или по безналу"},
+ gal: GAL.map(g => ({f: "g/" + g[0], c: g[1]})),
+ corp: CORP.map(c => ({f: "c/" + c[0], c: c[1]})),
+ reviews: REV.map(r => ({n: r[0], d: r[1], t: r[2]})),
+ faq: FAQ.map(f => ({q: f[0], a: f[1]})),
+ tiers: [1, 11, 31, 101], rib: 20,
+ sizes: [{l: "5–6 см", ps: [130, 120, 110, 100]}, {l: "7 см", ps: [190, 175, 160, 150]}, {l: "8 см", ps: [210, 190, 170, 160]}, {l: "9 см", ps: [230, 210, 190, 180]}, {l: "10 см", ps: [260, 230, 210, 200]}],
+ shapes: {circle: {on: true, sizes: ["5–6 см", "7 см", "8 см", "9 см", "10 см"], add: 0}, rsq: {on: true, sizes: ["8 см", "10 см"], add: 0}}
+});
+
+// ===== state: published data (data.js) + the master's unsaved draft =====
+const OBJ_KEYS = ["t", "tt", "img", "heroPh", "contacts", "shapes", "dates"];
+function merge(base, d) {
+ const s = clone(base); if (!d || typeof d !== "object") return s;
+ for (const k of Object.keys(d)) {
+  const v = d[k]; if (v == null) continue;
+  if (OBJ_KEYS.includes(k) && typeof v === "object" && !Array.isArray(v)) s[k] = Object.assign(s[k] || {}, v);
+  else if (k === "theme" && typeof v === "object") s.theme = Object.assign(s.theme, v);
+  else s[k] = v;
+ }
+ return s;
 }
-let admin = (() => { try { return sessionStorage.getItem("pe-admin") === "1"; } catch (e) { return false; } })();
-let cur = (location.hash.match(/^#povod-(\w+)/) || [])[1] || "ny";
+let PUB = merge(BASE, window.SITE_DATA && window.SITE_DATA.v === 2 ? window.SITE_DATA : null);
+(() => { const p = SS.get(PKEY); if (p && p.S && p.rev > (PUB.rev || 0)) { PUB = merge(BASE, p.S); Object.assign(LOCAL, p.local || {}); } else if (p) SS.del(PKEY); })();
+let S = clone(PUB);
+let admin = false, demo = false, preview = null, dirty = false, thm = "ny";
+let cur = (location.hash.match(/^#povod-(\w+)/) || [])[1] || null;
 const cat = id => S.cats.find(c => c.id === id);
 const prod = id => S.products.find(p => p.id === id);
 const visible = p => admin || !p.hidden;
+function save() { touch(); return true; }
+LS.del("pe-demo-v1");
+
+// texts written in the page are the defaults; the master's edits live in S.t (and S.tt per holiday)
+const TX = {};
+document.querySelectorAll("[data-t]").forEach(el => { const k = el.dataset.t; if (!(k in TX)) TX[k] = el.textContent.replace(/\s+/g, " ").trim(); });
+function txt(k) {
+ if (THEME_KEYS.has(k)) { const o = (S.tt[thm] || {})[k]; if (o != null) return o; const d = (THEMES[thm].t || {})[k]; return d != null ? d : TX[k]; }
+ const o = S.t[k]; return o != null ? o : TX[k];
+}
+// short words stick to the next one, so «к» or «и» never hang at the end of a line
+const nb = s => { s = String(s); for (let i = 0; i < 5; i++) { const n = s.replace(/(^|[\s(«])([а-яёА-ЯЁ]{1,2}|\d+) (?=\S)/g, "$1$2\u00a0"); if (n === s) break; s = n; } return s; };
+function renderTexts() {
+ document.querySelectorAll("[data-t]").forEach(el => { if (admin && el === document.activeElement) return; const v = txt(el.dataset.t); if (v == null) return; const w = admin ? v : nb(v); if (el.textContent !== w) el.textContent = w; });
+}
+
+// ===== theme =====
+const mdN = s => { const [m, d] = String(s).split("-").map(Number); return m * 100 + d; };
+function autoTheme(dt) {
+ const x = (dt.getMonth() + 1) * 100 + dt.getDate();
+ for (const p of S.theme.plan || []) { if (!THEMES[p.id] || !p.from || !p.to) continue; const a = mdN(p.from), b = mdN(p.to); if (a <= b ? x >= a && x <= b : x >= a || x <= b) return p.id; }
+ return "base";
+}
+const liveTheme = () => S.theme.auto ? autoTheme(new Date()) : (THEMES[S.theme.cur] ? S.theme.cur : "base");
+const themeCat = () => { const c = THEMES[thm].cat; return c && cat(c) ? c : (S.cats.find(x => x.open) || S.cats[0]).id; };
+function daysTo(id) {
+ const d = (S.dates || {})[id] || THEMES[id].date; if (!d) return null;
+ const now = new Date(); now.setHours(0, 0, 0, 0);
+ let t;
+ if (/^\d{4}-\d\d-\d\d$/.test(d)) t = new Date(d + "T00:00:00");
+ else { const [m, dd] = d.split("-").map(Number); t = new Date(now.getFullYear(), m - 1, dd); if (t < now) t = new Date(now.getFullYear() + 1, m - 1, dd); }
+ return Math.round((t - now) / 864e5);
+}
+function renderCount() {
+ const el = $("cnt"), th = THEMES[thm], now = new Date();
+ el.classList.remove("sm");
+ if (thm === "ny" && now.getMonth() === 0 && now.getDate() < 15) { el.hidden = false; $("cntN").textContent = now.getFullYear(); $("cntT").textContent = "с Новым годом!"; return; }
+ const n = daysTo(thm);
+ if (n == null || n < 0 || n > 200) { el.hidden = true; return; }
+ el.hidden = false;
+ if (n === 0) { el.classList.add("sm"); $("cntN").textContent = "Сегодня"; $("cntT").textContent = "праздник!"; return; }
+ $("cntN").textContent = n; $("cntT").textContent = plural(n, "день", "дня", "дней") + " " + th.to;
+}
+function renderDeco() {
+ const k = THEMES[thm].deco || "", box = $("deco");
+ if (box.dataset.k === k) return; box.dataset.k = k; box.innerHTML = "";
+ const D = DECO[k]; if (!D) return;
+ let h = "";
+ for (let i = 0; i < 18; i++) { const sz = 12 + (i * 7) % 15, left = (i * 53 + 7) % 100, dur = 12 + (i * 13) % 10, del = -((i * 29) % 19), dx = (i * 31) % 70 - 35; h += `<i style="left:${left}%;width:${sz}px;height:${sz}px;color:${D.c[i % D.c.length]};animation-duration:${dur}s;animation-delay:${del}s;--dx:${dx}px;--rt:${(i * 47) % 360 - 180}deg;--y:${(i * 41) % 92}%">${D.s}</i>`; }
+ box.innerHTML = h;
+}
+let slideT = null;
+function heroList() {
+ const own = (S.heroPh || {})[thm]; if (own && own.length) return own;
+ const c = thm === "base" ? "logo" : THEMES[thm].cat;
+ const fromCat = S.products.filter(p => p.cat === c && !p.hidden && p.photos && p.photos[0]).map(p => p.photos[0]).slice(0, 6);
+ return fromCat.length ? fromCat : (S.heroPh.ny || ["hero-0"]);
+}
+function renderHero() {
+ const list = heroList().slice(0, 10), box = $("win"), key = list.map(src).join("|");
+ if (box.dataset.k === key) return; box.dataset.k = key;
+ box.innerHTML = list.map((p, i) => `<img${i ? "" : ' class="on"'} src="${esc(src(p))}" alt="" width="900" height="900"${i ? ' loading="lazy"' : ""}>`).join("");
+ clearInterval(slideT);
+ const ims = [...box.querySelectorAll("img")]; let i = 0;
+ if (ims.length > 1 && document.documentElement.classList.contains("anim")) slideT = setInterval(() => { if (document.hidden) return; ims[i].classList.remove("on"); i = (i + 1) % ims.length; ims[i].classList.add("on"); }, 3800);
+}
+function renderTheme() {
+ thm = admin && preview && THEMES[preview] ? preview : liveTheme();
+ const th = THEMES[thm], bs = document.body.style;
+ document.body.dataset.th = thm; bs.setProperty("--hl", th.hl); bs.setProperty("--promo", th.promo);
+ const tc = themeCat(), n1 = $("nav1"), b1 = $("hBtn1");
+ n1.textContent = thm === "base" ? "Каталог" : (cat(tc) || {}).name || "Каталог"; n1.dataset.cat = tc;
+ if (thm === "base") { b1.setAttribute("href", "#povod"); delete b1.dataset.cat; } else { b1.setAttribute("href", "#katalog"); b1.dataset.cat = tc; }
+ renderCount(); renderDeco(); renderHero();
+}
+function renderFont() { const f = ["hand", "mix", "classic"].includes(S.font) ? S.font : "hand"; document.body.classList.remove("f-hand", "f-mix", "f-classic"); document.body.classList.add("f-" + f); }
+
+// ===== contacts (header, contacts block, footer, form, call buttons) =====
+const ICON = {
+ phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>',
+ pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
+ car: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>'
+};
+const telFmt = d => d.length === 11 ? "+7 " + d.slice(1, 4) + " " + d.slice(4, 7) + "-" + d.slice(7, 9) + "-" + d.slice(9, 11) : d;
+const safeUrl = u => /^https:\/\/[^\s"'<>]+$/i.test(u || "") ? u : "";
+const vkMsgUrl = u => { const m = (u || "").match(/^https:\/\/(?:m\.)?vk\.(?:com|ru)\/([A-Za-z0-9_.]+)\/?$/); return m ? "https://vk.me/" + m[1] : ""; };
+const cap1 = s => s ? s[0].toUpperCase() + s.slice(1) : "";
+function renderContacts() {
+ const C = S.contacts, d = String(C.phone || "").replace(/\D/g, ""), tel = "tel:+" + d, ph = telFmt(d);
+ const tg = C.tg ? "https://t.me/+" + d : "", maxU = safeUrl(C.maxU), maxCh = safeUrl(C.maxCh), vk = safeUrl(C.vk), vkMsg = vkMsgUrl(vk);
+ const a = (href, t, cls) => `<a class="btn ${cls || "btn-line"}" href="${esc(href)}"${href.startsWith("tel:") ? "" : ' target="_blank" rel="noopener"'}>${t}</a>`;
+ const hd = $("hdTel"); hd.href = tel; hd.innerHTML = esc(ph) + `<small>${esc(C.phoneNote || "")}</small>`;
+ $("mbCall").href = tel;
+ const ln = (ic, body) => `<div class="ln"><i>${ic}</i><div>${body}</div></div>`;
+ $("kc").innerHTML = ln(ICON.phone, `<a href="${tel}">${esc(ph)}</a><small>${esc(cap1(C.phoneNote || ""))}</small>`)
+  + ln(ICON.pin, `<b>Самовывоз: ${esc(C.addr1)}</b><small>${esc(C.addr1n || "")}</small>${C.addr2 ? `<b style="display:block;margin-top:8px">или ${esc(C.addr2)}</b><small>${esc(C.addr2n || "")}</small>` : ""}`)
+  + ln(ICON.car, `<b>Доставка и оплата</b><small>${esc(C.deliv || "")}${C.deliv && C.pay ? ". " : ""}${esc(C.pay || "")}</small>`)
+  + `<div class="cta">${[a(tel, "Позвонить", "btn-sun"), maxU && a(maxU, "Написать в MAX"), tg && a(tg, "Telegram"), vkMsg && a(vkMsg, "ВКонтакте"), maxCh && a(maxCh, "Канал в MAX")].filter(Boolean).join("")}</div>`;
+ $("fcont").innerHTML = [`<li><a href="${tel}">${esc(ph)}</a></li>`, maxU && `<li><a href="${esc(maxU)}" target="_blank" rel="noopener">Написать в MAX</a></li>`, tg && `<li><a href="${tg}" target="_blank" rel="noopener">Telegram</a></li>`, maxCh && `<li><a href="${esc(maxCh)}" target="_blank" rel="noopener">Канал в MAX</a></li>`, vk && `<li><a href="${esc(vk)}" target="_blank" rel="noopener">Группа ВКонтакте</a></li>`].filter(Boolean).join("");
+ $("fSmall").innerHTML = `Или сразу позвоните: <a href="${tel}">${esc(ph)}</a>${C.phoneNote ? ` (${esc(C.phoneNote)})` : ""}.`;
+ $("fbBtns").innerHTML = [a(tel, "Позвонить", "btn-sun"), maxU && a(maxU, "Написать в MAX"), vkMsg && a(vkMsg, "Написать ВКонтакте"), tg && a(tg, "Telegram")].filter(Boolean).join("");
+ const rv = $("rvVk"); const rvu = safeUrl(C.vkRev) || vk; rv.hidden = !rvu; if (rvu) rv.href = rvu;
+ const g = $("getR"), was = (g.querySelector("input:checked") || {}).value;
+ const opts = [C.addr1 && "Самовывоз: " + C.addr1, C.addr2 && "Самовывоз: " + C.addr2, "Доставка по городу"].filter(Boolean);
+ g.innerHTML = opts.map((o, i) => `<label><input type="radio" name="get" value="${esc(o)}"${(was ? o === was : !i) ? " checked" : ""}><span>${esc(o)}</span></label>`).join("");
+ if (!g.querySelector("input:checked")) g.querySelector("input").checked = true;
+}
 
 // ===== cart =====
 let cart = (() => { try { return JSON.parse(localStorage.getItem(CKEY)) || []; } catch (e) { return []; } })();
@@ -985,24 +1345,18 @@ function renderPromo() {
  $("promo").hidden = !show; $("promoT").textContent = pr.text;
 }
 $("promoX").onclick = () => { try { sessionStorage.setItem("pe-promo-x", S.promo.text); } catch (e) {} $("promo").hidden = true; };
-(() => {
- const now = new Date(), ny = new Date(now.getFullYear() + 1, 0, 1), d = Math.ceil((ny - now) / 864e5);
- if (now.getMonth() === 0 && now.getDate() < 15) { $("cntN").textContent = "2027"; $("cntT").textContent = "с Новым годом!"; return; }
- $("cntN").textContent = d;
- const m10 = d % 10, m100 = d % 100;
- $("cntT").textContent = (m10 === 1 && m100 !== 11 ? "день" : m10 >= 2 && m10 <= 4 && (m100 < 10 || m100 >= 20) ? "дня" : "дней") + " до Нового года";
-})();
-
 // ===== stickers =====
 function renderStickers() {
  $("stk").innerHTML = S.cats.map((c, i) => {
   const n = S.products.filter(p => p.cat === c.id && visible(p)).length;
   const soon = !c.open;
-  return `<div class="stk-w"><button type="button" class="stk${soon ? " soon" : ""}${c.id === cur ? " sel" : ""}" style="--r:${rot(i)}" data-c="${c.id}" aria-pressed="${c.id === cur}">${esc(c.label)}${soon ? '<span class="tg">скоро</span>' : n ? `<span class="ct">${n}</span>` : ""}</button><button type="button" class="sw${c.open ? " on" : ""}" data-sw="${c.id}"><i></i>${c.open ? "открыт" : "скоро"}</button></div>`;
- }).join("");
+  return `<div class="stk-w"><button type="button" class="stk${soon ? " soon" : ""}${c.id === cur ? " sel" : ""}" style="--r:${rot(i)}" data-c="${c.id}" aria-pressed="${c.id === cur}">${esc(c.label)}${soon ? '<span class="tg">скоро</span>' : n ? `<span class="ct">${n}</span>` : ""}</button><button type="button" class="sw${c.open ? " on" : ""}" data-sw="${c.id}"><i></i>${c.open ? "открыт" : "скоро"}</button>${admin ? `<button type="button" class="cedit" data-cedit="${c.id}">изменить</button>` : ""}</div>`;
+ }).join("") + (admin ? '<div class="stk-w"><button type="button" class="stk addstk" data-cnew>+ новый\nповод</button></div>' : "");
  $("fcats").innerHTML = S.cats.map(c => `<li><a href="#katalog" data-cat="${c.id}">${esc(c.name)}${c.open ? "" : " (скоро)"}</a></li>`).join("");
 }
 document.addEventListener("click", e => {
+ const ce = e.target.closest("[data-cedit]"); if (ce) return openCat(ce.dataset.cedit);
+ if (e.target.closest("[data-cnew]")) return openCat(null);
  const sw = e.target.closest("[data-sw]");
  if (sw) { const c = cat(sw.dataset.sw); c.open = !c.open; save(); renderAll(); toast(c.open ? `Раздел «${c.name}» открыт для покупателей` : `Раздел «${c.name}» теперь «скоро»`); return; }
  const s = e.target.closest("[data-c]");
@@ -1096,7 +1450,7 @@ function renderCart() {
  }
  const sum = cart.reduce((a, x) => a + (x.price || 0) * x.qty, 0);
  const ask = cart.some(x => x.price == null);
- box.innerHTML = `<ul class="cl">${cart.map((x, i) => { const im = x.img ? src(x.img) : x.gimg ? `img/g/t/${x.gimg}.jpg` : ""; return `<li>${im ? `<img src="${im}" alt="">` : `<span class="stk soon" style="width:58px;font-size:8px;padding:6px">${esc((cat(x.pid.replace("pre-", "")) || {}).label || "?")}</span>`}
+ box.innerHTML = `<ul class="cl">${cart.map((x, i) => { const im = x.img ? src(x.img) : x.gimg ? thumb(/^\d+$/.test(x.gimg) ? "g/" + x.gimg : x.gimg) : ""; return `<li>${im ? `<img src="${im}" alt="">` : `<span class="stk soon" style="width:58px;font-size:8px;padding:6px">${esc((cat(x.pid.replace("pre-", "")) || {}).label || "?")}</span>`}
   <div class="nm">${esc(x.name)}${x.variant ? ` <small>${esc(x.variant)}</small>` : ""}<small>${x.price != null ? `${fmt(x.price)} ₽${x.unit === "набор" ? " за набор" : "/шт"}${x.qty > 1 ? ` · ${fmt(x.price * x.qty)} ₽` : ""}` : "цену назову после обсуждения"}</small></div>
   <div class="r">${x.pre ? "" : `<div class="qty"><button type="button" data-cq="${i}" data-d="-1" aria-label="Меньше">−</button><input type="number" min="1" value="${x.qty}" data-ci="${i}" aria-label="Количество"><button type="button" data-cq="${i}" data-d="1" aria-label="Больше">+</button></div>`}<button type="button" class="del" data-cd="${i}">убрать</button></div></li>`; }).join("")}</ul>
   <div class="tot"><span>Итого${ask ? "<small>плюс позиции с ценой по запросу</small>" : ""}</span><b>${fmt(sum)} ₽</b></div>
@@ -1115,42 +1469,43 @@ $("cart").addEventListener("change", e => {
  const x = cart[+i]; const p = prod(x.pid); x.qty = Math.max(p && p.min || 1, Math.round(+e.target.value || 1)); saveCart(); renderCart();
 });
 
-// ===== corporate try-on =====
-const TIERS = [[1, "1–10 шт"], [11, "11–30 шт"], [31, "31–100 шт"], [101, "от 101 шт"]];
-const SIZES = [{l: "5–6 см", d: "⌀ 6 см", ps: [130, 120, 110, 100], k: .74}, {l: "7 см", d: "⌀ 7 см", ps: [190, 175, 160, 150], k: .8}, {l: "8 см", d: "⌀ 8 см", ps: [210, 190, 170, 160], k: .86}, {l: "9 см", d: "⌀ 9 см", ps: [230, 210, 190, 180], k: .93}, {l: "10 см", d: "⌀ 10 см", ps: [260, 230, 210, 200], k: 1}];
-// формы: мастер включает и выключает их сама; sizes = какие размеры есть у формы
-const SHAPES = [{id: "circle", name: "Круг", sizes: ["5–6 см", "7 см", "8 см", "9 см", "10 см"]}, {id: "rsq", name: "Закруглённый квадрат", sizes: ["8 см", "10 см"]}];
-let tSize = 2, tShape = "circle", tLogo = "";
-const tierOf = q => TIERS.reduce((a, t, i) => q >= t[0] ? i : a, 0);
-const shapeOf = () => SHAPES.find(x => x.id === tShape) || SHAPES[0];
-function drawTryButtons() {
- const sh = shapeOf();
- if (!sh.sizes.includes(SIZES[tSize].l)) tSize = SIZES.findIndex(s => s.l === sh.sizes[0]);
- $("trySize").innerHTML = SIZES.map((s, i) => sh.sizes.includes(s.l) ? `<button type="button" class="${i === tSize ? "on" : ""}" data-s="${i}">${s.l}</button>` : "").join("");
- $("tryShape").innerHTML = SHAPES.map(x => `<button type="button" class="${x.id === tShape ? "on" : ""}" data-v="${x.id}">${x.name}</button>`).join("");
+// ===== corporate try-on: shapes, sizes and price tiers come from S (the master edits them) =====
+let tSize = "", tShape = "circle", tLogo = "";
+const shapesOn = () => { const l = SHAPE_LIB.filter(x => (S.shapes[x.id] || {}).on); return l.length ? l : [SHAPE_LIB[0]]; };
+const tierLabels = t => t.map((a, i) => i < t.length - 1 ? `${a}–${t[i + 1] - 1} шт` : `от ${a} шт`);
+const tierOf = q => S.tiers.reduce((a, t, i) => q >= t ? i : a, 0);
+const sizeK = l => { const m = String(l).replace(",", ".").match(/(\d+(?:\.\d+)?)\D*$/); const cm = m ? +m[1] : 8; return Math.min(1.06, Math.max(.6, .45 + cm * .055)); };
+function drawTry() {
+ const shp = shapesOn();
+ if (!shp.some(x => x.id === tShape)) tShape = shp[0].id;
+ const st = S.shapes[tShape] || {};
+ let sz = S.sizes.filter(z => !st.sizes || !st.sizes.length || st.sizes.includes(z.l)); if (!sz.length) sz = S.sizes;
+ if (!sz.some(z => z.l === tSize)) tSize = (sz.find(z => z.l === "8 см") || sz[Math.min(2, sz.length - 1)]).l;
+ $("trySize").innerHTML = sz.map(z => `<button type="button" class="${z.l === tSize ? "on" : ""}" data-s="${esc(z.l)}">${esc(z.l)}</button>`).join("");
+ $("tryShape").innerHTML = shp.map(x => `<button type="button" class="${x.id === tShape ? "on" : ""}" data-v="${x.id}">${esc(x.name)}</button>`).join("");
+ renderTry();
 }
-drawTryButtons();
-function shapePath(R, shape) {
- if (shape === "rsq") { const a = R * .9, r = R * .38, x0 = 150 - a, y0 = 150 - a, w = 2 * a; return `M${x0 + r},${y0}h${w - 2 * r}a${r},${r} 0 0 1 ${r},${r}v${w - 2 * r}a${r},${r} 0 0 1 ${-r},${r}h${-(w - 2 * r)}a${r},${r} 0 0 1 ${-r},${-r}v${-(w - 2 * r)}a${r},${r} 0 0 1 ${r},${-r}z`; }
- return `M${150 - R},150a${R},${R} 0 1,0 ${2 * R},0a${R},${R} 0 1,0 ${-2 * R},0`;
+function tryPrice(q) {
+ const z = S.sizes.find(x => x.l === tSize) || S.sizes[0], ti = tierOf(q), add = +((S.shapes[tShape] || {}).add || 0);
+ return {z, ti, add, one: (+z.ps[ti] || 0) + add};
 }
 function renderTry() {
- const s = SIZES[tSize];
- $("tryRim").setAttribute("d", shapePath(132, tShape));
- $("tryGlz").setAttribute("d", shapePath(120, tShape));
- $("tryG").style.transform = `scale(${s.k})`;
- $("tryDia").textContent = s.d;
- const img = $("tryImg"), txt = $("tryTxt"), name = $("tryName").value.trim();
- if (tLogo) { img.setAttribute("href", tLogo); txt.textContent = ""; } else { img.setAttribute("href", ""); txt.textContent = name ? name.toUpperCase() : "ЛОГОТИП"; txt.setAttribute("font-size", Math.max(12, Math.min(30, 170 / (.8 * (name || "ЛОГОТИП").length))).toFixed(1)); }
+ const lib = SHAPE_LIB.find(x => x.id === tShape) || SHAPE_LIB[0], tf = k => `translate(150 150) scale(${k}) translate(-100 -100)`;
+ [["tryRim", 1.32], ["tryGlz", 1.2], ["tryCl", 1], ["tryDash", 1.06]].forEach(([id, k]) => { const el = $(id); el.setAttribute("d", lib.d); el.setAttribute("transform", tf(k)); });
+ $("tryG").style.transform = `scale(${sizeK(tSize)})`;
+ $("tryDia").textContent = (tShape === "circle" ? "⌀ " : "") + tSize;
+ const img = $("tryImg"), txtEl = $("tryTxt"), name = $("tryName").value.trim();
+ if (tLogo) { img.setAttribute("href", tLogo); txtEl.textContent = ""; } else { img.setAttribute("href", ""); txtEl.textContent = name ? name.toUpperCase() : "ЛОГОТИП"; txtEl.setAttribute("font-size", Math.max(12, Math.min(30, 170 / (.8 * (name || "ЛОГОТИП").length))).toFixed(1)); }
  $("tryClear").hidden = !tLogo;
- const q = Math.max(1, Math.round(+$("tryQ").value || 1)), rib = $("tryRib").checked, ti = tierOf(q), unit = s.ps[ti] + (rib ? 20 : 0);
+ const q = Math.max(1, Math.round(+$("tryQ").value || 1)), rib = $("tryRib").checked, r = tryPrice(q), ribP = +S.rib || 0, unit = r.one + (rib ? ribP : 0);
+ $("tryRibL").textContent = `Пакетик с ленточкой (+${ribP} ₽/шт)`;
  $("tryLine").textContent = `${fmt(q)} шт × ${fmt(unit)} ₽${rib ? " (с ленточкой)" : ""}`;
  $("trySum").textContent = fmt(q * unit) + " ₽";
- const nx = TIERS[ti + 1];
- $("tryNote").innerHTML = `Цена за ${TIERS[ti][1]}: ${fmt(s.ps[ti])} ₽ за пряник.` + (nx ? ` От ${nx[0]} шт будет ${fmt(s.ps[ti + 1])} ₽.` : " Это самая выгодная цена.");
+ const tl = tierLabels(S.tiers), nx = S.tiers[r.ti + 1];
+ $("tryNote").textContent = `Цена за ${tl[r.ti]}: ${fmt(r.one)} ₽ за пряник.` + (nx ? ` От ${nx} шт будет ${fmt((+r.z.ps[r.ti + 1] || 0) + r.add)} ₽.` : " Это самая выгодная цена.");
 }
-$("trySize").addEventListener("click", e => { const b = e.target.closest("[data-s]"); if (!b) return; tSize = +b.dataset.s; drawTryButtons(); renderTry(); });
-$("tryShape").addEventListener("click", e => { const b = e.target.closest("[data-v]"); if (!b) return; tShape = b.dataset.v; drawTryButtons(); renderTry(); });
+$("trySize").addEventListener("click", e => { const b = e.target.closest("[data-s]"); if (!b) return; tSize = b.dataset.s; drawTry(); });
+$("tryShape").addEventListener("click", e => { const b = e.target.closest("[data-v]"); if (!b) return; tShape = b.dataset.v; drawTry(); });
 $("tryName").addEventListener("input", renderTry);
 $("tryQ").addEventListener("input", renderTry);
 $("tryRib").addEventListener("change", renderTry);
@@ -1159,24 +1514,28 @@ $("tqP").onclick = () => { $("tryQ").value = (+$("tryQ").value || 0) + 10; rende
 $("tryFile").addEventListener("change", e => { const f = e.target.files[0]; if (!f) return; if (f.size > 8e6) return toast("Картинка больше 8 МБ, выберите поменьше"); const r = new FileReader(); r.onload = () => { tLogo = r.result; renderTry(); }; r.readAsDataURL(f); e.target.value = ""; });
 $("tryClear").onclick = () => { tLogo = ""; renderTry(); };
 $("tryAdd").onclick = () => {
- const s = SIZES[tSize], q = Math.max(1, Math.round(+$("tryQ").value || 1)), rib = $("tryRib").checked, name = $("tryName").value.trim(), sh = shapeOf();
- addToCart({key: "try|" + s.l + "|" + q + (rib ? "|r" : "") + "|" + sh.id, pid: "lg-try", name: "Пряники с логотипом " + s.l, variant: [sh.name.toLowerCase(), rib ? "с ленточкой" : "", name ? "«" + name + "»" : "", tLogo ? "логотип пришлю" : ""].filter(Boolean).join(", "), price: s.ps[tierOf(q)] + (rib ? 20 : 0), unit: "шт", qty: q, img: "p/logo8-1"});
+ const q = Math.max(1, Math.round(+$("tryQ").value || 1)), rib = $("tryRib").checked, name = $("tryName").value.trim(), sh = SHAPE_LIB.find(x => x.id === tShape) || SHAPE_LIB[0], r = tryPrice(q);
+ addToCart({key: "try|" + tSize + "|" + q + (rib ? "|r" : "") + "|" + sh.id, pid: "lg-try", name: "Пряники с логотипом " + tSize, variant: [sh.name.toLowerCase(), rib ? "с ленточкой" : "", name ? "«" + name + "»" : "", tLogo ? "логотип пришлю" : ""].filter(Boolean).join(", "), price: r.one + (rib ? +S.rib || 0 : 0), unit: "шт", qty: q, img: "p/logo8-1"});
  const f = $("f"); f.corp.checked = true; if (tLogo && !/логотип пришлю/i.test(f.comment.value)) f.comment.value = (f.comment.value ? f.comment.value + "\n" : "") + "Логотип пришлю в мессенджер";
  toast("Добавила расчёт в заказ"); $("zakaz").scrollIntoView({behavior: "smooth"});
 };
 $("corpCta").addEventListener("click", () => { $("f").corp.checked = true; });
-renderTry();
 
-// ===== corporate strip, gallery, lightbox =====
-$("cstrip").innerHTML = CORP.map((c, i) => `<figure data-lb="c${i}"><img src="img/c/${c[0]}.jpg" alt="${esc(c[1])}" loading="lazy"><figcaption>${esc(c[1])}</figcaption></figure>`).join("");
-$("gal").innerHTML = GAL.map((g, i) => `<figure class="rv-in" data-lb="g${i}"><img src="img/g/t/${g[0]}.jpg" alt="${esc(g[1])}" loading="lazy" width="420" height="420"><figcaption>${esc(g[1])}</figcaption></figure>`).join("");
+// ===== photo strip for companies, gallery, reviews, faq, lightbox =====
+function renderLists() {
+ $("cstrip").innerHTML = S.corp.map((c, i) => `<figure data-lb="c${i}"><img src="${esc(src(c.f))}" alt="${esc(c.c)}" loading="lazy"><figcaption>${esc(c.c)}</figcaption></figure>`).join("");
+ $("gal").innerHTML = S.gal.map((g, i) => `<figure class="rv-in" data-lb="g${i}"><img src="${esc(thumb(g.f))}" alt="${esc(g.c)}" loading="lazy"><figcaption>${esc(g.c)}</figcaption></figure>`).join("");
+ $("rvs").innerHTML = S.reviews.map(r => `<div class="rv rv-in"><span class="st5">★★★★★</span><p>${esc(r.t)}</p><b>${esc(r.n)}</b><small>${esc(r.d)}</small></div>`).join("");
+ $("faq").innerHTML = S.faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("");
+ $("abImg").src = src(S.img.about || "marianna2");
+}
 let lbList = [], lbI = 0;
 function showLb(i) { lbI = (i + lbList.length) % lbList.length; const it = lbList[lbI]; $("lbI").src = it.src; $("lbI").alt = it.cap; $("lbC").textContent = it.cap; $("lbW").hidden = !it.want; }
 document.addEventListener("click", e => {
  const f = e.target.closest("[data-lb]"); if (!f) return;
  const k = f.dataset.lb;
- if (k[0] === "g") lbList = GAL.map(g => ({src: `img/g/${g[0]}.jpg`, cap: g[1], want: true, id: g[0]}));
- else lbList = CORP.map(c => ({src: `img/c/${c[0]}.jpg`, cap: c[1], want: false}));
+ lbList = k[0] === "g" ? S.gal.map(g => ({src: src(g.f), cap: g.c, want: true, id: g.f})) : S.corp.map(c => ({src: src(c.f), cap: c.c, want: false}));
+ if (!lbList.length) return;
  showLb(+k.slice(1)); $("lb").classList.add("on"); document.body.style.overflow = "hidden";
 });
 const closeLb = () => { $("lb").classList.remove("on"); document.body.style.overflow = ""; };
@@ -1191,10 +1550,6 @@ document.addEventListener("keydown", e => {
 let tx0 = null;
 $("lb").addEventListener("touchstart", e => { tx0 = e.touches[0].clientX; }, {passive: true});
 $("lb").addEventListener("touchend", e => { if (tx0 === null) return; const dx = e.changedTouches[0].clientX - tx0; if (Math.abs(dx) > 45) showLb(lbI + (dx < 0 ? 1 : -1)); tx0 = null; });
-
-// ===== reviews + faq =====
-$("rvs").innerHTML = REV.map(r => `<div class="rv rv-in"><span class="st5">★★★★★</span><p>${esc(r[2])}</p><b>${esc(r[0])}</b><small>${esc(r[1])}</small></div>`).join("");
-$("faq").innerHTML = FAQ.map(f => `<details><summary>${esc(f[0])}</summary><p>${esc(f[1])}</p></details>`).join("");
 
 // ===== form =====
 const form = $("f"), phone = form.phone, err = $("err"), sbtn = $("sbtn");
@@ -1244,39 +1599,351 @@ $("fbCopy").onclick = async () => {
  try { await navigator.clipboard.writeText(t); toast("Текст заказа скопирован"); } catch (e) { toast("Не удалось скопировать"); }
 };
 
-// ===== admin (demo) =====
-function enterAdmin() {
- admin = true; try { sessionStorage.setItem("pe-admin", "1"); } catch (e) {}
- document.body.classList.add("admin"); renderAll();
- $("povod").scrollIntoView({behavior: "smooth"});
- toast("Режим мастера включён: нажмите «Изменить» на любом прянике");
+// ===== master mode: edit texts on the page, photos, lists, prices, theme; save to the site =====
+const PTO = (() => { try { const d = document.createElement("div"); d.contentEditable = "plaintext-only"; return d.contentEditable === "plaintext-only"; } catch (e) { return false; } })();
+function setEditable(on) {
+ document.querySelectorAll("[data-t]").forEach(el => {
+  if (on) { el.contentEditable = PTO ? "plaintext-only" : "true"; el.spellcheck = true; }
+  else el.removeAttribute("contenteditable");
+ });
 }
-function exitAdmin() { admin = false; try { sessionStorage.removeItem("pe-admin"); } catch (e) {} document.body.classList.remove("admin"); renderAll(); toast("Вы вышли из режима мастера"); }
-document.querySelectorAll("[data-master]").forEach(b => b.addEventListener("click", e => {
- e.preventDefault();
- if (admin) return $("povod").scrollIntoView({behavior: "smooth"});
- $("mEin").innerHTML = `<div class="ef"><h3>Вход для мастера</h3><p>Здесь вы сами управляете сайтом: добавляете и убираете пряники, меняете цены и фото, открываете разделы к праздникам и меняете акцию.</p><p class="small" style="font-size:15px">Это демо: изменения сохранятся только на этом устройстве. В рабочей версии вход будет по паролю, а изменения сразу увидят покупатели.</p><div class="acts"><button class="btn btn-sun" type="button" id="goAdm">Войти в демо</button><button class="btn btn-line" type="button" data-close>Отмена</button></div></div>`;
- $("mE").classList.add("on"); $("goAdm").onclick = () => { closeModals(); enterAdmin(); };
-}));
-if (location.hash === "#master") setTimeout(() => document.querySelector("[data-master]").click(), 400);
-$("aExit").onclick = exitAdmin;
-$("aAdd").onclick = () => openEditor(null, cat(cur) ? cur : "ny");
-$("aReset").onclick = () => {
- $("mEin").innerHTML = `<div class="ef"><h3>Сбросить изменения?</h3><p>Сайт вернётся к исходному виду: все добавленные пряники, цены и фото из демо удалятся с этого устройства.</p><div class="acts"><button class="btn btn-cocoa" type="button" id="rsY">Сбросить</button><button class="btn btn-line" type="button" data-close>Отмена</button></div></div>`;
- $("mE").classList.add("on");
- $("rsY").onclick = () => { try { localStorage.removeItem(KEY); } catch (e) {} S = clone(BASE); custom = false; closeModals(); renderAll(); toast("Сайт вернулся к исходному виду"); };
+// in master mode a tap on a text puts the cursor there instead of following the link or button
+document.addEventListener("click", e => { if (admin && e.target.closest && e.target.closest("[data-t]")) { e.preventDefault(); e.stopPropagation(); } }, true);
+document.addEventListener("input", e => {
+ const el = admin && e.target.closest && e.target.closest("[data-t]"); if (!el) return;
+ const k = el.dataset.t, v = el.innerText.replace(/ /g, " ").replace(/\n{3,}/g, "\n\n").trim().slice(0, 700);
+ if (THEME_KEYS.has(k)) (S.tt[thm] = S.tt[thm] || {})[k] = v; else S.t[k] = v;
+ document.querySelectorAll(`[data-t="${k}"]`).forEach(o => { if (o !== el) o.textContent = v; });
+ touch();
+});
+document.addEventListener("keydown", e => { const el = admin && e.target.closest && e.target.closest("[data-t]"); if (el && e.key === "Enter") { e.preventDefault(); el.blur(); } });
+document.addEventListener("paste", e => {
+ const el = admin && !PTO && e.target.closest && e.target.closest("[data-t]"); if (!el) return;
+ e.preventDefault(); document.execCommand("insertText", false, (e.clipboardData || window.clipboardData).getData("text/plain"));
+});
+
+let draftWarned = false;
+function touch() {
+ dirty = true;
+ if (!LS.set(DKEY, {base: PUB.rev || 0, S}) && !draftWarned) { draftWarned = true; toast("Фото не помещаются в память телефона: нажмите «Сохранить на сайте», чтобы их не потерять"); }
+ updBar();
+}
+function updBar() {
+ if (!admin) return;
+ const live = liveTheme();
+ $("aSt").innerHTML = esc(demo ? "Демо: правки видны только вам" : dirty ? "Есть несохранённые правки" : "Все правки на сайте")
+  + (preview && preview !== live ? ` · вы смотрите «${esc(THEMES[preview].name)}» <button type="button" id="aPv">как на сайте</button>` : "");
+ const pv = $("aPv"); if (pv) pv.onclick = () => { preview = null; renderAll(); };
+ $("aSave").classList.toggle("on", dirty && !demo); $("aUndo").hidden = !dirty;
+}
+const resetM = () => { const b = $("mEin"); b.oninput = b.onchange = b.onclick = null; };
+function modal(html) { const b = $("mEin"); resetM(); b.innerHTML = html; $("mE").classList.add("on"); document.body.style.overflow = "hidden"; b.parentNode.scrollTop = 0; }
+const paint = html => { $("mEin").innerHTML = html; };
+const token = () => { const t = LS.get(TKEY); return t && t.exp > Date.now() ? t.token : ""; };
+async function api(body) {
+ const r = await fetch(MASTER_URL, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: JSON.stringify(body), signal: AbortSignal.timeout(body.a === "save" ? 240000 : 30000)});
+ return r.json();
+}
+function enterAdmin(isDemo) {
+ admin = true; demo = !!isDemo;
+ const d = LS.get(DKEY);
+ if (d && d.S && d.base === (PUB.rev || 0)) { S = merge(BASE, d.S); dirty = true; setTimeout(() => toast("Вернула ваши несохранённые правки"), 700); }
+ else if (d) LS.del(DKEY);
+ SS.set("pe-adm", demo ? 2 : 1);
+ document.body.classList.add("admin"); renderAll(); setEditable(true); updBar();
+}
+function exitAdmin() {
+ admin = false; demo = false; preview = null; setEditable(false); SS.del("pe-adm");
+ document.body.classList.remove("admin"); S = clone(PUB); dirty = false; renderAll();
+ toast("Вы вышли из режима мастера");
+}
+function openLogin() {
+ if (admin) return $("abar").scrollIntoView({behavior: "smooth"});
+ if (!MASTER_URL) {
+  modal(`<div class="ef"><h3>Вход для мастера</h3><p>Здесь вы сами меняете сайт: тексты, фото, пряники, цены, формы и оформление к праздникам.</p><p class="small" style="font-size:15px">Сейчас это демо: правки увидите только вы на этом устройстве. После запуска вход будет по паролю, а правки сразу увидят покупатели.</p><div class="acts"><button class="btn btn-sun" type="button" id="goDemo">Попробовать</button><button class="btn btn-line" type="button" data-close>Отмена</button></div></div>`);
+  $("goDemo").onclick = () => { closeModals(); enterAdmin(true); showHelp(); };
+  return;
+ }
+ if (token()) return enterAdmin(false);
+ modal(`<div class="ef"><h3>Вход для мастера</h3><p>Введите пароль, который вам прислали. На этом устройстве вход запомнится на 30 дней.</p><form id="lf"><input type="text" name="username" value="master" autocomplete="username" hidden><label class="fl"><span>Пароль</span><input name="pw" type="password" autocomplete="current-password" maxlength="100"></label><div class="lerr" id="lerr" role="alert"></div><div class="acts"><button class="btn btn-sun" type="submit" id="lgo">Войти</button><button class="btn btn-line" type="button" data-close>Отмена</button></div></form></div>`);
+ setTimeout(() => $("lf").pw.focus(), 60);
+ $("lf").onsubmit = async e => {
+  e.preventDefault(); const pw = e.target.pw.value; if (!pw) return;
+  const b = $("lgo"); b.disabled = true; b.textContent = "Проверяю...";
+  let r = null; try { r = await api({a: "login", pw}); } catch (x) {}
+  b.disabled = false; b.textContent = "Войти";
+  if (r && r.ok) { LS.set(TKEY, {token: r.token, exp: r.exp}); closeModals(); enterAdmin(false); toast("Вы вошли в режим мастера"); setTimeout(showHelp, 400); }
+  else $("lerr").textContent = r && r.err === "locked" ? "Слишком много попыток, попробуйте через 15 минут" : r && r.err === "bad_password" ? "Пароль не подошёл" : "Не получилось связаться с сайтом, проверьте интернет";
+ };
+}
+document.querySelectorAll("[data-master]").forEach(b => b.addEventListener("click", e => { e.preventDefault(); openLogin(); }));
+
+async function publish(force, then) {
+ if (demo || !MASTER_URL) return toast("Это демо: сохранение на сайт подключу после запуска");
+ const tk = token(); if (!tk) { toast("Вход истёк, войдите ещё раз"); admin = false; document.body.classList.remove("admin"); setEditable(false); return openLogin(); }
+ const btn = $("aSave"); btn.disabled = true; btn.textContent = "Сохраняю...";
+ const files = [], ids = new Map();
+ const data = JSON.parse(JSON.stringify(S, (k, v) => {
+  if (!isData(v)) return v;
+  let id = ids.get(v);
+  if (!id) { id = "u" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8); ids.set(v, id); files.push({path: "img/u/" + id + ".jpg", b64: v.slice(v.indexOf(",") + 1)}); }
+  return "u/" + id;
+ }));
+ let r = null; try { r = await api({a: "save", token: tk, base: PUB.rev || 0, force: !!force, data, files}); } catch (x) {}
+ btn.disabled = false; btn.textContent = "Сохранить на сайте";
+ if (r && r.ok) {
+  ids.forEach((id, url) => { LOCAL["u/" + id] = url; });
+  data.rev = r.rev; S = data; PUB = clone(data); dirty = false; LS.del(DKEY);
+  if (!SS.set(PKEY, {rev: r.rev, S: data, local: LOCAL})) SS.set(PKEY, {rev: r.rev, S: data});
+  updBar();
+  if (then) return then();
+  return modal(`<div class="ef"><h3>Сохранено</h3><p>Покупатели увидят изменения через 1–2 минуты, когда сайт обновится.</p><div class="acts"><button class="btn btn-sun" type="button" data-close>Хорошо</button></div></div>`);
+ }
+ if (r && r.err === "auth") { LS.del(TKEY); toast("Вход истёк, войдите ещё раз"); return; }
+ if (r && r.err === "conflict") {
+  modal(`<div class="ef"><h3>Сайт уже сохраняли</h3><p>Пока вы вносили правки, сайт сохранили с другого устройства. Если сохранить сейчас, те изменения заменятся вашими.</p><div class="acts"><button class="btn btn-sun" type="button" id="fSave">Сохранить мои правки</button><button class="btn btn-line" type="button" data-close>Отмена</button></div></div>`);
+  $("fSave").onclick = () => { closeModals(); publish(true, then); };
+  return;
+ }
+ toast(r && r.err === "too_big" ? "Слишком много данных: уберите часть фото" : "Не получилось сохранить. Проверьте интернет и попробуйте ещё раз");
+}
+$("aSave").onclick = () => publish(false);
+$("aUndo").onclick = () => {
+ modal(`<div class="ef"><h3>Отменить правки?</h3><p>Все несохранённые правки удалятся, сайт вернётся к последней сохранённой версии.</p><div class="acts"><button class="btn btn-cocoa" type="button" id="uY">Отменить правки</button><button class="btn btn-line" type="button" data-close>Нет</button></div></div>`);
+ $("uY").onclick = () => { S = clone(PUB); LS.del(DKEY); dirty = false; closeModals(); renderAll(); toast("Правки отменены"); };
 };
-$("dpReset").onclick = () => { try { localStorage.removeItem(KEY); } catch (e) {} S = clone(BASE); custom = false; renderAll(); toast("Сайт вернулся к исходному виду"); };
+$("aExit").onclick = () => {
+ if (!dirty || demo) return exitAdmin();
+ modal(`<div class="ef"><h3>Есть несохранённые правки</h3><p>Сохранить их на сайте перед выходом? Если выйти без сохранения, правки останутся черновиком на этом устройстве.</p><div class="acts"><button class="btn btn-sun" type="button" id="xS">Сохранить и выйти</button><button class="btn btn-line" type="button" id="xN">Выйти без сохранения</button><button class="btn btn-line" type="button" data-close>Остаться</button></div></div>`);
+ $("xS").onclick = () => { closeModals(); publish(false, exitAdmin); };
+ $("xN").onclick = () => { closeModals(); exitAdmin(); };
+};
+$("aAdd").onclick = () => openEditor(null, cat(cur) ? cur : themeCat());
+function showHelp() {
+ modal(`<div class="ef"><h3>Как пользоваться</h3><ul class="help">
+  <li><b>Тексты:</b> нажмите на любой текст с пунктирной рамкой и исправьте его прямо на странице.</li>
+  <li><b>Фото:</b> зелёные кнопки «Фото в окне», «Заменить фото», «Изменить работы», «Изменить фото и подписи».</li>
+  <li><b>Пряники:</b> на карточке кнопки «Изменить» и «Скрыть», в конце полки «Добавить пряник».</li>
+  <li><b>Поводы:</b> переключатель под кружком открывает раздел для покупателей, «изменить» меняет название.</li>
+  <li><b>Праздник:</b> кнопка «Оформление» меняет цвета, украшения, фото в окне и тексты первого экрана. Можно включить смену по датам.</li>
+  <li><b>Формы и цены:</b> размеры, цены за тираж, формы пряников для калькулятора логотипа.</li>
+  <li><b>Готово?</b> Нажмите «Сохранить на сайте». Покупатели увидят изменения через 1–2 минуты.</li>
+ </ul><div class="acts"><button class="btn btn-sun" type="button" data-close>Понятно</button></div></div>`);
+}
+$("aHelp").onclick = showHelp;
+$("aMore").onclick = () => {
+ const acts = [["aTheme", "Оформление к празднику"], ["aFont", "Шрифт"], ["aPromo", "Акция"], ["aCont", "Контакты и адреса"], ["aShapes", "Формы и цены"], ["aAdd", "+ Добавить пряник"], ["aHelp", "Подсказка"]].concat(dirty ? [["aUndo", "Отменить правки"]] : [], [["aExit", "Выйти из режима мастера"]]);
+ modal(`<div class="ef"><h3>Режим мастера</h3><div class="amenu">${acts.map(a => `<button type="button" data-go="${a[0]}">${a[1]}</button>`).join("")}</div></div>`);
+ $("mEin").onclick = e => { const b = e.target.closest("[data-go]"); if (!b) return; closeModals(); $(b.dataset.go).click(); };
+};
+
+// --- holiday theme ---
+const fmtMD = s => s ? s.split("-").reverse().join(".") : "";
+const parseMD = s => { const m = String(s).trim().match(/^(\d{1,2})[.\/-](\d{1,2})$/); if (!m) return null; const d = +m[1], mo = +m[2]; if (mo < 1 || mo > 12 || d < 1 || d > 31) return null; return String(mo).padStart(2, "0") + "-" + String(d).padStart(2, "0"); };
+function openTheme() {
+ const draw = () => {
+  const live = liveTheme(), shown = preview || live;
+  paint(`<div class="ef"><h3>Оформление к празднику</h3>
+  <p class="small" style="font-size:15px;margin-top:-6px">Сейчас покупатели видят: <b>${esc(THEMES[live].name)}</b>${S.theme.auto ? ", меняется само по датам" : ""}</p>
+  <label class="ck" style="margin:14px 0"><input type="checkbox" id="thAuto"${S.theme.auto ? " checked" : ""}><i></i>Менять оформление само по датам</label>
+  <div class="thm-g">${Object.keys(THEMES).map(id => {
+   const th = THEMES[id], p = (S.theme.plan || []).find(x => x.id === id);
+   return `<div class="thm${id === shown ? " on" : ""}"><i style="background:${th.hl}"></i><b>${esc(th.name)}</b>`
+    + (S.theme.auto ? (id === "base" ? `<small>в остальные дни</small>` : `<small>с <input value="${fmtMD(p && p.from)}" data-pf="${id}" placeholder="дд.мм" inputmode="numeric"> по <input value="${fmtMD(p && p.to)}" data-pt="${id}" placeholder="дд.мм" inputmode="numeric"></small>`) : "")
+    + (id === "easter" ? `<small>Пасха: <input type="date" value="${esc((S.dates || {}).easter || th.date)}" data-pd="easter"></small>` : "")
+    + `<div class="thb"><button type="button" data-thv="${id}">Посмотреть</button>${S.theme.auto ? "" : `<button type="button" data-ths="${id}" class="${S.theme.cur === id ? "on" : ""}">${S.theme.cur === id ? "Включено" : "Включить"}</button>`}</div></div>`;
+  }).join("")}</div>
+  <p class="small">«Посмотреть» показывает оформление только вам: так можно заранее поменять тексты и фото к празднику. У каждого праздника свои тексты первого экрана и свои фото в окне.</p>
+  <div class="lerr" id="therr"></div>
+  <div class="acts"><button class="btn btn-sun" type="button" data-close>Готово</button></div></div>`);
+ };
+ modal(""); draw();
+ const box = $("mEin");
+ box.onchange = e => {
+  const t = e.target;
+  if (t.id === "thAuto") { const was = liveTheme(); S.theme.auto = t.checked; if (!t.checked) S.theme.cur = was; touch(); renderAll(); draw(); return; }
+  if (t.dataset.pf || t.dataset.pt) {
+   const id = t.dataset.pf || t.dataset.pt, v = parseMD(t.value);
+   if (!v) return $("therr").textContent = "Дату пишите так: 01.11";
+   $("therr").textContent = "";
+   let p = S.theme.plan.find(x => x.id === id); if (!p) S.theme.plan.push(p = {id, from: v, to: v});
+   p[t.dataset.pf ? "from" : "to"] = v; touch(); renderAll(); updBar();
+  }
+  if (t.dataset.pd) { if (/^\d{4}-\d\d-\d\d$/.test(t.value)) { S.dates.easter = t.value; touch(); renderAll(); } }
+ };
+ box.onclick = e => {
+  const v = e.target.closest("[data-thv]"), s = e.target.closest("[data-ths]");
+  if (v) { preview = v.dataset.thv === liveTheme() ? null : v.dataset.thv; closeModals(); renderAll(); scrollTo({top: 0, behavior: "smooth"}); toast(`Показываю «${THEMES[v.dataset.thv].name}». Можно менять тексты и фото`); }
+  if (s) { S.theme.cur = s.dataset.ths; preview = null; touch(); renderAll(); draw(); }
+ };
+}
+$("aTheme").onclick = openTheme;
+
+// --- font ---
+function openFont() {
+ const opts = [["hand", "Рукописный, как в вашем примере", "Весь сайт рукописным шрифтом"], ["mix", "Рукописные заголовки", "Заголовки рукописные, остальной текст обычный"], ["classic", "Как было", "Жирные печатные заголовки"]];
+ modal(`<div class="ef"><h3>Шрифт сайта</h3><div class="fopt">${opts.map(o => `<label class="fo f-${o[0]}"><input type="radio" name="fo" value="${o[0]}"${(S.font || "hand") === o[0] ? " checked" : ""}><span><b>${o[1]}</b><small>${o[2]}</small><em>Имбирные пряники ручной работы</em></span></label>`).join("")}</div><div class="acts" style="margin-top:16px"><button class="btn btn-sun" type="button" data-close>Готово</button></div></div>`);
+ $("mEin").onchange = e => { if (e.target.name === "fo") { S.font = e.target.value; touch(); renderFont(); } };
+}
+$("aFont").onclick = openFont;
+
+// --- contacts ---
+const normUrl = v => { v = v.trim(); if (v && !/^https?:\/\//i.test(v)) v = "https://" + v; return v.replace(/^http:\/\//i, "https://"); };
+function openContacts() {
+ const C = S.contacts, inp = (n, l, ph) => `<label class="fl"><span>${l}</span><input name="${n}" value="${esc(C[n] || "")}" placeholder="${ph || ""}" maxlength="200"></label>`;
+ modal(`<div class="ef"><h3>Контакты и адреса</h3><form id="cf">
+  <div class="row2"><label class="fl"><span>Телефон</span><input name="phone" type="tel" value="${esc(telFmt(String(C.phone || "")))}"></label>${inp("phoneNote", "Подпись под телефоном", "звонок, Telegram, MAX")}</div>
+  <label class="ck" style="margin-bottom:14px"><input type="checkbox" name="tg"${C.tg ? " checked" : ""}><i></i>На этом номере есть Telegram</label>
+  ${inp("maxU", "Ваш профиль в MAX (ссылка max.ru/u/...)", "https://max.ru/u/...")}${inp("maxCh", "Канал в MAX", "https://max.ru/...")}
+  ${inp("vk", "Группа ВКонтакте", "https://vk.com/...")}${inp("vkRev", "Отзывы ВКонтакте (обсуждение)", "https://vk.com/topic-...")}
+  <div class="row2">${inp("addr1", "Адрес самовывоза")}${inp("addr1n", "Когда можно забрать")}</div>
+  <div class="row2">${inp("addr2", "Второй адрес (можно пусто)")}${inp("addr2n", "Когда можно забрать")}</div>
+  <label class="fl"><span>Доставка</span><textarea name="deliv" rows="2" maxlength="300">${esc(C.deliv || "")}</textarea></label>
+  <label class="fl"><span>Оплата</span><textarea name="pay" rows="2" maxlength="300">${esc(C.pay || "")}</textarea></label>
+  <div class="lerr" id="cerr"></div>
+  <div class="acts"><button class="btn btn-sun" type="submit">Готово</button><button class="btn btn-line" type="button" data-close>Отмена</button></div></form></div>`);
+ $("cf").onsubmit = e => {
+  e.preventDefault(); const f = e.target;
+  let d = f.phone.value.replace(/\D/g, ""); if (d.length === 10) d = "7" + d; if (d.length === 11 && d[0] === "8") d = "7" + d.slice(1);
+  if (d.length !== 11) return $("cerr").textContent = "Проверьте телефон: нужно 11 цифр";
+  const u = {}; for (const n of ["maxU", "maxCh", "vk", "vkRev"]) { u[n] = normUrl(f[n].value); if (u[n] && !safeUrl(u[n])) return $("cerr").textContent = "Проверьте ссылку: " + f[n].value; }
+  if (f.addr1.value.trim().length < 3) return $("cerr").textContent = "Укажите адрес самовывоза";
+  Object.assign(S.contacts, u, {phone: d, phoneNote: f.phoneNote.value.trim(), tg: f.tg.checked, addr1: f.addr1.value.trim(), addr1n: f.addr1n.value.trim(), addr2: f.addr2.value.trim(), addr2n: f.addr2n.value.trim(), deliv: f.deliv.value.trim(), pay: f.pay.value.trim()});
+  touch(); renderAll(); closeModals(); toast("Контакты обновлены");
+ };
+}
+$("aCont").onclick = openContacts;
+
+// --- shapes, sizes, prices ---
+function openShapes() {
+ const sizes = S.sizes.map(z => ({l: z.l, o: z.l, ps: z.ps.slice()})), tiers = S.tiers.slice(), shapes = clone(S.shapes); let rib = +S.rib || 0;
+ const draw = () => {
+  const tl = tierLabels(tiers);
+  paint(`<div class="ef"><h3>Формы, размеры и цены</h3>
+  <h4 class="eh">Скидка за тираж</h4><p class="small" style="margin-top:0">Цена за пряник ниже, когда заказывают больше штук</p>
+  <div class="tiers"><span>1 шт</span>${[1, 2, 3].map(i => `<label>от <input data-tier="${i}" value="${tiers[i]}" inputmode="numeric"> шт</label>`).join("")}</div>
+  <h4 class="eh">Цена за 1 пряник, ₽</h4>
+  <div class="pt-w"><table class="pt"><thead><tr><th>Размер</th>${tl.map(l => `<th>${esc(l)}</th>`).join("")}<th></th></tr></thead><tbody>${sizes.map((z, i) => `<tr><td><input data-zl="${i}" value="${esc(z.l)}" placeholder="8 см"></td>${z.ps.map((p, j) => `<td><input data-zp="${i}.${j}" inputmode="numeric" value="${p}"></td>`).join("")}<td><button type="button" data-zdel="${i}" aria-label="Убрать размер">×</button></td></tr>`).join("")}</tbody></table></div>
+  <button type="button" class="btn btn-line le-add" data-zadd>+ Размер</button>
+  <label class="fl" style="max-width:280px"><span>Пакетик с ленточкой, ₽ за пряник</span><input data-rib value="${rib}" inputmode="numeric"></label>
+  <h4 class="eh">Формы</h4><p class="small" style="margin-top:0">Включите формы, которые делаете сейчас: покупатели увидят их в калькуляторе. Для каждой формы отметьте размеры и, если нужно, наценку</p>
+  <div class="shp-l">${SHAPE_LIB.map(x => { const st = shapes[x.id] || {}; return `<div class="shp${st.on ? " on" : ""}"><svg viewBox="-6 -6 212 212" aria-hidden="true"><path d="${x.d}"/></svg><div class="shp-b"><label class="ck"><input type="checkbox" data-son="${x.id}"${st.on ? " checked" : ""}><i></i><b>${esc(x.name)}</b></label>${st.on ? `<div class="shp-s">${sizes.filter(z => z.l).map(z => `<label class="mini"><input type="checkbox" data-ssz="${x.id}" value="${esc(z.l)}"${(st.sizes || []).includes(z.o) || (st.sizes || []).includes(z.l) ? " checked" : ""}><span>${esc(z.l)}</span></label>`).join("")}</div><label class="addp">Наценка, ₽ <input data-sadd="${x.id}" inputmode="numeric" value="${+st.add || 0}"></label>` : ""}</div></div>`; }).join("")}</div>
+  <div class="lerr" id="perr"></div>
+  <div class="acts"><button class="btn btn-sun" type="button" id="pOk">Готово</button><button class="btn btn-line" type="button" data-close>Отмена</button></div></div>`);
+ };
+ modal(""); draw();
+ const box = $("mEin"), num = v => Math.max(0, Math.round(+String(v).replace(/[^\d]/g, "") || 0));
+ box.oninput = e => {
+  const t = e.target;
+  if (t.dataset.zl != null) sizes[+t.dataset.zl].l = t.value.trim();
+  else if (t.dataset.zp) { const [i, j] = t.dataset.zp.split(".").map(Number); sizes[i].ps[j] = num(t.value); }
+  else if (t.dataset.tier) tiers[+t.dataset.tier] = num(t.value);
+  else if (t.dataset.sadd) { const s = shapes[t.dataset.sadd]; if (s) s.add = Math.round(+String(t.value).replace(/[^\d-]/g, "") || 0); }
+  else if (t.hasAttribute("data-rib")) rib = num(t.value);
+ };
+ box.onchange = e => {
+  const t = e.target;
+  if (t.dataset.son) { const id = t.dataset.son; if (!shapes[id]) shapes[id] = {sizes: sizes.filter(z => /^(8|10) см$/.test(z.l)).map(z => z.l), add: 0}; shapes[id].on = t.checked; if (!shapes[id].sizes.length) shapes[id].sizes = sizes.map(z => z.l); draw(); }
+  else if (t.dataset.ssz) shapes[t.dataset.ssz].sizes = [...box.querySelectorAll(`[data-ssz="${t.dataset.ssz}"]:checked`)].map(x => x.value);
+ };
+ box.onclick = e => {
+  if (e.target.closest("[data-zadd]")) { sizes.push({l: "", o: "", ps: [0, 0, 0, 0]}); draw(); return; }
+  const zd = e.target.closest("[data-zdel]"); if (zd) { if (sizes.length < 2) return $("perr").textContent = "Нужен хотя бы один размер"; sizes.splice(+zd.dataset.zdel, 1); draw(); return; }
+  if (e.target.id !== "pOk") return;
+  const zs = sizes.filter(z => z.l);
+  if (!zs.length) return $("perr").textContent = "Нужен хотя бы один размер";
+  if (new Set(zs.map(z => z.l)).size !== zs.length) return $("perr").textContent = "Два размера называются одинаково";
+  if (zs.some(z => z.ps.some(p => !p))) return $("perr").textContent = "Заполните все цены";
+  if (!(tiers[1] > 1 && tiers[2] > tiers[1] && tiers[3] > tiers[2])) return $("perr").textContent = "Количество для скидки должно расти: например, от 11, от 31, от 101";
+  for (const id of Object.keys(shapes)) { const st = shapes[id]; st.sizes = (st.sizes || []).map(l => { const z = zs.find(x => x.o === l); return z ? z.l : l; }).filter(l => zs.some(z => z.l === l)); }
+  S.sizes = zs.map(z => ({l: z.l, ps: z.ps})); S.tiers = tiers; S.shapes = shapes; S.rib = rib;
+  if (!SHAPE_LIB.some(x => (shapes[x.id] || {}).on)) S.shapes.circle = Object.assign(S.shapes.circle || {}, {on: true, sizes: zs.map(z => z.l)});
+  touch(); drawTry(); closeModals(); toast("Цены и формы обновлены");
+ };
+}
+$("aShapes").onclick = openShapes;
+
+// --- list editor: gallery, photos for companies, reviews, questions, window photos ---
+function listEditor(o) {
+ let items = clone(o.items);
+ const fld = (f, it, i) => {
+  const v = it[f.k] == null ? "" : it[f.k];
+  if (f.t === "photo") return `<div class="le-ph"><img src="${esc(thumb(v))}" alt=""><label class="btn btn-line">${v ? "Заменить фото" : "Выбрать фото"}<input type="file" accept="image/*" data-lph="${i}.${f.k}"></label></div>`;
+  if (f.t === "area") return `<label class="fl"><span>${esc(f.l)}</span><textarea data-lf="${i}.${f.k}" rows="3" maxlength="${f.max || 900}">${esc(v)}</textarea></label>`;
+  return `<label class="fl"><span>${esc(f.l)}</span><input data-lf="${i}.${f.k}" value="${esc(v)}" maxlength="${f.max || 160}"></label>`;
+ };
+ const draw = () => paint(`<div class="ef"><h3>${esc(o.title)}</h3>${o.hint ? `<p class="small" style="margin-top:-6px">${esc(o.hint)}</p>` : ""}
+  <div class="le-l">${items.map((it, i) => `<div class="le-i">${o.fields.map(f => fld(f, it, i)).join("")}<div class="le-b"><button type="button" data-lup="${i}"${i ? "" : " disabled"}>Выше</button><button type="button" data-ldn="${i}"${i < items.length - 1 ? "" : " disabled"}>Ниже</button><button type="button" class="dang" data-ldel="${i}">Удалить</button></div></div>`).join("") || '<p class="small">Пока пусто</p>'}</div>
+  ${o.photoKey ? `<label class="btn btn-line le-add">+ Добавить фото<input type="file" accept="image/*" multiple data-ladd></label>` : `<button type="button" class="btn btn-line le-add" data-ladd>+ ${esc(o.addLabel || "Добавить")}</button>`}
+  <div class="acts"><button class="btn btn-sun" type="button" data-lok>Готово</button><button class="btn btn-line" type="button" data-close>Отмена</button></div></div>`);
+ modal(""); draw();
+ const box = $("mEin");
+ box.oninput = e => { const k = e.target.dataset.lf; if (!k) return; const [i, f] = k.split("."); items[+i][f] = e.target.value; };
+ box.onchange = async e => {
+  const t = e.target;
+  if (t.dataset.lph) { const [i, f] = t.dataset.lph.split("."), file = t.files[0]; if (!file) return; try { items[+i][f] = await shrink(file, o.px || 1400); } catch (x) { return toast("Не получилось открыть фото"); } draw(); }
+  else if (t.hasAttribute("data-ladd") && t.files) { for (const file of [...t.files].slice(0, 12)) { try { items.push(Object.assign(o.blank(), {[o.photoKey]: await shrink(file, o.px || 1400)})); } catch (x) {} } draw(); }
+ };
+ box.onclick = e => {
+  const b = e.target.closest("button"); if (!b) return; let i;
+  if ((i = b.dataset.lup) != null) { i = +i; [items[i - 1], items[i]] = [items[i], items[i - 1]]; draw(); }
+  else if ((i = b.dataset.ldn) != null) { i = +i; [items[i + 1], items[i]] = [items[i], items[i + 1]]; draw(); }
+  else if ((i = b.dataset.ldel) != null) { items.splice(+i, 1); draw(); }
+  else if (b.hasAttribute("data-ladd")) { items.push(o.blank()); draw(); setTimeout(() => { const l = box.querySelectorAll(".le-i"); if (l.length) l[l.length - 1].scrollIntoView({block: "center"}); }, 30); }
+  else if (b.hasAttribute("data-lok")) { o.save(o.clean ? items.filter(o.clean) : items); touch(); renderAll(); closeModals(); toast("Готово. Не забудьте «Сохранить на сайте»"); }
+ };
+}
+const pickPhoto = (px, cb) => { const inp = document.createElement("input"); inp.type = "file"; inp.accept = "image/*"; inp.onchange = async () => { const f = inp.files[0]; if (!f) return; try { cb(await shrink(f, px)); } catch (x) { toast("Не получилось открыть фото"); } }; inp.click(); };
+document.addEventListener("click", e => {
+ const b = admin && e.target.closest(".aedit"); if (!b) return;
+ const a = b.dataset.a, photoList = (title, key, hint) => listEditor({title, hint, items: S[key], fields: [{k: "f", t: "photo"}, {k: "c", l: "Подпись", max: 90}], photoKey: "f", blank: () => ({f: "", c: ""}), clean: x => x.f, save: v => { S[key] = v; }});
+ if (a === "hero") listEditor({title: "Фото в окне: " + THEMES[thm].name, hint: "Фото меняются по очереди. Если оставить пусто, покажу фото пряников из раздела этого праздника.", items: (S.heroPh[thm] || heroList()).map(f => ({f})), fields: [{k: "f", t: "photo"}], photoKey: "f", blank: () => ({f: ""}), clean: x => x.f, px: 1200, save: v => { S.heroPh[thm] = v.map(x => x.f); }});
+ else if (a === "about") pickPhoto(1200, d => { S.img.about = d; touch(); renderAll(); });
+ else if (a === "corp") photoList("Фото для компаний", "corp");
+ else if (a === "gal") photoList("Мои работы", "gal", "Подпись видна, когда наводят на фото, и в большом просмотре.");
+ else if (a === "reviews") listEditor({title: "Отзывы", items: S.reviews, fields: [{k: "n", l: "Имя", max: 60}, {k: "d", l: "Дата", max: 40}, {k: "t", l: "Отзыв", t: "area"}], blank: () => ({n: "", d: "", t: ""}), clean: x => (x.t || "").trim(), addLabel: "Добавить отзыв", save: v => { S.reviews = v; }});
+ else if (a === "faq") listEditor({title: "Частые вопросы", items: S.faq, fields: [{k: "q", l: "Вопрос", max: 160}, {k: "a", l: "Ответ", t: "area"}], blank: () => ({q: "", a: ""}), clean: x => (x.q || "").trim() && (x.a || "").trim(), addLabel: "Добавить вопрос", save: v => { S.faq = v; }});
+ else if (a === "shapes") openShapes();
+ else if (a === "contacts") openContacts();
+});
+
+// --- occasions (categories) ---
+function openCat(id) {
+ const isNew = !id, c = isNew ? {id: "c" + Date.now().toString(36), name: "", label: "", note: "", open: false} : cat(id);
+ if (!c) return;
+ modal(`<div class="ef"><h3>${isNew ? "Новый повод" : "Повод «" + esc(c.name) + "»"}</h3><form id="cf2">
+  <label class="fl"><span>Название</span><input name="name" maxlength="40" value="${esc(c.name)}" placeholder="Например, День рождения"></label>
+  <label class="fl"><span>Надпись в кружке (можно в две строки)</span><textarea name="label" rows="2" maxlength="30">${esc(c.label)}</textarea></label>
+  <label class="fl"><span>Пояснение над пряниками</span><textarea name="note" rows="2" maxlength="300">${esc(c.note || "")}</textarea></label>
+  <label class="ck" style="margin-bottom:16px"><input type="checkbox" name="open"${c.open ? " checked" : ""}><i></i>Открыт для покупателей</label>
+  <div class="lerr" id="cerr2"></div>
+  <div class="acts"><button class="btn btn-sun" type="submit">Готово</button><button class="btn btn-line" type="button" data-close>Отмена</button>${isNew ? "" : '<button class="btn btn-line dangb" type="button" id="cDel">Удалить повод</button>'}</div></form></div>`);
+ $("cf2").onsubmit = e => {
+  e.preventDefault(); const f = e.target, name = f.name.value.trim();
+  if (name.length < 2) return $("cerr2").textContent = "Напишите название";
+  Object.assign(c, {name, label: f.label.value.trim() || name, note: f.note.value.trim(), open: f.open.checked});
+  if (isNew) S.cats.push(c);
+  cur = c.id; touch(); closeModals(); renderAll();
+ };
+ if (!isNew) $("cDel").onclick = () => {
+  const n = S.products.filter(p => p.cat === c.id).length;
+  if (n) return $("cerr2").textContent = `Сначала перенесите или удалите пряники этого повода (${n} шт)`;
+  if (Object.values(THEMES).some(t => t.cat === c.id)) return $("cerr2").textContent = "С этим поводом связано праздничное оформление, его можно только закрыть";
+  S.cats = S.cats.filter(x => x.id !== c.id); cur = null; touch(); closeModals(); renderAll();
+ };
+}
+
+// ===== product editor and promo dialog =====
 $("aPromo").onclick = () => {
  const pr = S.promo;
- $("mEin").innerHTML = `<div class="ef"><h3>Акция в красной полосе</h3><form id="pf"><label class="fl"><span>Текст акции</span><input name="t" maxlength="120" value="${esc(pr.text)}"></label><label class="fl"><span>Показывать до (включительно)</span><input name="u" type="date" value="${esc(pr.until || "")}"></label><label class="ck" style="margin-bottom:16px"><input type="checkbox" name="on" ${pr.on ? "checked" : ""}><i></i>Показывать акцию</label><div class="acts"><button class="btn btn-sun" type="submit">Сохранить</button><button class="btn btn-line" type="button" data-close>Отмена</button></div></form></div>`;
+ resetM(); $("mEin").innerHTML = `<div class="ef"><h3>Акция в красной полосе</h3><form id="pf"><label class="fl"><span>Текст акции</span><input name="t" maxlength="120" value="${esc(pr.text)}"></label><label class="fl"><span>Показывать до (включительно)</span><input name="u" type="date" value="${esc(pr.until || "")}"></label><label class="ck" style="margin-bottom:16px"><input type="checkbox" name="on" ${pr.on ? "checked" : ""}><i></i>Показывать акцию</label><div class="acts"><button class="btn btn-sun" type="submit">Сохранить</button><button class="btn btn-line" type="button" data-close>Отмена</button></div></form></div>`;
  $("mE").classList.add("on");
  $("pf").onsubmit = e => { e.preventDefault(); const f = e.target; S.promo = {on: f.on.checked, text: f.t.value.trim(), until: f.u.value}; try { sessionStorage.removeItem("pe-promo-x"); } catch (x) {} save(); renderAll(); closeModals(); toast("Акция сохранена"); };
 };
-function shrink(file) {
+function shrink(file, px = 1200) {
  return new Promise((res, rej) => {
   const r = new FileReader();
-  r.onload = () => { const im = new Image(); im.onload = () => { const k = Math.min(1, 900 / Math.max(im.width, im.height)); const c = document.createElement("canvas"); c.width = Math.round(im.width * k); c.height = Math.round(im.height * k); c.getContext("2d").drawImage(im, 0, 0, c.width, c.height); res(c.toDataURL("image/jpeg", .8)); }; im.onerror = rej; im.src = r.result; };
+  r.onload = () => { const im = new Image(); im.onload = () => { const k = Math.min(1, px / Math.max(im.width, im.height)); const c = document.createElement("canvas"); c.width = Math.round(im.width * k); c.height = Math.round(im.height * k); c.getContext("2d").drawImage(im, 0, 0, c.width, c.height); res(c.toDataURL("image/jpeg", .84)); }; im.onerror = rej; im.src = r.result; };
   r.onerror = rej; r.readAsDataURL(file);
  });
 }
@@ -1285,7 +1952,7 @@ function openEditor(id, catId) {
  const p = id ? prod(id) : {id: "", cat: catId || "ny", name: "", price: "", unit: "шт", facts: [], text: "", photos: [], hit: false, hidden: false};
  edPhotos = p.photos.slice();
  const vr = p.vars ? p.vars.map(v => v.l + " " + v.p).join(", ") : "";
- $("mEin").innerHTML = `<div class="ef"><h3>${id ? "Изменить пряник" : "Новый пряник"}</h3><form id="ef">
+ resetM(); $("mEin").innerHTML = `<div class="ef"><h3>${id ? "Изменить пряник" : "Новый пряник"}</h3><form id="ef">
   <div class="fl"><span>Фото (первое будет на карточке)</span><div class="ephs" id="eph"></div></div>
   <label class="fl"><span>Название</span><input name="name" maxlength="80" value="${esc(p.name)}" placeholder="Например, Пряник «Ёлочка»"></label>
   <div class="row2"><label class="fl"><span>Цена, ₽ (пусто = по запросу)</span><input name="price" type="number" inputmode="numeric" min="0" value="${p.vars ? p.vars[0].p : esc(p.price == null ? "" : p.price)}"></label>
@@ -1322,16 +1989,20 @@ function openEditor(id, catId) {
 
 // ===== misc =====
 let tt;
-function toast(t) { const el = $("toast"); el.textContent = t; el.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => el.classList.remove("on"), 2600); }
+function toast(t) { const el = $("toast"); el.textContent = t; el.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => el.classList.remove("on"), 2800); }
 function closeMenu() { $("mn").classList.remove("open"); $("burger").setAttribute("aria-expanded", "false"); }
 $("burger").onclick = () => { const o = $("mn").classList.toggle("open"); $("burger").setAttribute("aria-expanded", o); };
-$("mn").addEventListener("click", e => { if (e.target.closest("a")) closeMenu(); });
+$("mn").addEventListener("click", e => { if (e.target.closest("a") && !admin) closeMenu(); });
 addEventListener("scroll", () => $("hdr").classList.toggle("sc", scrollY > 30), {passive: true});
-function renderAll() { renderPromo(); renderStickers(); renderShelf(); renderCart(); $("dpill").classList.toggle("on", custom && !admin); }
-if (admin) document.body.classList.add("admin");
+const safe = fn => { try { fn(); } catch (e) { if (window.console) console.error(e); } };
+function renderAll() {
+ safe(renderTheme); safe(renderTexts); safe(renderFont); safe(renderPromo); safe(renderContacts);
+ if (!cur || !cat(cur)) cur = themeCat();
+ safe(renderStickers); safe(renderShelf); safe(renderCart); safe(renderLists); safe(drawTry); safe(updBar);
+}
 renderAll();
-// hero window slideshow
-(() => { const ims = [...$("win").querySelectorAll("img")]; let i = 0; if (!document.documentElement.classList.contains("anim")) return; setInterval(() => { if (document.hidden) return; ims[i].classList.remove("on"); i = (i + 1) % ims.length; ims[i].classList.add("on"); }, 3800); })();
+(() => { const a = SS.get("pe-adm"); if (a === 2 && !MASTER_URL) enterAdmin(true); else if (a === 1 && MASTER_URL && token()) enterAdmin(false); })();
+if (location.hash === "#master") setTimeout(openLogin, 400);
 // reveal on scroll
 if ("IntersectionObserver" in window) {
  const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add("vis"); io.unobserve(x.target); } }), {rootMargin: "0px 0px -8% 0px"});
