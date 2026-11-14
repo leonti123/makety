@@ -154,6 +154,8 @@ body.admin .sw{display:inline-flex}
 .sh-h{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:26px}
 .sh-h h3{font-family:var(--disp);font-size:clamp(24px,3vw,34px)}
 .sh-h p{margin:6px 0 0;color:var(--muted);max-width:640px}
+body.admin .sh-h [data-cid]{outline:2px dashed rgba(46,123,78,.6);outline-offset:3px;border-radius:4px;cursor:text}
+body.admin .sh-h p[data-cid]:empty::before{content:attr(data-ph);color:var(--muted);opacity:.7}
 .sh-h .cnt2{font-weight:800;color:var(--ginger);white-space:nowrap}
 .pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px}
 .card{position:relative;display:flex;flex-direction:column;background:var(--cream);border-radius:20px;overflow:hidden;border:1px solid var(--line);transition:box-shadow .2s,transform .2s}
@@ -1398,7 +1400,8 @@ function cardHTML(p) {
 function renderShelf() {
  const c = cat(cur) || S.cats[0];
  const list = S.products.filter(p => p.cat === c.id && visible(p));
- let h = `<div class="sh-h"><div><h3>${esc(c.name)}</h3>${c.note ? `<p>${esc(c.note)}</p>` : ""}</div>${list.length && c.open ? `<span class="cnt2">${list.length} ${list.length % 10 === 1 && list.length % 100 !== 11 ? "позиция" : list.length % 10 >= 2 && list.length % 10 <= 4 && (list.length % 100 < 10 || list.length % 100 >= 20) ? "позиции" : "позиций"}</span>` : ""}</div>`;
+ const ce = admin ? ` contenteditable="${PTO ? "plaintext-only" : "true"}" data-cid="${esc(c.id)}"` : "";
+ let h = `<div class="sh-h"><div><h3${ce} data-ce="name">${esc(c.name)}</h3>${c.note || admin ? `<p${ce} data-ce="note" data-ph="Нажмите, чтобы написать пояснение">${esc(c.note || "")}</p>` : ""}</div>${list.length && c.open ? `<span class="cnt2">${list.length} ${list.length % 10 === 1 && list.length % 100 !== 11 ? "позиция" : list.length % 10 >= 2 && list.length % 10 <= 4 && (list.length % 100 < 10 || list.length % 100 >= 20) ? "позиции" : "позиций"}</span>` : ""}</div>`;
  if (!c.open && !admin) {
   h += `<div class="empty"><div class="stk soon" style="--r:-6deg">${esc(c.label)}<span class="tg">скоро</span></div><div><h4>Раздел «${esc(c.name)}» пока пустой</h4><p>Пряники к этому празднику появятся ближе к дате. Хотите заранее? Оставьте заявку, и я напомню, когда начну принимать заказы, или сделаю пряники по вашей идее.</p><button type="button" class="btn btn-sun" data-pre="${c.id}">Напомнить мне</button></div></div>`;
  } else if (!list.length && !admin) {
@@ -1628,7 +1631,15 @@ document.addEventListener("input", e => {
  document.querySelectorAll(`[data-t="${k}"]`).forEach(o => { if (o !== el) o.textContent = v; });
  touch();
 });
-document.addEventListener("keydown", e => { const el = admin && e.target.closest && e.target.closest("[data-t]"); if (el && e.key === "Enter") { e.preventDefault(); el.blur(); } });
+// occasion title and note above the gingerbreads: edit right on the page
+document.addEventListener("input", e => {
+ const el = admin && e.target.closest && e.target.closest("[data-ce][data-cid]"); if (!el) return;
+ const c = cat(el.dataset.cid); if (!c) return;
+ const v = el.innerText.replace(/\u00a0/g, " ").replace(/\s+/g, " ").trim().slice(0, el.dataset.ce === "name" ? 40 : 300);
+ if (el.dataset.ce === "name") { if (v.length < 2) return; c.name = v; } else c.note = v;
+ touch();
+});
+document.addEventListener("keydown", e => { const el = admin && e.target.closest && e.target.closest("[data-t],[data-ce][data-cid]"); if (el && e.key === "Enter") { e.preventDefault(); el.blur(); } });
 document.addEventListener("paste", e => {
  const el = admin && !PTO && e.target.closest && e.target.closest("[data-t]"); if (!el) return;
  e.preventDefault(); document.execCommand("insertText", false, (e.clipboardData || window.clipboardData).getData("text/plain"));
