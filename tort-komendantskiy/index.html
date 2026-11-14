@@ -841,7 +841,7 @@ const DATA = {"cats": [["art", "3D и арт-торты"], ["kids", "Детск�
   const fmt = n => Math.round(n).toLocaleString("ru-RU").replace(/ /g, " ");
   const byId = {}; DATA.items.forEach(it => byId[it.id] = it);
   const catName = {}; DATA.cats.forEach(c => catName[c[0]] = c[1]);
-  const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
+  const LEAD_URL = "https://script.google.com/macros/s/AKfycbwFDYn0GoEuQqvgH7YUuDKoDcCL83vXLUyj1mUxDGdhALWhvq3NsBkI687_2PaEPkt1xg/exec";
 
   // header
   const hdr = $("hdr"), bur = hdr.querySelector(".burger");
@@ -1011,7 +1011,7 @@ const DATA = {"cats": [["art", "3D и арт-торты"], ["kids", "Детск�
     form.name.closest(".fl").classList.toggle("inv", !nameOk); form.phone.closest(".fl").classList.toggle("inv", !phoneOk);
     if (!nameOk || !phoneOk) { (nameOk ? form.phone : form.name).focus(); return; }
     const btn = $("send"); btn.disabled = true; btn.textContent = "Отправляем…";
-    const details = ["Макет tort-komendantskiy (Сладкая Мечта)", "Что: " + form.kind.value];
+    const details = ["Сайт Сладкая Мечта", "Что: " + form.kind.value];
     if (form.date.value) details.push("Дата: " + form.date.value.split("-").reverse().join("."));
     if (form.weight.value.trim()) details.push("Вес/гости: " + form.weight.value.trim());
     details.push("Связаться: " + form.how.value);
