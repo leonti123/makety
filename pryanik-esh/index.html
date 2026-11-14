@@ -72,6 +72,7 @@ header{position:sticky;top:0;z-index:40;padding-top:calc(var(--sw)/2 - 2px);back
 header.sc{border-color:var(--line);box-shadow:0 10px 30px -24px rgba(59,35,20,.6)}
 .hd{display:flex;align-items:center;gap:20px;height:92px}
 header .wrap{max-width:1400px}
+body.admin a [data-t]{-webkit-user-select:text;user-select:text;-webkit-user-drag:none;cursor:text}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:none}
 .brand img{width:80px;height:80px;background:#fff;border-radius:50%;box-shadow:0 0 0 3px var(--sun),0 6px 14px -6px rgba(0,0,0,.4)}
 .brand b{font-family:var(--disp);font-size:25px;font-weight:400;letter-spacing:.01em;display:block;line-height:1}
@@ -1614,6 +1615,8 @@ function setEditable(on) {
  document.querySelectorAll("[data-t]").forEach(el => {
   if (on) { el.contentEditable = PTO ? "plaintext-only" : "true"; el.spellcheck = true; }
   else el.removeAttribute("contenteditable");
+  // text inside a link: the mouse would drag the link instead of selecting the text
+  const a = el.closest("a"); if (a) { if (on) a.draggable = false; else a.removeAttribute("draggable"); }
  });
 }
 // in master mode a tap on a text puts the cursor there instead of following the link or button
