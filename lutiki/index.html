@@ -52,7 +52,7 @@
 @font-face{font-family:'Piazzolla';font-style:italic;font-weight:600;font-display:swap;src:url(fonts/pz-var-i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 :root{
   --wine:#82130C;--wine-d:#5C0D08;--wine-dd:#2C0A06;--gold:#F2C014;--gold-l:#FFE48A;--gold-d:#9A7300;
-  --cream:#FFF8EA;--paper:#FBEED3;--card:#FFFDF8;--ink:#2B0D08;--muted:#735248;--line:#EAD7B6;--leaf:#47702A;--wa:#1E9E50;
+  --cream:#FFF8EA;--paper:#FBEED3;--card:#FFFDF8;--ink:#2B0D08;--muted:#735248;--line:#EAD7B6;--leaf:#47702A;--wa:#5A4BF0;
   --disp:"Montserrat Alternates",system-ui,sans-serif;--sans:"Mulish",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--it:"Piazzolla",Georgia,serif;
   --sh:0 12px 34px rgba(76,12,6,.13);--sh2:0 4px 14px rgba(76,12,6,.10)
 }
@@ -520,6 +520,7 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
   .ab-ph svg{left:-6px;width:70px}
 }
 @media (min-width:641px){.chipsrow{display:contents}}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -541,6 +542,7 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
     <symbol id="i-l" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m15 5-7 7 7 7"/></symbol>
     <symbol id="i-r" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7"/></symbol>
     <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 6h18v12H3z M3 7l9 6 9-6"/></symbol>
     <symbol id="i-max" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5c-5.4 0-9.5 3.9-9.5 9.1 0 2.3.8 4.3 2.2 5.9l-.6 3.6 3.7-1.2c1.3.6 2.7.9 4.2.9 5.4 0 9.5-3.9 9.5-9.2S17.4 2.5 12 2.5Zm0 15.6c-3.7 0-6.6-2.8-6.6-6.5S8.3 5.2 12 5.2s6.6 2.8 6.6 6.4-2.9 6.5-6.6 6.5Z"/></symbol>
   </defs>
 </svg>
@@ -554,14 +556,14 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
     <nav class="nav" aria-label="Разделы">
       <a href="#katalog">Каталог</a><a href="#podbor">Подбор</a><a href="#kachestvo">Качество</a><a href="#raboty">Работы</a><a href="#otzyvy">Отзывы</a><a href="#dostavka">Доставка</a>
     </nav>
-    <a class="hd-ph" href="tel:+79219313913">+7 921 931-39-13<small>звонок, WhatsApp, MAX</small></a>
+    <a class="hd-ph" href="tel:+79219313913">+7 921 931-39-13<small>звонок и MAX</small></a>
     <a class="btn b-gold b-sm" href="#zakaz" style="flex:none">Заказать</a>
     <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
 </header>
 <nav class="mnav" id="mnav" aria-label="Меню">
   <a href="#katalog">Каталог с ценами</a><a href="#podbor">Подбор подарка</a><a href="#kachestvo">Качество</a><a href="#raki">Раки и краб</a><a href="#raboty">Работы</a><a href="#otzyvy">Отзывы</a><a href="#dostavka">Доставка и оплата</a><a href="#faq">Вопросы</a>
-  <a class="btn b-wa" href="https://wa.me/79219313913" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Написать в WhatsApp</a>
+  <a class="btn b-wa" data-max href="https://vk.me/liutiki_cvetochki" target="_blank" rel="noopener"><svg><use href="#i-vk"/></svg><span data-mt="Написать в {}">Написать ВКонтакте</span></a>
   <a class="btn b-ghost" href="tel:+79219313913"><svg><use href="#i-ph"/></svg>+7 921 931-39-13</a>
 </nav>
 
@@ -578,7 +580,7 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
       <div class="facts"><span><b>от 950 ₽</b>в каталоге</span><span><b>2–3 дня</b>обычный заказ</span><span><b>от 1 часа</b>срочно</span></div>
       <div class="h-cta">
         <a class="btn b-gold" href="#podbor">Подобрать букет</a>
-        <a class="btn b-ghost" href="https://wa.me/79219313913?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D0%B1%D1%83%D0%BA%D0%B5%D1%82" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Написать в WhatsApp</a>
+        <a class="btn b-ghost" data-max data-copy="Здравствуйте! Хочу заказать букет" href="https://vk.me/liutiki_cvetochki" target="_blank" rel="noopener"><svg><use href="#i-vk"/></svg><span data-mt="Написать в {}">Написать ВКонтакте</span></a>
       </div>
       <div class="trust">
         <div><svg><use href="#i-star"/></svg><span><b>5,0</b> · 21 отзыв ВКонтакте</span></div>
@@ -641,15 +643,15 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
     <div class="sec-h rv">
       <div>
         <span class="kick"><svg viewBox="0 0 100 100"><use href="#i-flower" fill="currentColor"/></svg>Качество</span>
-        <h2>Букет собирает <span class="it">ветеринарный врач</span></h2>
-        <p>По образованию и профессии я ветеринарно-санитарный эксперт. Свежесть продуктов для меня работа, а не красивое слово.</p>
+        <h2>Букет собирает <span class="it">ветсанэксперт</span></h2>
+        <p>Специалист в области обеспечения качества и безопасности пищевых продуктов. Свежесть продуктов для меня работа, а не красивое слово.</p>
       </div>
     </div>
     <div class="ql">
       <div class="doc rv">
         <div class="doc-h"><small>Протокол качества</small><h3>Заключение ветсанэксперта</h3><p>о каждом вкусном букете «Лютики цветочки»</p></div>
         <dl>
-          <dt>Эксперт</dt><dd>Евгения, ветеринарный врач. 20 лет в ветеринарно-санитарной экспертизе продуктов питания, из них 10 лет на мясокомбинатах</dd>
+          <dt>Эксперт</dt><dd>Евгения, ветсанэксперт, специалист в области обеспечения качества и безопасности пищевых продуктов. 20 лет в ветеринарно-санитарной экспертизе продуктов питания, из них 10 лет на мясокомбинатах</dd>
           <dt>Проверяю</dt><dd>Сроки годности, даты выработки, условия хранения и товарное соседство: мясо, сыр, ягоды и сладкое не лежат как попало</dd>
           <dt>Закупаю</dt><dd>Орехи и сухофрукты езжу выбирать на базу сама, клубнику ищу самую свежую и ароматную</dd>
           <dt>Храню</dt><dd>Сухофрукты держу в вакууме, чтобы не засахарились и не затвердели</dd>
@@ -752,7 +754,7 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
     <div class="rv">
       <span class="kick"><svg viewBox="0 0 100 100"><use href="#i-flower" fill="currentColor"/></svg>Обо мне</span>
       <h2>Меня зовут <span class="it">Евгения</span></h2>
-      <p>Я ветеринарный врач и уже 20 лет работаю в ветеринарно-санитарной экспертизе продуктов питания. Наверное, поэтому моё творчество связано именно с фудфлористикой.</p>
+      <p>Я ветсанэксперт, специалист в области обеспечения качества и безопасности пищевых продуктов, и уже 20 лет работаю в ветеринарно-санитарной экспертизе продуктов питания. Наверное, поэтому моё творчество связано именно с фудфлористикой.</p>
       <p>Почему букет обязательно из цветов? Букет из раков, колбас, ягод или орехов не завянет через пару дней и не полетит в урну. Его фотографируют, съедают с удовольствием и вспоминают месяцами. Дело во вкусе, в правильно подобранном составе и сочетаниях, а не в размере.</p>
       <p>Я постоянно учусь: весной освоила насыпную технику для боксов, а сейчас ввожу в ассортимент собственный зефир. И своим близким на праздники дарю тоже букеты от «Лютиков».</p>
       <div class="sig">Евгения</div>
@@ -846,9 +848,10 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
       <h2>Расскажите, какой букет <span class="it" style="color:var(--gold)">нужен</span></h2>
       <p>Отвечу, посчитаю стоимость и предложу варианты. Если удобнее, напишите сразу в мессенджер.</p>
       <div class="cts">
-        <a class="ct" href="https://wa.me/79219313913" target="_blank" rel="noopener"><span class="ic" style="background:var(--wa)"><svg><use href="#i-wa"/></svg></span><span><b>WhatsApp</b><span>+7 921 931-39-13</span></span></a>
+        <a class="ct" data-max data-maxonly hidden href="#" target="_blank" rel="noopener"><span class="ic" style="background:var(--wa)"><svg><use href="#i-max"/></svg></span><span><b>MAX</b><span>написать в мессенджер</span></span></a>
         <a class="ct" href="https://vk.me/liutiki_cvetochki" target="_blank" rel="noopener"><span class="ic" style="background:#0077FF"><svg><use href="#i-vk"/></svg></span><span><b>Сообщения группы ВКонтакте</b><span>отвечаю в среднем за 15 минут</span></span></a>
-        <a class="ct" href="tel:+79219313913"><span class="ic" style="background:var(--gold);color:var(--wine-dd)"><svg><use href="#i-ph"/></svg></span><span><b>+7 921 931-39-13</b><span>позвонить, этот же номер в MAX</span></span></a>
+        <a class="ct" data-email hidden href="#"><span class="ic" style="background:var(--leaf)"><svg><use href="#i-mail"/></svg></span><span><b data-et></b><span>написать на почту</span></span></a>
+        <a class="ct" href="tel:+79219313913"><span class="ic" style="background:var(--gold);color:var(--wine-dd)"><svg><use href="#i-ph"/></svg></span><span><b>+7 921 931-39-13</b><span>позвонить</span></span></a>
       </div>
     </div>
     <div class="fm-card rv">
@@ -892,8 +895,7 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
         </div>
         <div class="fl"><span class="lb2">Куда ответить</span>
           <div class="ck">
-            <label><input type="radio" name="via" value="WhatsApp" checked><span>WhatsApp</span></label>
-            <label><input type="radio" name="via" value="Звонок"><span>Позвонить</span></label>
+                        <label><input type="radio" name="via" value="Звонок" checked><span>Позвонить</span></label>
             <label><input type="radio" name="via" value="ВКонтакте"><span>ВКонтакте</span></label>
             <label><input type="radio" name="via" value="MAX"><span>MAX</span></label>
           </div>
@@ -903,11 +905,11 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
         <label class="cons"><input type="checkbox" name="consent" checked><span>Согласна(ен) на обработку персональных данных по <a href="privacy.html" target="_blank">политике</a></span></label>
         <div class="err" id="err" role="alert"></div>
         <div id="f-btns"><button class="btn b-wine" id="submit" type="submit">Отправить заявку</button></div>
-        <div class="ok" id="sent" hidden><svg><use href="#i-check"/></svg><h3>Спасибо, заявка принята!</h3><p>Евгения ответит в ближайшее время. Если срочно, напишите в WhatsApp.</p></div>
+        <div class="ok" id="sent" hidden><svg><use href="#i-check"/></svg><h3>Спасибо, заявка принята!</h3><p>Евгения ответит в ближайшее время. Если срочно, позвоните или напишите в сообщения.</p></div>
         <div class="fb" id="fallback" hidden>
           <b>Не получилось отправить заявку.</b> Напишите напрямую, текст заявки можно скопировать:
           <div class="btns">
-            <a class="btn b-wa b-sm" id="fb-wa" href="https://wa.me/79219313913" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+            <a class="btn b-wa b-sm" id="fb-wa" data-max data-maxonly hidden href="#" target="_blank" rel="noopener"><svg><use href="#i-max"/></svg>MAX</a>
             <a class="btn b-line b-sm" href="https://vk.me/liutiki_cvetochki" target="_blank" rel="noopener"><svg><use href="#i-vk"/></svg>ВКонтакте</a>
             <a class="btn b-line b-sm" href="tel:+79219313913"><svg><use href="#i-ph"/></svg>Позвонить</a>
             <button class="btn b-line b-sm" type="button" id="copy">Скопировать текст</button>
@@ -929,7 +931,8 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
       <h4>Связаться</h4>
       <ul>
         <li><a href="tel:+79219313913">+7 921 931-39-13</a></li>
-        <li><a href="https://wa.me/79219313913" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li data-maxonly hidden><a data-max href="#" target="_blank" rel="noopener">MAX</a></li>
+        <li data-email hidden><a data-et href="#"></a></li>
         <li><a href="https://vk.com/liutiki_cvetochki" target="_blank" rel="noopener">Группа ВКонтакте</a></li>
         <li>Горелово, ул. Коммунаров, 118</li>
       </ul>
@@ -948,7 +951,7 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
 </footer>
 
 <nav class="sb" id="sb" aria-label="Быстрая связь">
-  <a class="s1" href="https://wa.me/79219313913" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+  <a class="s1" data-max href="https://vk.me/liutiki_cvetochki" target="_blank" rel="noopener"><svg><use href="#i-vk"/></svg><span data-mt="{}">ВКонтакте</span></a>
   <a class="s2" href="tel:+79219313913"><svg><use href="#i-ph"/></svg>Позвонить</a>
   <a class="s3" href="#zakaz"><svg viewBox="0 0 100 100"><use href="#i-flower" fill="currentColor"/></svg>Заявка</a>
 </nav>
@@ -962,7 +965,20 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
   const GAL = [{"k":"1741_0","tab":"ny"},{"k":"1748_2","tab":"ny"},{"k":"1735_6","tab":"ny"},{"k":"1757_0","tab":"ny"},{"k":"1735_0","tab":"ny"},{"k":"1735_7","tab":"ny"},{"k":"1741_2","tab":"ny"},{"k":"1750_0","tab":"ny"},{"k":"2198_1","tab":"men"},{"k":"1952_1","tab":"men"},{"k":"2161_0","tab":"men"},{"k":"1707_2","tab":"men"},{"k":"1710_2","tab":"men"},{"k":"2015_1","tab":"men"},{"k":"1921_2","tab":"men"},{"k":"2033_3","tab":"men"},{"k":"2079_2","tab":"her"},{"k":"2037_1","tab":"her"},{"k":"1943_2","tab":"her"},{"k":"1902_3","tab":"her"},{"k":"1785_2","tab":"her"},{"k":"2018_1","tab":"her"},{"k":"2031_1","tab":"her"},{"k":"2180_2","tab":"her"},{"k":"2131_1","tab":"teach"},{"k":"2117_4","tab":"teach"},{"k":"2130_1","tab":"teach"},{"k":"2138_3","tab":"teach"},{"k":"2118_1","tab":"teach"},{"k":"2066_2","tab":"teach"},{"k":"2179_1","tab":"teach"},{"k":"2153_1","tab":"teach"},{"k":"2146_1","tab":"corp"},{"k":"2135_1","tab":"corp"},{"k":"2070_3","tab":"corp"},{"k":"1731_3","tab":"corp"},{"k":"1755_2","tab":"corp"},{"k":"2064_1","tab":"corp"},{"k":"1904_1","tab":"corp"},{"k":"2027_2","tab":"corp"}];
   const FMT = {"букет":"f0.jpg","конверт":"f1.jpg","коробка":"f2.jpg","сумочка":"f3.jpg","книга":"f4.jpg","бокс":"f5.jpg","корзина":"f6.jpg","ящик":"f7.jpg","сердце":"f8.jpg","танк":"f9.jpg","кашпо":"f10.jpg"};
   const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
-  const WA = "79219313913";
+  // MAX_URL: ссылка на профиль в MAX (пока пусто, кнопки ведут в сообщения группы ВКонтакте); EMAIL: почта
+  const MAX_URL = "";
+  const EMAIL = "";
+  function applyMax(root) {
+    root.querySelectorAll("[data-max]").forEach(a => {
+      if (MAX_URL) { a.href = MAX_URL; const u = a.querySelector("use"); if (u) u.setAttribute("href", "#i-max"); }
+      const t = a.querySelector("[data-mt]"); if (t) t.textContent = t.dataset.mt.replace("{}", MAX_URL ? "MAX" : "ВКонтакте").replace("в ВКонтакте", "ВКонтакте");
+    });
+    root.querySelectorAll("[data-maxonly]").forEach(e => e.hidden = !MAX_URL);
+  }
+  applyMax(document);
+  if (EMAIL) document.querySelectorAll("[data-email]").forEach(e => { e.hidden = false; const a = e.matches("a") ? e : e.querySelector("a"); a.href = "mailto:" + EMAIL; e.querySelectorAll("[data-et]").forEach(x => x.textContent = EMAIL); });
+  // В MAX нельзя передать текст по ссылке: копируем его, чтобы вставить в чат
+  document.addEventListener("click", e => { const a = e.target.closest("[data-max][data-copy]"); if (a && MAX_URL) try { navigator.clipboard.writeText(a.dataset.copy); } catch (_) {} });
   const $ = id => document.getElementById(id);
   const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
   const rub = n => n.toLocaleString("ru-RU").replace(/\s/g, " ") + " ₽";
@@ -1076,7 +1092,7 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
       ${it.sz.length > 1 ? `<span class="lbl">Размер</span><div class="szs" id="md-sz">${it.sz.map((s, i) => `<button data-s="${i}">${esc(s[0])}<small>${s[1] ? rub(s[1]) : "цена по запросу"}</small></button>`).join("")}</div>` : `<span class="lbl">Размер: ${esc(it.sz[0][0])}</span>`}
       <span class="lbl">Состав</span><p>${esc(it.d)}</p>${it.note ? `<p class="md-note">${esc(it.note)}</p>` : ""}
       <ul class="md-li"><li><svg><use href="#i-check"/></svg>Состав и размер можно поменять под ваш бюджет</li><li><svg><use href="#i-check"/></svg>Упаковка в прозрачную плёнку, букет едет запечатанным</li><li><svg><use href="#i-check"/></svg>Заказ за 2–3 дня, срочно от 1 часа (+20%)</li></ul>
-      <div class="md-b"><button class="btn b-wine" id="md-order">Заказать этот букет</button><a class="btn b-wa" id="md-wa" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Спросить в WhatsApp</a></div></div>`;
+      <div class="md-b"><button class="btn b-wine" id="md-order">Заказать этот букет</button><a class="btn b-wa" id="md-wa" data-max href="https://vk.me/liutiki_cvetochki" target="_blank" rel="noopener"><svg><use href="#i-vk"/></svg><span data-mt="Спросить в {}">Спросить ВКонтакте</span></a></div></div>`;
     setSize(cs);
     md.showModal(); document.body.style.overflow = "hidden";
   }
@@ -1084,7 +1100,7 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
     cs = i; const s = cur.sz[i];
     $("md-pr").innerHTML = s[1] ? rub(s[1]) : "цена по запросу";
     mdIn.querySelectorAll("#md-sz button").forEach(b => b.classList.toggle("on", +b.dataset.s === i));
-    $("md-wa").href = `https://wa.me/${WA}?text=` + encodeURIComponent(`Здравствуйте! Хочу заказать «${cur.t}»${cur.sz.length > 1 ? ", размер " + s[0] : ""}${s[1] ? " (" + s[1] + " ₽)" : ""}. Подскажите, на какую дату можно?`);
+    applyMax($("md-in")); $("md-wa").dataset.copy = (`Здравствуйте! Хочу заказать «${cur.t}»${cur.sz.length > 1 ? ", размер " + s[0] : ""}${s[1] ? " (" + s[1] + " ₽)" : ""}. Подскажите, на какую дату можно?`);
   }
   function showPh(d){ ci = (ci + d + cur.ph.length) % cur.ph.length; $("md-img").src = "img/p/" + cur.ph[ci]; mdIn.querySelectorAll(".md-dots i").forEach((x, i) => x.classList.toggle("on", i === ci)); }
   mdIn.addEventListener("click", e => {
@@ -1234,7 +1250,7 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
     if (form.budget.value) o.push("Бюджет: " + form.budget.value);
     if (form.date.value) o.push("Дата: " + form.date.value.split("-").reverse().join("."));
     o.push(checked("pickup")[0] || "");
-    o.push("Ответить: " + (checked("via")[0] || "WhatsApp"));
+    o.push("Ответить: " + (checked("via")[0] || "Звонок"));
     return o.filter(Boolean);
   }
   const orderText = () => ["Здравствуйте! Хочу заказать букет.", ...details(), `Имя: ${form.name.value.trim()}, тел. ${form.phone.value}`, form.comment.value.trim() && "Пожелания: " + form.comment.value.trim()].filter(Boolean).join("\n");
@@ -1256,7 +1272,7 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
     } catch (x) {}
     submitBtn.disabled = false; submitBtn.textContent = "Отправить заявку";
     if (ok) { $("f-btns").hidden = true; $("sent").hidden = false; $("sent").scrollIntoView({block: "center"}); }
-    else { $("fb-wa").href = `https://wa.me/${WA}?text=` + encodeURIComponent(orderText()); $("fallback").hidden = false; $("fallback").scrollIntoView({block: "center"}); }
+    else { $("fb-wa").dataset.copy = orderText(); $("fallback").hidden = false; $("fallback").scrollIntoView({block: "center"}); }
   });
   $("copy").onclick = async () => {
     const t = orderText();
