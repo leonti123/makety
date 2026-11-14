@@ -10,7 +10,7 @@
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Торты на заказ в Янино-1 — Лариса Котова">
 <meta property="og:description" content="Торт 1,5 кг — 3 200 ₽, дальше 2 000 ₽ за кг. 3D торты, фигурки и сахарные цветы ручной работы.">
-<meta property="og:image" content="https://leonti123.github.io/makety/torty-yanino/img/hero.jpg">
+<meta property="og:image" content="https://leonti123.github.io/makety/torty-yanino/img/hero-fixiki.jpg">
 <meta property="og:type" content="website">
 <link rel="preload" href="fonts/alice-cyrillic-e8c53e.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/comfortaa-cyrillic-8c22e4.woff2" as="font" type="font/woff2" crossorigin>
@@ -323,6 +323,11 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
 .scard h3{font-size:24px;margin-bottom:10px}
 .scard p{color:#E2D2CD;font-size:14px}
 .scard .btn{width:100%}
+.cbtns{display:grid;gap:10px}
+.btn-tg{background:#2AABEE;color:#fff}.btn-tg:hover{background:#1e96d4}
+.btn-wa{background:#1FAF55;color:#fff}.btn-wa:hover{background:#18964a}
+.scard .tel{display:block;margin-top:14px;text-align:center;font-size:20px;font-weight:700;color:#fff;text-decoration:none}
+.maplink{margin-top:14px;background:rgba(255,255,255,.1)!important;color:#fff!important;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.3)!important}
 .map{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:1200/760;background:#EFE0DC}
 .map img{width:100%;height:100%;object-fit:cover}
 .pin{position:absolute;width:46px;height:46px;transform:translate(-50%,-92%);filter:drop-shadow(0 6px 8px rgba(60,10,20,.35))}
@@ -414,6 +419,8 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
 .dcard h3{font-size:24px}
 .dcard p{font-size:14px;color:var(--muted);margin:0}
 .dcard .btn{margin-top:auto;align-self:flex-start}
+.dcard{overflow:hidden}
+.dcard .dimg{margin:-22px -22px 6px;width:calc(100% + 44px);max-width:none;aspect-ratio:4/3;object-fit:cover}
 .dcard.ph{padding:0;overflow:hidden;flex-direction:row}
 .dcard.ph img{width:42%;object-fit:cover;flex:none}
 .dcard.ph>div{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
@@ -496,7 +503,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
     </div>
     <div class="gift rv">
       <div class="gift-frame">
-        <img src="img/hero.jpg" width="600" height="800" alt="Торт с крупным красным пионом из сахарной мастики, в разрезе видны ягодные слои" fetchpriority="high">
+        <img src="img/hero-fixiki.jpg" width="600" height="800" alt="Детский торт на 5 лет с фигурками Фиксиков ручной лепки" fetchpriority="high">
         <span class="rib-h"></span><span class="rib-v"></span>
         <div class="rate"><b>2021</b><span>Bronze Award<br>международный флешмоб</span></div>
       </div>
@@ -534,14 +541,14 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
         <div class="wt"><b>от 4 кг</b><span>2 000 ₽/кг</span><small>свадьбы, юбилеи</small></div>
       </div>
       <div class="grid">
-        <article class="card"><div class="ph"><img src="img/w-tractor.jpg" width="800" height="800" alt="Детский торт с синим трактором и надписью Максим" loading="lazy"><span class="badge">детский</span></div><div class="bd"><h3>Детские торты</h3><p>Любимые герои, машинки, имя и возраст. Помогу выбрать начинку, которую точно съедят дети.</p><div class="row"><span class="price">от 3 200 ₽</span><button class="want" data-kind="Торт" data-item="детский торт">Хочу такой</button></div></div></article>
+        <article class="card"><div class="ph"><img src="img/w-kids-ksenia.jpg" width="800" height="792" alt="Нежный детский торт с мишкой, шарами и именем Ксения" loading="lazy"><span class="badge">детский</span></div><div class="bd"><h3>Детские торты</h3><p>Любимые герои, машинки, имя и возраст. Помогу выбрать начинку, которую точно съедят дети.</p><div class="row"><span class="price">от 3 200 ₽</span><button class="want" data-kind="Торт" data-item="детский торт">Хочу такой</button></div></div></article>
         <article class="card"><div class="ph"><img src="img/w-fire.jpg" width="800" height="797" alt="3D торт в виде красной пожарной машины" loading="lazy"><span class="badge">3D торт</span></div><div class="bd"><h3>3D торты</h3><p>Торт в форме машины, персонажа или предмета. Форму и вес обсудим по вашей идее.</p><div class="row"><span class="price">по запросу</span><button class="want" data-kind="Торт" data-item="3D торт">Хочу такой</button></div></div></article>
         <article class="card"><div class="ph"><img src="img/roses.jpg" width="800" height="800" alt="Торт, покрытый розами и пионами из сахарной мастики" loading="lazy"><span class="badge">сахарные цветы</span></div><div class="bd"><h3>Торты с цветами</h3><p>Розы и пионы из сахарной мастики леплю вручную, живые цветы оплачиваются отдельно.</p><div class="row"><span class="price">от 3 200 ₽</span><button class="want" data-kind="Торт" data-item="торт с цветами">Хочу такой</button></div></div></article>
         <article class="card"><div class="ph"><img src="img/w-50.jpg" width="800" height="800" alt="Синий торт с топпером 50 и свечами-фонтанами" loading="lazy"><span class="badge">юбилей</span></div><div class="bd"><h3>На юбилей</h3><p>Цифры, золотые топперы, шоколадный декор. Для большого праздника рассчитаю вес на всех гостей.</p><div class="row"><span class="price">от 3 200 ₽</span><button class="want" data-kind="Торт" data-item="торт на юбилей">Хочу такой</button></div></div></article>
-        <article class="card"><div class="ph"><img src="img/w-velour.jpg" width="800" height="800" alt="Шоколадный муссовый торт в велюре с мишкой и шарами" loading="lazy"><span class="badge">муссовый</span></div><div class="bd"><h3>Муссовые торты</h3><p>Гладкое велюровое покрытие и шоколадный декор. Лёгкие муссы с конфи и хрустящим слоем.</p><div class="row"><span class="price">от 3 200 ₽</span><button class="want" data-kind="Торт" data-item="муссовый торт">Хочу такой</button></div></div></article>
+        <article class="card"><div class="ph"><img src="img/w-open.jpg" width="800" height="983" alt="Открытый торт с ягодной начинкой, инжиром сверху и красной лентой" loading="lazy"><span class="badge">открытый</span></div><div class="bd"><h3>Открытые торты</h3><p>Торт для праздника и для домашнего чаепития. Без покрытия, в ацетатной плёнке, сверху декор может быть любым.</p><div class="row"><span class="price">от 3 200 ₽</span><button class="want" data-kind="Торт" data-item="открытый торт">Хочу такой</button></div></div></article>
         <article class="card"><div class="ph"><img src="img/w-medovik.jpg" width="651" height="800" alt="Медовик с голубикой и шоколадными шариками" loading="lazy"><span class="badge">классика</span></div><div class="bd"><h3>Медовик и Наполеон</h3><p>Классические торты без сложного декора, украшу ягодами и надписью.</p><div class="row"><span class="price">от 3 200 ₽</span><button class="want" data-kind="Торт" data-item="медовик или наполеон">Хочу такой</button></div></div></article>
         <article class="card"><div class="ph"><img src="img/w-dragon-tree.jpg" width="600" height="800" alt="Новогодний торт с ёлкой и зелёным драконом" loading="lazy"><span class="badge">праздники</span></div><div class="bd"><h3>Новогодние и праздничные</h3><p>К Новому году, 8 Марта, Пасхе и другим праздникам: фигурки и тематический декор.</p><div class="row"><span class="price">от 3 200 ₽</span><button class="want" data-kind="Торт" data-item="праздничный торт">Хочу такой</button></div></div></article>
-        <article class="card"><div class="ph"><img src="img/w-lilac.jpg" width="456" height="800" alt="Сиреневый торт с бабочками, шарами и топпером" loading="lazy"><span class="badge">для неё</span></div><div class="bd"><h3>Свадебные и для неё</h3><p>Нежные цвета, бабочки, жемчуг и топпер с именем. Свадебный торт посчитаю по количеству гостей.</p><div class="row"><span class="price">от 3 200 ₽</span><button class="want" data-kind="Торт" data-item="свадебный или нежный торт">Хочу такой</button></div></div></article>
+        <article class="card"><div class="ph"><img src="img/w-wedding.jpg" width="800" height="1000" alt="Многоярусный белый свадебный торт с сахарными розами и топпером с инициалами" loading="lazy"><span class="badge">свадебный</span></div><div class="bd"><h3>Свадебные торты</h3><p>Многоярусные торты с сахарными розами и топпером с инициалами. Вес посчитаю по количеству гостей.</p><div class="row"><span class="price">от 3 200 ₽</span><button class="want" data-kind="Торт" data-item="свадебный торт">Хочу такой</button></div></div></article>
       </div>
       <p class="note"><svg aria-hidden="true"><use href="#info"/></svg><span>Посыпки и бусины входят в стоимость. Печать на сахарной бумаге — от 250 ₽. Свежие ягоды, живые цветы и эксклюзивный декор (фигурки, сложная модельная работа) — по согласованию.</span></p>
     </div>
@@ -549,12 +556,14 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
     <div class="panel" id="p-sweets" role="tabpanel" aria-labelledby="t-sweets" hidden>
       <div class="dgrid">
         <article class="dcard rv">
+          <img class="dimg" src="img/d-cupcakes.jpg" width="800" height="792" alt="Капкейки с апельсиновым кремом, дольками апельсина и шоколадом" loading="lazy">
           <h3>Капкейки</h3>
           <p>Порционный десерт с кремовой шапочкой. Заказ от 4 штук одного вкуса.</p>
           <ul class="plist"><li><span>4 шт</span><b>1 100 ₽</b></li><li><span>6 шт</span><b>1 450 ₽</b></li><li><span>9 шт</span><b>2 000 ₽</b></li><li><span>12 шт</span><b>2 400 ₽</b></li></ul>
           <button class="btn btn-line want" data-kind="Капкейки" data-item="капкейки">Заказать капкейки</button>
         </article>
         <article class="dcard rv">
+          <img class="dimg" src="img/d-trifles.jpg" width="800" height="1197" alt="Шоколадные трайфлы в стаканчиках с кремом и ежевикой" loading="lazy">
           <h3>Трайфлы</h3>
           <p>Десерт в стаканчике, 350 ₽ за штуку. Заказ от 4 штук одного вкуса.</p>
           <ul class="plist"><li><span>4 шт</span><b>1 400 ₽</b></li><li><span>6 шт</span><b>2 100 ₽</b></li><li><span>9 шт</span><b>3 150 ₽</b></li><li><span>12 шт</span><b>4 200 ₽</b></li></ul>
@@ -565,7 +574,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
           <div><h3>Мадлен и подарочные наборы</h3><p>Мадлен в глазури, наборы с ягодами и шоколадом. Цену назову под ваш набор.</p><button class="btn btn-line want" data-kind="Другое" data-item="подарочный набор">Спросить цену</button></div>
         </article>
         <article class="dcard ph rv">
-          <img src="img/box-cookies.jpg" width="600" height="800" alt="Новогодний набор имбирных пряников и печенья в коробке" loading="lazy">
+          <img src="img/d-gingerbread.jpg" width="600" height="800" alt="Новогодние имбирные пряники-варежки в индивидуальной упаковке" loading="lazy">
           <div><h3>Имбирные пряники и меренговые рулеты</h3><p>Пряники с росписью к праздникам и меренговые рулеты. Цену назову под ваш заказ.</p><button class="btn btn-line want" data-kind="Другое" data-item="пряники или меренговый рулет">Спросить цену</button></div>
         </article>
       </div>
@@ -657,6 +666,10 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
       <p class="lead">Нажмите на фото, чтобы рассмотреть. Больше работ — <a href="https://vk.ru/club236978958" target="_blank" rel="noopener">в группе ВКонтакте</a>.</p>
     </div>
     <div class="gal" id="gal">
+      <button type="button"><img src="img/w-tractor.jpg" width="800" height="800" alt="Детский торт с синим трактором и надписью Максим" loading="lazy"><span>С трактором</span></button>
+      <button type="button"><img src="img/w-velour.jpg" width="800" height="800" alt="Шоколадный муссовый торт в велюре с мишкой и шарами" loading="lazy"><span>Муссовый в велюре</span></button>
+      <button type="button"><img src="img/w-lilac.jpg" width="456" height="800" alt="Сиреневый торт с бабочками, шарами и топпером" loading="lazy"><span>С бабочками</span></button>
+      <button type="button"><img src="img/box-cookies.jpg" width="600" height="800" alt="Новогодний набор имбирных пряников и печенья в коробке" loading="lazy"><span>Новогодний набор</span></button>
       <button type="button"><img src="img/w-pubg.jpg" width="600" height="800" alt="Торт в стиле игры PUBG и именинник" loading="lazy"><span>Торт в стиле PUBG</span></button>
       <button type="button"><img src="img/w-daisy.jpg" width="600" height="800" alt="Салатовый торт с ромашками" loading="lazy"><span>С ромашками</span></button>
       <button type="button"><img src="img/w-30.jpg" width="516" height="800" alt="Торт с золотыми шарами и цифрой 30" loading="lazy"><span>На 30 лет</span></button>
@@ -704,7 +717,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
       <div class="term rv">
         <h3><svg viewBox="0 0 24 24" fill="none" stroke="#A51E36" stroke-width="1.8"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M12 8v12M4 12h16M12 8c-1.5-3-5-3-5-1s3.5 1 5 1zm0 0c1.5-3 5-3 5-1s-3.5 1-5 1z"/></svg>Получение и доплаты</h3>
         <ul class="tl">
-          <li><b>Самовывоз</b><span>Янино-1, адрес пришлю при заказе</span></li>
+          <li><b>Самовывоз</b><span>Янино-1, ул. Лесная, 9 к4</span></li>
           <li><b>Доставка</b><span>Яндекс Доставка, оплачивается отдельно</span></li>
           <li><b>Входит в цену</b><span>посыпки и бусины</span></li>
           <li><b>Отдельно</b><span>свежие ягоды, цветы, фигурки, печать от 250 ₽</span></li>
@@ -748,7 +761,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
       <details><summary>Какой вес выбрать?</summary><p>Считайте 200 г на человека. Торт 1,5 кг — на 8–10 гостей, 2 кг — на 10–12, 3 кг — на 15. Удобно посчитать <a href="#calc">в калькуляторе</a>.</p></details>
       <details><summary>За сколько дней заказывать?</summary><p>Лучше за 10–14 дней до праздника. Срочные заказы беру по возможности, напишите, и я скажу, есть ли свободное окно.</p></details>
       <details><summary>Сделаете торт по моей картинке?</summary><p>Да, пришлите картинку в сообщения. Повторю дизайн или сделаю похожий, фигурки и цветы леплю сама.</p></details>
-      <details><summary>Как забрать заказ?</summary><p>Самовывоз в Янино-1, адрес пришлю при подтверждении заказа. Или оформлю Яндекс Доставку, её стоимость оплачивается отдельно.</p></details>
+      <details><summary>Как забрать заказ?</summary><p>Самовывоз в Янино-1: ул. Лесная, 9 к4. Или оформлю Яндекс Доставку, её стоимость оплачивается отдельно.</p></details>
       <details><summary>Нужна ли предоплата?</summary><p>Да, 30%. После предоплаты заказ считается оформленным. Отменить или перенести заказ можно не позднее чем за 4 дня до даты.</p></details>
     </div>
   </div>
@@ -844,12 +857,14 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
       <div class="side">
         <div class="scard rv">
           <h3>Напишите напрямую</h3>
-          <p>Отвечаю в сообщениях группы ВКонтакте. Можно сразу прислать картинку с идеей дизайна.</p>
-          <a class="btn btn-vk" href="https://vk.me/club236978958" target="_blank" rel="noopener"><svg><use href="#vk"/></svg>Написать во ВКонтакте</a>
+          <p>ВКонтакте, Telegram или WhatsApp, как вам удобнее. Можно сразу прислать картинку с идеей дизайна.</p>
+          <div class="cbtns"><a class="btn btn-vk" href="https://vk.me/club236978958" target="_blank" rel="noopener"><svg><use href="#vk"/></svg>ВКонтакте</a><a class="btn btn-tg" href="https://t.me/malvinka_474" target="_blank" rel="noopener">Telegram</a><a class="btn btn-wa" href="https://wa.me/79145070270" target="_blank" rel="noopener">WhatsApp</a></div>
+          <a class="tel" href="tel:+79145070270">+7 914 507-02-70</a>
         </div>
         <div class="scard rv">
           <h3>Самовывоз в Янино-1</h3>
-          <p>Точный адрес пришлю, когда подтвердим заказ. Или оформлю Яндекс Доставку по Петербургу и области, её стоимость оплачивается отдельно.</p>
+          <p>Адрес: Янино-1, ул. Лесная, 9 к4. Время, когда забрать, согласуем при заказе. Или оформлю Яндекс Доставку по Петербургу и области, её стоимость оплачивается отдельно.</p>
+          <a class="btn btn-line maplink" href="https://yandex.ru/maps/?text=%D0%AF%D0%BD%D0%B8%D0%BD%D0%BE-1%2C%20%D0%9B%D0%B5%D1%81%D0%BD%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%209%D0%BA4" target="_blank" rel="noopener">Открыть на карте</a>
           <img class="sph" src="img/w-medovik-box.jpg" width="800" height="800" alt="Торт в подарочной коробке с бантом" loading="lazy">
         </div>
       </div>
@@ -862,6 +877,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
   <div class="wrap">
     <a class="logo" href="#top"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="31" fill="#3A2523"/><use href="#bow" x="8" y="14" width="48" height="32"/></svg><span><b>Торты Янино-1</b><small>кондитер Лариса Котова</small></span></a>
     <span>© 2026 Торты на заказ Янино-1 · <a href="privacy.html">Политика обработки персональных данных</a></span>
+    <a href="tel:+79145070270">+7 914 507-02-70</a>
     <a href="https://vk.ru/club236978958" target="_blank" rel="noopener">Группа ВКонтакте</a>
   </div>
 </footer>
