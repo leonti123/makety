@@ -729,7 +729,7 @@ details.more[open] summary::after{transform:rotate(45deg)}
  <div class="wrap foot-in">
   <div><span class="logo-hand">ВкусБукет</span><br><span class="logo-sub">Колтуши · студия съедобных подарков</span><p style="margin-top:14px">Вкусные букеты и подарки: красиво и со смыслом. Колтуши, Всеволожский район Ленинградской области.</p></div>
   <div class="foot-links"><a href="#catalog">Букеты и цены</a><a href="#size">Размер и цена</a><a href="#ny">Новый год</a><a href="#order">Как заказать</a></div>
-  <div class="foot-links"><a href="tel:+79110965616">+7 911 096-56-16</a><a href="https://vk.com/vkusbuket_koltushi" target="_blank" rel="noopener">ВКонтакте</a><a href="https://max.ru/u/f9LHodD0cOKqshBHRe5ES5fwtCMRlMCubdZ61yFF1eOUdqlQ7wfcfN7GDpU" target="_blank" rel="noopener">MAX</a><a href="https://wa.me/79110965616" target="_blank" rel="noopener">WhatsApp</a><a href="privacy.html">Политика конфиденциальности</a></div>
+  <div class="foot-links"><a href="tel:+79110965616">+7 911 096-56-16</a><a href="https://vk.com/vkusbuket_koltushi" target="_blank" rel="noopener">ВКонтакте</a><a href="https://max.ru/u/f9LHodD0cOKqshBHRe5ES5fwtCMRlMCubdZ61yFF1eOUdqlQ7wfcfN7GDpU" target="_blank" rel="noopener">MAX</a><a href="https://wa.me/79110965616" target="_blank" rel="noopener">WhatsApp</a><a href="privacy.html">Политика конфиденциальности</a><a href="#master" data-master style="opacity:.6">Вход для мастера</a></div>
  </div>
 </footer>
 
@@ -773,18 +773,87 @@ details.more[open] summary::after{transform:rotate(45deg)}
   // ===== galleries + lightbox =====
   const G = {"nuts": ["g-nuts-01", "g-nuts-02", "g-nuts-03", "g-nuts-04", "g-nuts-05", "g-nuts-06", "g-nuts-07", "g-nuts-08", "g-nuts-09", "g-nuts-10", "g-nuts-11", "g-nuts-12"], "straw": ["g-straw-01", "g-straw-02", "g-straw-03", "g-straw-04", "g-straw-05", "g-straw-06", "g-straw-07", "g-straw-08", "g-straw-09", "g-straw-10", "g-straw-11", "g-straw-12"], "sweet": ["g-sweet-01", "g-sweet-02", "g-sweet-03", "g-sweet-04", "g-sweet-05", "g-sweet-06", "g-sweet-07", "g-sweet-08", "g-sweet-09", "g-sweet-10", "g-sweet-11", "g-sweet-12"], "fruit": ["g-fruit-01", "g-fruit-02", "g-fruit-03", "g-fruit-04", "g-fruit-05", "g-fruit-06", "g-fruit-07", "g-fruit-08", "g-fruit-09", "g-fruit-10", "g-fruit-11", "g-fruit-12"], "men": ["g-men-01", "g-men-02", "g-men-03", "g-men-04", "g-men-05", "g-men-06", "g-men-07", "g-men-08", "g-men-09", "g-men-10", "g-men-11"], "basket": ["g-basket-01", "g-basket-02", "g-basket-03", "g-basket-04", "g-basket-05", "g-basket-06", "g-basket-07", "g-basket-08", "g-basket-09", "g-basket-10", "g-basket-11", "g-basket-12"], "ny": ["c-ny", "g-ny-01", "g-ny-02", "g-ny-03", "g-ny-04", "g-ny-05", "g-ny-06", "g-ny-07", "g-ny-08", "g-ny-09", "g-ny-10"]};
   const NAMES = {nuts:'Орехи и сухофрукты', straw:'Клубника в шоколаде', sweet:'Сладкие букеты', fruit:'Фруктово-ягодные букеты', men:'Мужские букеты', basket:'Корзины, ящики и наборы', ny:'Новогодние подарки'};
+
+  // ===== данные сайта: правки из режима мастера =====
+  const SRC = n => /^(data:|https?:|img\/)/.test(n) ? n : 'img/' + n + '.jpg';
+  const esc = t => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const INL = new Set(['SPAN','I','B','EM','SMALL','BR','STRONG']);
+  function clean(h) {
+    const t = document.createElement('template'); t.innerHTML = h;
+    (function w(el) { [...el.childNodes].forEach(n => {
+      if (n.nodeType === 1) { if (!INL.has(n.tagName)) { n.replaceWith(document.createTextNode(n.textContent)); return; }
+        [...n.attributes].forEach(a => { if (a.name !== 'class') n.removeAttribute(a.name); }); w(n); }
+      else if (n.nodeType !== 3) n.remove(); }); })(t.content);
+    const d = document.createElement('div'); d.appendChild(t.content); return d.innerHTML;
+  }
+  const SKIP = '.sizes,.plist,.nyc,.p-gal,form,.sz-res,.sz-stage,.tape-ctl,.tabs,.sz-types,.map,.btn,.ring,.ms-ui,svg';
+  const MAIN = document.querySelector('main');
+  function textEls() {
+    const out = [];
+    const ok = el => [...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) && [...el.querySelectorAll('*')].every(x => INL.has(x.tagName));
+    (function walk(el) { for (const c of el.children) { if (c.matches(SKIP)) continue; if (ok(c)) out.push(c); else walk(c); } })(MAIN);
+    return out;
+  }
+  const hash = t => { let h = 5381; for (const c of t) h = (h * 33 + c.codePointAt(0)) >>> 0; return h.toString(36); };
+  const seen = {};
+  textEls().forEach(el => { const b = hash(el.textContent.replace(/\s+/g, ' ').trim()); seen[b] = (seen[b] || 0) + 1; el.dataset.k = b + (seen[b] > 1 ? '-' + seen[b] : ''); });
+  const seenI = {};
+  MAIN.querySelectorAll('img').forEach(im => { if (im.closest('.p-gal,.nyc,.sz-stage,.map')) return; const b = im.getAttribute('src'); seenI[b] = (seenI[b] || 0) + 1; im.dataset.ik = b + (seenI[b] > 1 ? '#' + seenI[b] : ''); });
+  const CATS = ['nuts','straw','sweet','fruit','men','basket'];
+  const PB = {nuts: 0, sweet: 0, straw: 1, fruit: 0}; // какой список цен питает примерку размера
+  const BASE = {lists: {}, gal: {}, ny: []};
+  CATS.forEach(c => {
+    BASE.lists[c] = [...document.querySelectorAll(`[data-panel="${c}"] .plist`)].map(pl => ({
+      h: pl.querySelector('.plist-h').textContent,
+      rows: [...pl.querySelectorAll('.sizes li')].map(li => { const sm = li.querySelector('small'); const sp = li.querySelector('span'); return {l: [...sp.childNodes].filter(n => n.nodeType === 3).map(n => n.textContent).join('').trim(), s: sm ? sm.textContent : '', p: li.querySelector('b').textContent}; })
+    }));
+    BASE.gal[c] = G[c].slice();
+  });
+  BASE.ny = [...document.querySelectorAll('.nyc')].map(b => ({img: G.ny[+b.dataset.i], h: b.querySelector('h3').textContent, p: b.querySelector('p').textContent, b: b.querySelector('b').textContent}));
+  let D = window.SITE_DATA || null;
+  const DEMO_KEY = 'vb-demo-v1';
+  try { const x = JSON.parse(localStorage.getItem(DEMO_KEY) || 'null'); if (x && (!D || (x.rev || 0) >= (D.rev || 0))) D = x; } catch (e) {}
+  D = Object.assign({rev: 0, t: {}, img: {}, lists: {}, gal: {}, ny: null}, D || {});
+  const num = p => { const m = String(p).replace(/ /g, ' ').match(/\d[\d ]*/); return m ? +m[0].replace(/ /g, '') : 0; };
+  function renderLists(c) {
+    const L = D.lists[c] || BASE.lists[c];
+    document.querySelectorAll(`[data-panel="${c}"] .plist`).forEach((pl, i) => {
+      const b = L[i] || {h: '', rows: []}; pl.hidden = !b.rows.length;
+      pl.querySelector('.plist-h').textContent = b.h;
+      pl.querySelector('.sizes').innerHTML = b.rows.map(r => `<li><span>${esc(r.l)}${r.s ? `<small>${esc(r.s)}</small>` : ''}</span><i></i><b>${esc(r.p)}</b></li>`).join('');
+    });
+  }
+  function renderGal(c) {
+    const list = G[c] = (D.gal[c] || BASE.gal[c]).slice();
+    const box = document.querySelector(`[data-panel="${c}"] .p-gal`);
+    box.innerHTML = list.map((n, i) => `<button class="gi" type="button" data-g="${c}" data-i="${i}" aria-label="${esc(NAMES[c])}, фото ${i + 1}"><img src="${esc(SRC(n))}" alt="${esc(NAMES[c])}, работа ВкусБукет_Колтуши" loading="lazy">${i === 8 && list.length > 9 ? `<span class="more-n">ещё ${list.length - 8} фото</span>` : ''}</button>`).join('');
+  }
+  function renderNy() {
+    const list = D.ny || BASE.ny;
+    document.querySelector('.ny-grid').innerHTML = list.map(x => { const gi = G.ny.indexOf(x.img);
+      return `<button class="nyc rv in" type="button" data-g="ny" ${gi >= 0 ? `data-i="${gi}"` : `data-src="${esc(SRC(x.img))}"`}><img src="${esc(SRC(x.img))}" alt="${esc(x.h)}" loading="lazy"><div><h3>${esc(x.h)}</h3><p>${esc(x.p)}</p><b>${esc(x.b)}</b></div></button>`; }).join('');
+  }
+  function applyAll() {
+    document.querySelectorAll('[data-k]').forEach(el => { if (D.t[el.dataset.k] != null) el.innerHTML = clean(D.t[el.dataset.k]); });
+    document.querySelectorAll('[data-ik]').forEach(im => { const v = D.img[im.dataset.ik]; if (v) { im.src = SRC(v); im.removeAttribute('width'); im.removeAttribute('height'); } });
+    CATS.forEach(c => { if (D.lists[c]) renderLists(c); if (D.gal[c]) renderGal(c); });
+    if (D.ny) renderNy();
+  }
+  applyAll();
   const lb = $('lb'), lbImg = $('lbImg');
   let cur = null, idx = 0;
   function show() {
-    const list = G[cur]; idx = (idx + list.length) % list.length;
-    lbImg.src = 'img/' + list[idx] + '.jpg'; lbImg.alt = NAMES[cur] + ', фото ' + (idx + 1);
-    $('lbC').textContent = NAMES[cur] + ' · ' + (idx + 1) + ' из ' + list.length;
+    const list = cur === '_one' ? [one] : G[cur]; idx = (idx + list.length) % list.length;
+    lbImg.src = SRC(list[idx]); lbImg.alt = NAMES[cur] + ', фото ' + (idx + 1);
+    $('lbC').textContent = cur === '_one' ? NAMES.ny : NAMES[cur] + ' · ' + (idx + 1) + ' из ' + list.length;
   }
-  function openLb(g, i) {
-    cur = g; idx = +i || 0; show();
+  let one = '';
+  function openLb(g, i, src) {
+    if (src) { cur = '_one'; one = src; idx = 0; } else { cur = g; idx = +i || 0; }
+    show();
     if (lb.showModal) lb.showModal(); else lb.setAttribute('open', '');
   }
-  document.querySelectorAll('[data-g]').forEach(b => b.addEventListener('click', () => openLb(b.dataset.g, b.dataset.i)));
+  document.addEventListener('click', e => { const b = e.target.closest('[data-g]'); if (b) openLb(b.dataset.g, b.dataset.i, b.dataset.src); });
   $('lbX').onclick = () => lb.close();
   $('lbP').onclick = () => { idx--; show(); };
   $('lbN').onclick = () => { idx++; show(); };
@@ -801,6 +870,16 @@ details.more[open] summary::after{transform:rotate(45deg)}
     straw: {img:'r-straw', name:'букет клубники в шоколаде', kind:'Клубника в шоколаде', o:[[11,'мини, 10 ягод',2300],[14,'13–15 см, около 13–15 ягод',2700],[17,'17 см, около 17–19 ягод',3000],[20,'20 см, около 20–22 ягод',3300],[23,'22–24 см, около 25–27 ягод',3700],[25.5,'25–26 см, около 30 ягод',4200,1]]},
     fruit: {img:'r-fruit', name:'фруктово-ягодный букет', kind:'Фруктово-ягодный букет', o:[[19,'S, 18–20 см',2000],[23,'M, 22–24 см',2500],[28,'L, 26–30 см',3500],[36,'XL, от 35 см',5000,1]]}
   };
+  CATS.forEach(c => { if (PB[c] != null) (BASE.lists[c][PB[c]] || {rows: []}).rows.forEach((r, i) => { if (S[c].o[i]) r.d = S[c].o[i][0]; }); });
+  const guessD = r => { const m = (r.l + ' ' + r.s).match(/(\d+)(?:\s*[–-]\s*(\d+))?\s*см/); return m ? (m[2] ? (+m[1] + +m[2]) / 2 : +m[1]) : 20; };
+  function buildS() {
+    for (const c in PB) {
+      const L = D.lists[c] || BASE.lists[c];
+      S[c].o = ((L[PB[c]] || {rows: []}).rows).filter(r => num(r.p)).map(r => [Math.min(45, Math.max(10, +r.d || guessD(r))), r.l + (r.s ? ', ' + r.s : ''), num(r.p), /^\s*(от|from)/i.test(r.p) ? 1 : 0]).sort((a, b) => a[0] - b[0]);
+      const chip = document.querySelector(`[name=szt][value=${c}]`); if (chip) chip.parentNode.hidden = !S[c].o.length;
+    }
+  }
+  buildS();
   const MIN = 10, MAX = 46, stage = $('szStage'), range = $('szRange');
   let type = 'nuts', sel = null;
   const nums = $('szNums');
@@ -814,11 +893,11 @@ details.more[open] summary::after{transform:rotate(45deg)}
     S[type].o.forEach(o => { const s = document.createElement('span'); s.style.left = ((o[0] - MIN) / (MAX - MIN) * 100) + '%'; d.appendChild(s); });
   }
   function pick(v) {
-    const o = S[type].o; let best = o[0];
+    const o = S[type].o; if (!o.length) return; let best = o[0];
     o.forEach(x => { if (Math.abs(x[0] - v) < Math.abs(best[0] - v)) best = x; });
     sel = best;
     stage.style.setProperty('--d', best[0]);
-    $('szDim').textContent = '⌀ ' + best[1].replace(/^(S|M|L|XL), /, '').replace(/, около.*$/, '').replace(/^мини, /, '');
+    const dm = best[1].match(/(\d+(?:\s*[–-]\s*\d+)?)\s*см/); $('szDim').textContent = dm ? '⌀ ' + dm[1] + ' см' : best[1].split(', ').pop();
     $('szLabel').textContent = best[1];
     $('szPrice').textContent = (best[3] ? 'от ' : '') + fmt(best[2]);
     $('szNote').textContent = S[type].name + (type === 'straw' ? ', цветы отдельно' : '');
@@ -834,6 +913,12 @@ details.more[open] summary::after{transform:rotate(45deg)}
   document.querySelectorAll('[data-pick]').forEach(a => a.addEventListener('click', () => setType(a.dataset.pick)));
   addEventListener('resize', layout);
   layout(); setType('nuts'); range.value = 25; pick(25);
+  window.VB = {D, BASE, CATS, PB, NAMES, G, S, SRC, clean, esc, renderLists, renderGal, renderNy, applyAll, DEMO_KEY, MASTER_URL: '', refreshSize: () => { buildS(); const vis = Object.keys(PB).filter(c => S[c].o.length); setType(vis.includes(type) ? type : vis[0] || 'nuts'); }};
+  // ===== режим мастера =====
+  function master() { if (window.VBM) return window.VBM(); const sc = document.createElement('script'); sc.src = 'master.js?v=1'; document.body.appendChild(sc); }
+  document.querySelectorAll('[data-master]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); master(); }));
+  if (location.hash === '#master') master();
+  try { if (sessionStorage.getItem('vb-ms')) master(); } catch (e) {}
 
   // ===== form =====
   const form = $('form');
