@@ -119,18 +119,15 @@ section{padding:88px 0}
 /* fillings matrix */
 .fill-intro{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:34px}
 .fill{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:36px;align-items:start}
-.mx{width:calc(100% + 12px);table-layout:fixed;border-collapse:separate;border-spacing:6px;margin:-6px}
-.mx col.rh{width:21%}
-.mx .ls{display:none}
-.mx th{font:500 14px/1.25 var(--body);color:var(--soft);text-align:left;vertical-align:bottom;padding:0 4px 4px;overflow-wrap:anywhere;hyphens:auto}
-.mx th[scope=row]{font-family:var(--disp);font-size:19px;color:var(--ink);vertical-align:middle;padding-right:10px;white-space:nowrap}
-.mx td{padding:0}
-.cell{width:100%;aspect-ratio:1;border:0;border-radius:14px;cursor:pointer;position:relative;overflow:hidden;background:var(--lilac-l);padding:0;display:block;transition:transform .15s,box-shadow .15s}
-.cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.45);transform-origin:50% 45%}
-.cell .n{position:absolute;right:6px;bottom:6px;background:rgba(255,255,255,.92);color:var(--ink);font:600 12px/1 var(--body);padding:4px 7px;border-radius:999px}
-.cell.empty{background:repeating-linear-gradient(135deg,var(--lilac-l) 0 8px,#F7F3FA 8px 16px);color:var(--soft);font:500 12px/1.2 var(--body);display:grid;place-items:center;text-align:center;padding:6px}
-.cell[aria-pressed=true]{box-shadow:0 0 0 3px var(--bg),0 0 0 6px var(--cherry);transform:scale(1.03)}
-.cell:hover{transform:scale(1.03)}
+.fgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.fc{border:0;padding:0;background:var(--paper);border-radius:16px;overflow:hidden;cursor:pointer;text-align:left;font:inherit;color:inherit;display:flex;flex-direction:column;box-shadow:0 10px 26px -22px rgba(43,26,51,.55);transition:transform .15s,box-shadow .15s}
+.fc img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:var(--lilac-l)}
+.fc b{font:400 18px/1.2 var(--disp);color:var(--ink);padding:10px 12px 2px}
+.fc small{color:var(--soft);font-size:13px;padding:0 12px 12px}
+.fc:hover{transform:translateY(-2px)}
+.fc[aria-pressed=true]{box-shadow:0 0 0 3px var(--bg),0 0 0 6px var(--cherry)}
+.fmore{margin-top:18px;width:100%}
+@media (max-width:560px){.fgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.fc b{font-size:16px;padding:8px 10px 2px}.fc small{font-size:12px;padding:0 10px 10px}}
 .panel{background:var(--paper);border-radius:22px;padding:24px;position:sticky;top:86px;box-shadow:0 18px 40px -26px rgba(43,26,51,.45)}
 .panel h3{font-size:28px;margin-bottom:6px}
 .panel .sub{color:var(--soft);font-size:15px;margin-bottom:14px}
@@ -144,13 +141,10 @@ section{padding:88px 0}
 .step output{min-width:74px;text-align:center;font-weight:600}
 .sum{font-family:var(--disp);font-size:30px;color:var(--cherry)}
 .hint{font-size:13px;color:var(--soft)}
-.more-fill{margin-top:30px}
-.more-fill h3{font-size:22px;margin-bottom:12px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 15px;font:500 15px/1.2 var(--body);color:var(--ink);cursor:pointer}
 .chip[aria-pressed=true]{background:var(--plum);border-color:var(--plum);color:#fff}
 @media (max-width:980px){.fill,.fill-intro{grid-template-columns:minmax(0,1fr)}.panel{position:static}}
-@media (max-width:560px){.mx{border-spacing:4px;margin:-4px;width:calc(100% + 8px)}.mx col.rh{width:24%}.mx th{font-size:10.5px;padding:0 1px 3px}.mx th[scope=row]{font-size:13px;white-space:normal;padding-right:4px;overflow-wrap:normal;hyphens:none}.mx .lf{display:none}.mx .ls{display:inline}.cell{border-radius:9px}.cell.empty{font-size:0}.cell .n{font-size:10px;padding:3px 5px;right:3px;bottom:3px}}
 
 /* catalog */
 .cat{background:var(--paper)}
@@ -398,20 +392,13 @@ footer.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
 <section id="fill">
   <div class="wrap">
     <div class="fill-intro">
-      <h2>Карта начинок</h2>
-      <p class="lead" style="margin:0">Выберите бисквит и прослойку. В клетке настоящие торты с этой начинкой из моих заказов, цифра показывает, сколько их было на фото в группе.</p>
+      <h2>Начинки и мои торты</h2>
+      <p class="lead" style="margin:0">На каждой карточке настоящий торт с этой начинкой из моих заказов. Нажмите, чтобы посмотреть все фото и посчитать цену по весу. Нет нужной начинки в списке? Напишите, сделаю.</p>
     </div>
     <div class="fill">
       <div>
-        <table class="mx" id="mx">
-          <colgroup><col class="rh"><col><col><col><col><col></colgroup>
-          <thead><tr><td></td><th scope="col">Вишня</th><th scope="col"><span class="lf">Малиновое конфи</span><span class="ls">Малина</span></th><th scope="col"><span class="lf">Клубничное конфи</span><span class="ls">Клубника</span></th><th scope="col"><span class="lf">Карамель и орешки</span><span class="ls">Карамель</span></th><th scope="col"><span class="lf">Шоколадный мусс</span><span class="ls">Мусс</span></th></tr></thead>
-          <tbody></tbody>
-        </table>
-        <div class="more-fill">
-          <h3>Ещё начинки</h3>
-          <div class="chips" id="chips"></div>
-        </div>
+        <div class="fgrid" id="fgrid"></div>
+        <button class="btn b-line fmore" type="button" id="fmore" hidden></button>
       </div>
       <aside class="panel" id="panel" aria-live="polite">
         <h3 id="p-t">Молочная девочка с вишней</h3>
@@ -565,7 +552,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
     </div>
 
     <div>
-      <div class="cart" id="cart"><h3>В заявке</h3><ul id="cart-l"></ul><p class="empty" id="cart-e">Пока пусто. Добавьте торт из карты начинок или каталога, или просто опишите идею ниже.</p><p class="tot" id="cart-t" hidden></p></div>
+      <div class="cart" id="cart"><h3>В заявке</h3><ul id="cart-l"></ul><p class="empty" id="cart-e">Пока пусто. Добавьте торт из начинок или каталога, или просто опишите идею ниже.</p><p class="tot" id="cart-t" hidden></p></div>
       <form id="form" novalidate>
         <div id="f-body">
           <div class="fl"><span>Повод</span>
@@ -652,52 +639,46 @@ footer.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
   const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
   // ===== fillings =====
-  const COLS = ['Вишня', 'Малиновое конфи', 'Клубничное конфи', 'Карамель и орешки', 'Шоколадный мусс'];
-  const COLN = ['с вишней', 'с малиновым конфи', 'с клубничным конфи', 'с карамелью и орешками', 'с муссом из молочного шоколада'];
-  const ROWS = [
-    {n: 'Молочная девочка', d: 'Тонкие нежные коржи на сгущёнке и крем', c: [['w2734_0','w2648_0'], ['w2715_0','w2714_0','w2628_0','w2630_0'], ['w2733_0','w2613_0'], ['w2713_0'], []]},
-    {n: 'Красный бархат', d: 'Влажный бархатный бисквит с лёгкой кислинкой', c: [['w2728_0','w2726_0','w2725_0','w2626_0','w2573_0'], ['w2718_0','w2717_0'], ['w2566_0'], [], []]},
-    {n: 'Шоколадный', d: 'Влажный бисквит с глубоким вкусом какао', c: [['w2719_0','w2593_0','w2592_0','w2644_0'], ['w2603_0'], ['w2731_0','w2724_0'], [], ['w2730_0','w2627_0','w2600_0']]},
-    {n: 'Ванильный', d: 'Классический воздушный ванильный бисквит', c: [[], ['w2710_0'], ['w2706_0'], ['w2711_0','w2699_0','w2575_0','w2722_0'], []]}
-  ];
-  const MORE = [
+  const FILLS = [
+    {n: 'Молочная девочка с малиновым конфи', d: 'Тонкие нежные коржи на сгущёнке, крем и малиновое конфи', p: ['w2715_0','w2714_0','w2628_0','w2630_0'], k: 3500},
+    {n: 'Красный бархат с вишней', d: 'Влажный бархатный бисквит с лёгкой кислинкой и вишня', p: ['w2728_0','w2726_0','w2725_0','w2626_0','w2573_0'], k: 3500},
     {n: 'Медовый тирамису', d: 'Медовые коржи, крем с маскарпоне и грецкий орех', p: ['w2716_0','w2697_0','w2625_0','w2624_0','w2604_0'], k: 3500},
+    {n: 'Шоколадный с вишней', d: 'Влажный шоколадный бисквит и вишня', p: ['w2719_0','w2593_0','w2592_0','w2644_0'], k: 3500},
+    {n: 'Ванильный с карамелью и орешками', d: 'Воздушный ванильный бисквит, карамель и орешки', p: ['w2711_0','w2699_0','w2575_0','w2722_0'], k: 3500},
+    {n: 'Шоколадный с муссом', d: 'Шоколадный бисквит и мусс из молочного шоколада', p: ['w2730_0','w2627_0','w2600_0'], k: 4000},
+    {n: 'Молочная девочка с вишней', d: 'Тонкие нежные коржи на сгущёнке, крем и вишня', p: ['w2734_0','w2648_0'], k: 3500},
     {n: 'Шоколадный с муссом манго-маракуйя', d: 'Шоколадный бисквит и яркий тропический мусс', p: ['w2696_0','w2695_0','w2602_0'], k: 4000},
-    {n: 'Три шоколада', d: 'Муссовый торт: молочный, тёмный и белый шоколад на шоколадном бисквите', p: ['p3969940_0'], k: 4000},
+    {n: 'Молочная девочка с клубникой', d: 'Тонкие коржи на сгущёнке, крем и клубничное конфи', p: ['w2733_0','w2613_0'], k: 3500},
+    {n: 'Красный бархат с малиной', d: 'Бархатный бисквит и малиновое конфи', p: ['w2718_0','w2717_0'], k: 3500},
+    {n: 'Шоколадный с клубникой', d: 'Шоколадный бисквит и клубничное конфи', p: ['w2731_0','w2724_0'], k: 3500},
     {n: 'Сникерс', d: 'Шоколадный бисквит, хрустящий вафельный слой, карамель и арахис', p: ['w2704_0','w2591_0'], k: 3500},
     {n: 'Ванильный с пеканом', d: 'Ванильный бисквит, вафельный слой, орех пекан и карамель', p: ['w2583_0','w2663_0'], k: 3500},
+    {n: 'Три шоколада', d: 'Муссовый торт: молочный, тёмный и белый шоколад на шоколадном бисквите', p: ['p3969940_0'], k: 4000},
     {n: 'Баунти', d: 'Кокосовый бисквит, карамель и арахис', p: ['w2723_0'], k: 3500},
     {n: 'Фисташка и малина', d: 'Фисташковый бисквит и малиновая прослойка', p: ['p3969939_0'], k: 3500},
+    {n: 'Молочная девочка с карамелью', d: 'Коржи на сгущёнке, крем, карамель и орешки', p: ['w2713_0'], k: 3500},
+    {n: 'Красный бархат с клубникой', d: 'Бархатный бисквит и клубничное конфи', p: ['w2566_0'], k: 3500},
+    {n: 'Шоколадный с малиной', d: 'Шоколадный бисквит и малиновое конфи', p: ['w2603_0'], k: 3500},
+    {n: 'Ванильный с малиной', d: 'Ванильный бисквит и малиновое конфи', p: ['w2710_0'], k: 3500},
+    {n: 'Ванильный с клубникой', d: 'Ванильный бисквит и клубничное конфи', p: ['w2706_0'], k: 3500},
     {n: 'Валенсия', d: 'Апельсиновый бисквит, заварной крем и крем чиз, советский рецепт', p: ['w2601_0'], k: 3500},
     {n: 'Наполеон', d: 'Тонкие слоёные коржи и заварной крем', p: ['w2629_0'], k: 3500},
     {n: 'Морковный с карамелью', d: 'Пряный морковный бисквит и карамель', p: ['w2646_0'], k: 3500}
   ];
-  const tb = document.querySelector('#mx tbody');
-  ROWS.forEach((r, ri) => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = '<th scope="row">' + esc(r.n) + '</th>' + r.c.map((ph, ci) => {
-      const lbl = r.n + ' ' + COLN[ci];
-      return '<td><button type="button" class="cell' + (ph.length ? '' : ' empty') + '" data-r="' + ri + '" data-c="' + ci + '" aria-pressed="false" aria-label="' + esc(lbl + (ph.length ? ', фото: ' + ph.length : ', пока без фото')) + '">' +
-        (ph.length ? '<img src="img/' + ph[0] + '.jpg" alt="" loading="lazy"><span class="n">' + ph.length + '</span>' : 'спросите') + '</button></td>';
-    }).join('');
-    tb.appendChild(tr);
-  });
-  $('chips').innerHTML = MORE.map((m, i) => '<button type="button" class="chip" data-m="' + i + '" aria-pressed="false">' + esc(m.n) + '</button>').join('');
-
+  const FSHOW = 9;
+  let fAll = false;
+  function drawFills() {
+    $('fgrid').innerHTML = FILLS.map((f, i) => (!fAll && i >= FSHOW) ? '' :
+      '<button type="button" class="fc" data-m="' + i + '" aria-pressed="' + (sel && sel.m === i) + '"><img src="img/' + f.p[0] + '.jpg" alt="Торт: ' + esc(f.n) + '" loading="lazy"><b>' + esc(f.n) + '</b><small>' + (f.k === 4000 ? '4 000' : '3 500') + ' ₽ за кг' + (f.p.length > 1 ? ', фото: ' + f.p.length : '') + '</small></button>').join('');
+    const mb = $('fmore'); mb.hidden = FILLS.length <= FSHOW;
+    mb.textContent = fAll ? 'Свернуть' : 'Показать все начинки (' + FILLS.length + ')';
+  }
+  $('fmore').onclick = () => { fAll = !fAll; drawFills(); if (!fAll) $('fill').scrollIntoView({block: 'start'}); };
   let sel = null, kg = 2;
   function show(s) {
     sel = s;
-    document.querySelectorAll('.cell,.chip').forEach(b => b.setAttribute('aria-pressed', 'false'));
-    let photos;
-    if (s.m != null) {
-      const m = MORE[s.m]; s.title = m.n; s.desc = m.d; s.k = m.k; photos = m.p;
-      document.querySelector('.chip[data-m="' + s.m + '"]').setAttribute('aria-pressed', 'true');
-    } else {
-      const r = ROWS[s.r]; photos = r.c[s.c];
-      s.title = r.n + ' ' + COLN[s.c]; s.k = s.c === 4 ? 4000 : 3500;
-      s.desc = r.d + '. ' + (photos.length ? 'Так эта начинка выглядела в моих заказах.' : 'Такого сочетания пока нет на фото, но я его сделаю. Напишите, обсудим.');
-      document.querySelector('.cell[data-r="' + s.r + '"][data-c="' + s.c + '"]').setAttribute('aria-pressed', 'true');
-    }
+    const m = FILLS[s.m]; s.title = m.n; s.desc = m.d + '. Так эта начинка выглядела в моих заказах.'; s.k = m.k; const photos = m.p;
+    document.querySelectorAll('.fc').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.m === s.m)));
     $('p-t').textContent = s.title;
     $('p-s').textContent = s.desc + (s.k === 4000 ? ' Муссовый торт, 4 000 ₽ за кг.' : ' 3 500 ₽ за кг.');
     const strip = $('p-ph');
@@ -713,16 +694,16 @@ footer.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
   }
   $('kg-m').onclick = () => { kg = Math.max(2, kg - 0.5); calc(); };
   $('kg-p').onclick = () => { kg = Math.min(15, kg + 0.5); calc(); };
-  tb.addEventListener('click', e => { const b = e.target.closest('.cell'); if (b) { show({r: +b.dataset.r, c: +b.dataset.c}); if (innerWidth < 980) $('panel').scrollIntoView({behavior: 'smooth', block: 'start'}); } });
-  $('chips').addEventListener('click', e => { const b = e.target.closest('.chip'); if (b) { show({m: +b.dataset.m}); if (innerWidth < 980) $('panel').scrollIntoView({behavior: 'smooth', block: 'start'}); } });
-  show({r: 0, c: 0});
+  $('fgrid').addEventListener('click', e => { const b = e.target.closest('.fc'); if (b) { show({m: +b.dataset.m}); if (innerWidth < 980) $('panel').scrollIntoView({behavior: 'smooth', block: 'start'}); } });
+  drawFills();
+  show({m: 0});
   $('p-add').onclick = () => { add({t: 'Торт «' + sel.title + '»', note: String(kg).replace('.', ',') + ' кг', price: Math.round(kg * sel.k), from: true}); $('p-add').textContent = 'Добавлено, смотрите заявку'; setTimeout(() => $('p-add').textContent = 'Добавить в заявку', 2200); };
 
   // ===== catalog =====
   { const w = document.getElementById('wed-go'); if (w) w.addEventListener('click', () => { const r = document.querySelector('input[name=occ][value="Свадьба"]'); if (r) r.checked = true; }); }
   const CATS = ['Торты', 'Бенто и маленькие', 'Пряники', 'Подарки'];
   const ITEMS = [
-    {c: 0, t: 'Торт на день рождения', p: 'от 3 500 ₽/кг', v: 7000, u: '2 кг', ph: ['w2734_0','w2714_0','w2718_0','w2613_0','w2667_0'], d: ['Бисквитный торт с любой начинкой из карты', 'Декор из крема чиз, ягод, пряников и шоколада', 'Минимальный вес 2 кг']},
+    {c: 0, t: 'Торт на день рождения', p: 'от 3 500 ₽/кг', v: 7000, u: '2 кг', ph: ['w2734_0','w2714_0','w2718_0','w2613_0','w2667_0'], d: ['Бисквитный торт с любой начинкой из списка', 'Декор из крема чиз, ягод, пряников и шоколада', 'Минимальный вес 2 кг']},
     {c: 0, t: 'Детские торты', p: 'от 3 500 ₽/кг + декор от 800 ₽', v: 7800, u: '2 кг', ph: ['w2673_0','w2608_0','p4692637_1','p4692670_0','p4692670_1','p3969944_0','p3969943_1'], d: ['Герои мультфильмов, машинки, динозавры, принцессы', 'Фигурки из пряников и пластичного шоколада, без мастики', 'Декор считаем отдельно, зависит от сложности']},
     {c: 0, t: 'Свадебные и ярусные', p: 'от 3 500 ₽/кг', v: 12250, u: '3,5 кг', ph: ['w2723_0','w2733_0','w2614_0','w2582_0','w2583_0','p4220799_0','p4220799_2'], d: ['Двухъярусный торт от 3,5 кг', 'Каждый ярус может быть со своей начинкой', 'Цветы из пластичного шоколада или живые', 'Свадебный торт весом 8 и 10 кг уже делала']},
     {c: 0, t: '3Д торты', p: 'от 3 500 ₽/кг + декор от 800 ₽', v: 7800, u: '2 кг', ph: ['w2725_0','w2728_0','w2604_0','w2634_0','p4692661_0','p4692661_1','p4692661_2','p4692661_3'], d: ['Торт в виде сыра, бочки, книги, сумки и чего угодно ещё', 'Все детали съедобные, без мастики', 'Дизайн обсуждаем, цена декора зависит от сложности']},
