@@ -228,6 +228,28 @@ p{margin:0}
 .bu-list li{display:flex;align-items:baseline;gap:14px;padding-bottom:12px;border-bottom:1px dashed var(--line);font-size:15.5px}
 .bu-list b{font:400 30px/1 var(--fd);color:var(--milk);min-width:74px}
 .bu-note{font-size:14.5px;color:var(--ink-2)}
+/* наличие */
+.chip.out{opacity:.38;text-decoration:line-through;text-decoration-thickness:1px}
+.c-note{margin:12px 0 0;font-size:13px;color:rgba(246,234,223,.72)}
+.fc-add.out,.more-row button.out{background:#EFE7E1;color:var(--ink-3);cursor:not-allowed}
+.more-row button.out{text-decoration:line-through;opacity:.6}
+.pchip.out span{opacity:.45;text-decoration:line-through;cursor:not-allowed}
+.st-fab{position:fixed;left:16px;bottom:calc(20px + env(safe-area-inset-bottom));z-index:55;display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 18px;border:0;border-radius:99px;background:var(--pink);color:#fff;font:600 14.5px/1 var(--ft);box-shadow:0 14px 26px -12px rgba(44,26,20,.7)}
+.st-pan{position:fixed;inset:0;z-index:70;background:rgba(44,26,20,.45);display:flex;align-items:flex-end;justify-content:flex-start;padding:16px}
+.st-box{width:min(440px,100%);max-height:calc(100dvh - 32px);overflow:auto;background:var(--paper);border-radius:22px;padding:22px 20px 18px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.st-box h3{font:400 26px/1.15 var(--fd);margin:0 0 6px}
+.st-demo{font-size:13px;color:var(--ink-2);background:var(--pink-xl);border-radius:12px;padding:10px 12px;margin:10px 0 14px;line-height:1.45}
+.st-g{margin:14px 0 6px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.st-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px;cursor:pointer}
+.st-row input{position:absolute;opacity:0;width:1px;height:1px}
+.st-sw{flex:none;position:relative;width:44px;height:26px;border-radius:99px;background:#D9CFC8;transition:background .2s}
+.st-sw::after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .2s}
+.st-row input:checked+.st-sw{background:#5FA36A}
+.st-row input:checked+.st-sw::after{transform:translateX(18px)}
+.st-row input:focus-visible+.st-sw{outline:2px solid var(--milk);outline-offset:2px}
+.st-act{position:sticky;bottom:-18px;display:flex;gap:10px;background:var(--paper);padding:14px 0 4px;margin-top:8px}
+.st-act .btn{flex:1}
+@media (max-width:900px){.st-fab{bottom:calc(92px + env(safe-area-inset-bottom))}.st-pan{padding:8px}}
 .buy{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-top:26px}
 .step{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:99px;height:48px;background:var(--paper)}
 .step button{width:44px;height:44px;border:0;background:none;font-size:22px;line-height:1;color:var(--choc-2)}
@@ -282,23 +304,13 @@ p{margin:0}
 
 /* gifts */
 .gifts{background:linear-gradient(180deg,var(--blue-xl),var(--blue-l))}
-.g-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:18px}
+.g-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .g-card{background:var(--paper);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);display:flex;flex-direction:column}
 .g-card>img{aspect-ratio:4/3;object-fit:cover;width:100%}
 .g-b{padding:20px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
 .g-b p{font-size:14.5px;color:var(--ink-2)}
 .g-b .btn{align-self:flex-start;margin-top:auto}
 .g-note{font-size:12.5px;color:var(--ink-3)}
-.g-phone .ph-vis{position:relative;height:300px;background:radial-gradient(circle at 50% 60%,#E8D7C8,#C9AF98);display:grid;place-items:center;overflow:hidden}
-.cphone{position:relative;width:132px;height:262px;border-radius:30px;background:var(--pb);box-shadow:inset 0 0 0 3px rgba(255,255,255,.18),inset -10px -14px 22px rgba(0,0,0,.22),0 26px 30px -16px rgba(40,20,10,.7);transition:background .5s;transform:rotate(-8deg)}
-.cphone::before{content:"";position:absolute;inset:0;border-radius:30px;background:linear-gradient(115deg,rgba(255,255,255,.38) 0 18%,transparent 34% 70%,rgba(255,255,255,.12) 86%)}
-.cphone .cam{position:absolute;left:12px;top:12px;width:56px;height:58px;border-radius:16px;background:rgba(0,0,0,.14);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.18)}
-.cphone .cam i{position:absolute;width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 40% 35%,rgba(255,255,255,.45),transparent 38%),var(--pl);box-shadow:inset 0 0 0 3px rgba(0,0,0,.18)}
-.cphone .cam i:nth-child(1){left:6px;top:6px}.cphone .cam i:nth-child(2){left:6px;top:32px}.cphone .cam i:nth-child(3){left:30px;top:19px}
-.cphone .side{position:absolute;right:-3px;top:70px;width:3px;height:44px;border-radius:2px;background:var(--pl)}
-.cphone[data-c=orange]{--pb:linear-gradient(160deg,#F6A24F,#D86A1E 60%,#B9531A);--pl:#C9601F}
-.cphone[data-c=milk]{--pb:linear-gradient(160deg,#A9714C,#7A4A2E 60%,#5E361F);--pl:#6A3E25}
-.cphone[data-c=white]{--pb:linear-gradient(160deg,#FFF7EA,#EEDDC4 60%,#DCC4A3);--pl:#D6BE9C}
 .ph-real{position:absolute;right:14px;bottom:14px;width:96px;height:128px;object-fit:cover;border-radius:14px;border:4px solid #fff;box-shadow:var(--sh);transform:rotate(6deg)}
 .sw{display:flex;gap:8px;flex-wrap:wrap}
 .sw button{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--paper);border-radius:99px;padding:6px 12px 6px 6px;font-size:13.5px}
@@ -441,7 +453,6 @@ p{margin:0}
   .fc-hit{grid-column:span 3}
   .fc-more{grid-column:span 2}
   .g-grid{grid-template-columns:1fr 1fr}
-  .g-phone{grid-column:span 2}
 }
 @media (max-width:900px){
   .sec{padding:72px 0}
@@ -500,7 +511,6 @@ p{margin:0}
   .d-price{text-align:left}
   .d-cards{grid-template-columns:1fr}
   .g-grid{grid-template-columns:1fr}
-  .g-phone{grid-column:auto}
   .cl{width:168px}
   .row2{grid-template-columns:1fr}
   .o-form{padding:22px 18px}
@@ -568,7 +578,7 @@ p{margin:0}
       <a class="tile rv" href="#bueno"><img src="img/bueno-stack.webp" alt="Киндер Буэно оверсайз в разрезе" loading="lazy"><span class="tag">Хит</span><span class="tb"><b>Киндер Буэно оверсайз</b><i>500 г · 2 450 ₽</i></span></a>
       <a class="tile rv" href="#kart"><img src="img/kart-gold.webp" alt="Премиум «Картошечка» на золотом блюде" loading="lazy"><span class="tb"><b>Премиум «Картошечка»</b><i>2 шт — 800 ₽, 6 шт — 2 000 ₽</i></span></a>
       <a class="tile rv" href="#dates"><img src="img/dates-box.webp" alt="Финики в бельгийском шоколаде в коробке" loading="lazy"><span class="tb"><b>Королевские финики</b><i>в бельгийском шоколаде · 200 ₽ за шт</i></span></a>
-      <a class="tile rv" href="#gifts"><img src="img/v-c6.webp" alt="Шоколадный айфон в коробке" loading="lazy"><span class="tb"><b>Шоколадные подарки</b><i>айфон из шоколада и наборы к праздникам</i></span></a>
+      <a class="tile rv" href="#gifts"><img src="img/v-c10.webp" alt="Коробка фиников и открытка «Послание от Вселенной»" loading="lazy" style="object-position:50% 40%"><span class="tb"><b>Шоколадные подарки</b><i>финики с посланием и наборы к праздникам</i></span></a>
     </div>
   </div>
 </section>
@@ -611,6 +621,7 @@ p{margin:0}
         <button type="button" role="radio" aria-checked="false" data-n="9">9 десертов<b>4 190 ₽</b><small>≈ 466 ₽ за шт</small></button>
       </div>
       <div class="chips" id="chips"></div>
+      <p class="c-note" id="cnote" hidden>Зачёркнутых вкусов сейчас нет в наличии</p>
       <div class="b-act"><button type="button" class="lnk" id="rnd">Удивите меня</button><button type="button" class="lnk" id="clr">Очистить коробку</button></div>
       <div class="b-sum"><span id="bsum">Осталось выбрать 6 вкусов</span><b id="bprice">2 790 ₽</b></div>
       <button type="button" class="btn" id="badd" disabled>Добавить набор в заказ</button>
@@ -634,7 +645,7 @@ p{margin:0}
         <li><b>+2</b>дополнительных слоя-подложки</li>
         <li><b>500 г</b>как полноценный торт ручной работы из натуральных ингредиентов</li>
       </ul>
-      <p class="bu-note">Если есть в наличии — сразу оформим, под заказ приготовлю быстро или к вашей дате.</p>
+      <p class="bu-note" id="bunote">Если есть в наличии — сразу оформим, под заказ приготовлю быстро или к вашей дате.</p>
       <div class="buy">
         <span class="price">2 450 ₽</span>
         <span class="step"><button type="button" data-d="-1" aria-label="Меньше">−</button><output id="buq">1</output><button type="button" data-d="1" aria-label="Больше">+</button></span>
@@ -694,29 +705,8 @@ p{margin:0}
 
 <section class="gifts sec" id="gifts">
   <div class="wrap">
-    <div class="sec-h rv"><p class="kick">Подарки</p><h2>Шоколад с вау-эффектом</h2><p class="sub">Когда хочется удивить: шоколадный айфон, финики с посланием или праздничный набор.</p></div>
+    <div class="sec-h rv"><p class="kick">Подарки</p><h2>Шоколад с вау-эффектом</h2><p class="sub">Когда хочется удивить: финики с посланием или праздничный набор.</p></div>
     <div class="g-grid">
-      <article class="g-card g-phone rv">
-        <div class="ph-vis">
-          <div class="cphone" id="cphone" data-c="orange"><span class="cam"><i></i><i></i><i></i></span><span class="side"></span></div>
-          <img class="ph-real" src="img/v-c6.webp" alt="Шоколадный айфон в коробке" loading="lazy">
-        </div>
-        <div class="g-b">
-          <h3>Шоколадный айфон</h3>
-          <p>Айфон 17 Pro Max из бельгийского шоколада. Можно с начинкой, а можно просто наслаждаться вкусом шоколада. Подарок с вау-эффектом.</p>
-          <div class="sw" id="sw" role="radiogroup" aria-label="Шоколад">
-            <button type="button" role="radio" aria-checked="true" data-c="orange"><i style="background:#E57F2E"></i>апельсиновый</button>
-            <button type="button" role="radio" aria-checked="false" data-c="milk"><i style="background:#7A4A2E"></i>молочный</button>
-            <button type="button" role="radio" aria-checked="false" data-c="white"><i style="background:#F1E2CB"></i>белый</button>
-          </div>
-          <div class="opts">
-            <label class="opt"><input type="radio" name="pfill" value="с начинкой" checked><span>с начинкой</span></label>
-            <label class="opt"><input type="radio" name="pfill" value="только шоколад"><span>только шоколад</span></label>
-          </div>
-          <button type="button" class="btn btn-s" id="ph-add">Хочу такой</button>
-          <span class="g-note">Цену подскажу в сообщениях</span>
-        </div>
-      </article>
       <article class="g-card rv">
         <img src="img/v-c10.webp" alt="Коробка фиников и открытка «Послание от Вселенной»" loading="lazy" style="object-position:50% 40%">
         <div class="g-b">
@@ -762,7 +752,7 @@ p{margin:0}
     <ol class="steps">
       <li class="rv"><b>Выберите</b> вкусы и наборы на сайте или напишите мне во ВКонтакте.</li>
       <li class="rv"><b>Подтвержу</b> заказ и время: из наличия — через час, под заказ — от одного дня.</li>
-      <li class="rv"><b>Заберите</b> в Кудрово у метро «Улица Дыбенко» или я передам заказ вашему курьеру.</li>
+      <li class="rv"><b>Заберите</b> в Кудрово у метро «Улица Дыбенко» или получите Яндекс курьером.</li>
     </ol>
     <div class="map-card rv">
       <div class="map">
@@ -776,7 +766,7 @@ p{margin:0}
         <h3>Самовывоз в Кудрово</h3>
         <p>Венская улица, 4к2 — рядом с метро «Улица Дыбенко» и Мегой Дыбенко.</p>
         <ul>
-          <li>С удовольствием передам заказ вашему курьеру</li>
+          <li>Доставка Яндекс курьером по тарифу Яндекса</li>
           <li>В воскресенье выдаю заказы, оформленные заранее — до 12:00 субботы</li>
         </ul>
         <div class="map-btns">
@@ -795,7 +785,7 @@ p{margin:0}
       <details open><summary>Есть ли десерты в наличии?</summary><p>Да, корпусные десерты часто есть в наличии, их выдам в течение часа. Напишите, что хотите, и я подскажу, какие вкусы есть прямо сейчас.</p></details>
       <details><summary>За сколько дней заказывать?</summary><p>Под заказ готовлю от одного дня. Если десерты нужны к конкретной дате или в большом количестве, лучше написать заранее.</p></details>
       <details><summary>Можно собрать набор из разных вкусов?</summary><p>Да, набор собирается из любых вкусов: 4 десерта — 1 990 ₽, 6 — 2 790 ₽, 9 — 4 190 ₽. Соберите коробку в конструкторе выше или доверьте выбор мне.</p></details>
-      <details><summary>Где забрать заказ?</summary><p>Самовывоз в Кудрово, Венская улица, 4к2, рядом с метро «Улица Дыбенко». Могу передать заказ вашему курьеру.</p></details>
+      <details><summary>Где забрать заказ?</summary><p>Самовывоз в Кудрово, Венская улица, 4к2, рядом с метро «Улица Дыбенко». Можно доставить Яндекс курьером, по тарифу Яндекса.</p></details>
       <details><summary>Можно забрать в воскресенье?</summary><p>Да, если заказ оформлен заранее — до 12:00 субботы.</p></details>
       <details><summary>Какие продукты вы используете?</summary><p>Бельгийский шоколад, натуральные ингредиенты, настоящую фисташковую пасту без ароматизаторов и суррогатов, свежие ягоды.</p></details>
       <details><summary>Какой подарок к первому заказу?</summary><p>К первому заказу в Конфетолии вас ждёт подарок. Просто отметьте в заявке, что заказываете впервые.</p></details>
@@ -823,7 +813,7 @@ p{margin:0}
         <div class="fl"><span>Как получить</span>
           <div class="opts">
             <label class="opt"><input type="radio" name="get" value="Самовывоз, Кудрово (м. «Улица Дыбенко»)" checked><span>Самовывоз в Кудрово</span></label>
-            <label class="opt"><input type="radio" name="get" value="Передать моему курьеру"><span>Передать курьеру</span></label>
+            <label class="opt"><input type="radio" name="get" value="Доставка Яндекс курьером"><span>Яндекс курьер</span></label>
           </div>
         </div>
         <div class="fl"><span>Как вам ответить</span>
@@ -925,6 +915,11 @@ p{margin:0}
     {id: "coffee", n: "Кофе", c1: "#A06A48", c2: "#5A321D", deco: "groove", ov: 1, img: "f/coffee"}
   ];
   const byId = Object.fromEntries(FL.map(f => [f.id, f]));
+  // наличие: в макете отметки хранятся в браузере, после запуска в data.js сайта
+  const STOCK_KEY = "konf-stock-demo";
+  let OUT = {};
+  try { OUT = JSON.parse(localStorage.getItem(STOCK_KEY) || "{}") || {}; } catch (x) {}
+  const isOut = k => !!OUT[k];
   const bon = (f, x) => `<span class="bon${f.ov ? " ov" : ""}${f.deco ? " " + f.deco : ""}${x ? " " + x : ""}" style="--c1:${f.c1};--c2:${f.c2}${f.tex ? ";--tex:" + TEX[f.tex] : ""}" aria-hidden="true"></span>`;
 
   // flavour cards
@@ -957,10 +952,11 @@ p{margin:0}
     $("bsum").textContent = left ? `Осталось выбрать ${left} ${word(left, "вкус", "вкуса", "вкусов")}` : "Набор собран — можно добавлять в заказ";
     $("bprice").textContent = rub(PRICES[size]);
     $("badd").disabled = left !== 0;
-    document.querySelectorAll("#chips .chip").forEach(c => c.disabled = left === 0);
+    document.querySelectorAll("#chips .chip").forEach(c => c.disabled = left === 0 || isOut("c:" + c.dataset.f));
     document.querySelectorAll("#sizes button").forEach(b => b.setAttribute("aria-checked", String(+b.dataset.n === size)));
   }
   function addFlavor(id, fromCard) {
+    if (isOut("c:" + id)) { toast(`«${byId[id].n}» сейчас нет в наличии`); return false; }
     if (box.length >= size) {
       if (fromCard) toast("Коробка уже собрана: добавьте её в заказ или выберите набор побольше");
       return false;
@@ -982,8 +978,10 @@ p{margin:0}
     size = +b.dataset.n; if (box.length > size) box = box.slice(0, size); drawBox(-1);
   });
   $("rnd").onclick = () => {
-    const ids = FL.map(f => f.id); box = [];
-    for (let i = 0; i < size; i++) box.push(ids.splice(Math.floor(Math.random() * ids.length), 1)[0]);
+    const avail = FL.map(f => f.id).filter(id => !isOut("c:" + id));
+    if (!avail.length) return toast("Сейчас все вкусы закончились, напишите мне");
+    let ids = []; box = [];
+    for (let i = 0; i < size; i++) { if (!ids.length) ids = avail.slice(); box.push(ids.splice(Math.floor(Math.random() * ids.length), 1)[0]); }
     drawBox(-1);
     cellsEl.querySelectorAll(".bon").forEach((b, i) => { b.classList.remove("still"); b.style.animationDelay = i * 60 + "ms"; });
   };
@@ -1068,15 +1066,50 @@ p{margin:0}
   };
 
   // ===== gifts =====
-  const CN = {orange: "апельсиновый", milk: "молочный", white: "белый"};
-  let pc = "orange";
-  $("sw").addEventListener("click", e => {
-    const b = e.target.closest("button"); if (!b) return;
-    pc = b.dataset.c; $("cphone").dataset.c = pc;
-    $("sw").querySelectorAll("button").forEach(x => x.setAttribute("aria-checked", String(x === b)));
-  });
-  $("ph-add").onclick = () => addItem({title: "Шоколадный айфон", desc: `${CN[pc]} шоколад, ${document.querySelector("[name=pfill]:checked").value}`, price: 0});
   document.querySelectorAll("[data-gift]").forEach(b => b.onclick = () => addItem({title: b.dataset.gift, desc: "", price: 0}));
+
+  // ===== наличие =====
+  const BUNOTE = $("bunote").textContent;
+  function applyStock() {
+    document.querySelectorAll("#flv [data-f]").forEach(b => {
+      const o = isOut("c:" + b.dataset.f); b.disabled = o; b.classList.toggle("out", o);
+      if (b.classList.contains("fc-add")) b.textContent = o ? "нет в наличии" : "+ в набор";
+    });
+    document.querySelectorAll("#chips .chip").forEach(c => { const o = isOut("c:" + c.dataset.f); c.classList.toggle("out", o); c.title = o ? "Сейчас нет в наличии" : ""; });
+    $("cnote").hidden = !FL.some(f => isOut("c:" + f.id));
+    const nb = box.filter(id => !isOut("c:" + id)); if (nb.length !== box.length) box = nb;
+    drawBox(-1);
+    [["kf", "k:"], ["df", "d:"]].forEach(([nm, pre]) => document.querySelectorAll(`[name=${nm}]`).forEach(i => {
+      const o = isOut(pre + i.value); i.disabled = o; if (o) i.checked = false; i.closest(".pchip").classList.toggle("out", o);
+    }));
+    $("bunote").textContent = isOut("bueno") ? "Сейчас нет в наличии — приготовлю под заказ к вашей дате." : BUNOTE;
+  }
+  applyStock();
+
+  // режим мастера: ?master или #nalichie
+  if (/master/.test(location.search) || location.hash === "#nalichie") {
+    const groups = [
+      ["Корпусные десерты", FL.map(f => ["c:" + f.id, f.n])],
+      ["Киндер Буэно", [["bueno", "Киндер Буэно оверсайз"]]],
+      ["«Картошечка»", KF.map(([n]) => ["k:" + n, n])],
+      ["Финики", DG.flatMap(g => g[3]).map(n => ["d:" + n, n])]
+    ];
+    const fab = document.createElement("button");
+    fab.type = "button"; fab.className = "st-fab"; fab.textContent = "Наличие";
+    const pan = document.createElement("div");
+    pan.className = "st-pan"; pan.hidden = true;
+    pan.innerHTML = `<div class="st-box" role="dialog" aria-modal="true" aria-label="Наличие"><h3>Что сейчас есть</h3><p class="st-demo">Выключите то, чего нет: на сайте этот вкус станет серым, и его не получится положить в набор. В макете отметки сохраняются только на этом телефоне. После запуска вы будете отмечать наличие так же, по паролю, и изменения увидят все покупатели.</p>${groups.map(([g, items]) => `<p class="st-g">${g}</p>` + items.map(([k, n]) => `<label class="st-row"><span>${esc(n)}</span><input type="checkbox" data-k="${esc(k)}"><span class="st-sw" aria-hidden="true"></span></label>`).join("")).join("")}<div class="st-act"><button type="button" class="btn btn-s btn-o" id="st-all">Всё есть</button><button type="button" class="btn btn-s" id="st-ok">Готово</button></div></div>`;
+    document.body.append(fab, pan);
+    const sync = () => pan.querySelectorAll("[data-k]").forEach(i => i.checked = !isOut(i.dataset.k));
+    const save = () => { try { localStorage.setItem(STOCK_KEY, JSON.stringify(OUT)); } catch (x) {} applyStock(); };
+    fab.onclick = () => { sync(); pan.hidden = false; pan.querySelector("#st-ok").focus(); };
+    pan.addEventListener("change", e => { const i = e.target.closest("[data-k]"); if (!i) return; if (i.checked) delete OUT[i.dataset.k]; else OUT[i.dataset.k] = 1; save(); });
+    pan.querySelector("#st-all").onclick = () => { OUT = {}; save(); sync(); };
+    const close = () => { pan.hidden = true; fab.focus(); };
+    pan.querySelector("#st-ok").onclick = close;
+    pan.addEventListener("click", e => { if (e.target === pan) close(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && !pan.hidden) close(); });
+  }
 
   // ===== clips =====
   const CL = [
@@ -1087,7 +1120,6 @@ p{margin:0}
     ["v-c297", "456239177", "Картошка с питерским вайбом"],
     ["v-c81", "456239086", "Новые вкусы «Картошечки»"],
     ["v-c292", "456239147", "Корпусные десерты готовы вас радовать"],
-    ["v-c6", "456239025", "Айфон в апельсиновом, молочном или белом шоколаде"],
     ["v-c50", "456239085", "Финики в бельгийском шоколаде"]
   ];
   $("clrow").innerHTML = CL.map(([img, id, t]) => `<a class="cl" href="https://vk.ru/clip-234596470_${id}" target="_blank" rel="noopener"><img src="img/${img}.webp" alt="" loading="lazy"><i class="pl" aria-hidden="true"></i><span>${t}</span></a>`).join("");
