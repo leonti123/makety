@@ -164,6 +164,27 @@ section{padding:88px 0}
 .card .pr{font-weight:600;color:var(--cherry)}
 .card .ds{font-size:14px;color:var(--soft);display:block;margin-top:2px}
 @media (max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+/* wedding */
+.wed{background:var(--plum-d);color:#F3E9F7}
+.wed h2{color:#fff}
+.wed-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px 56px;align-items:end;margin-bottom:44px}
+.wed-head p{margin:0;color:#DCCDEA;font-size:18px}
+.wed-head .facts-w{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.wed-head .facts-w span{border:1px solid rgba(220,205,234,.35);border-radius:999px;padding:7px 14px;font-size:14px;color:#F3E9F7}
+.wcakes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;list-style:none;margin:0;padding:0}
+.wcake img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px;display:block;background:#5d3a69}
+.wcake h3{color:#fff;font-size:22px;margin:16px 0 10px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.wcake h3 small{font:600 14px/1 var(--body);color:#F5B5C4;white-space:nowrap}
+.tiers{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;align-items:center;gap:4px}
+.tiers li{width:100%;background:rgba(255,255,255,.08);border-radius:8px;padding:7px 10px;font-size:13.5px;line-height:1.35;color:#F3E9F7}
+.tiers li:nth-last-child(2){width:88%}.tiers li:nth-last-child(3){width:76%}
+.tiers b{display:block;font:600 11px/1.3 var(--body);letter-spacing:.06em;text-transform:uppercase;color:#C9B3D9}
+.wcake .note{font-size:13.5px;color:#C9B3D9;margin:10px 0 0}
+.wed-cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;margin-top:44px;padding-top:28px;border-top:1px solid rgba(220,205,234,.25)}
+.wed-cta p{margin:0;flex:1 1 320px;color:#DCCDEA}
+@media (max-width:980px){.wcakes{grid-template-columns:repeat(2,minmax(0,1fr))}.wed-head{grid-template-columns:1fr}}
+@media (max-width:520px){.wcakes{grid-template-columns:1fr}}
+
 @media (max-width:700px){.grid{grid-template-columns:1fr 1fr;gap:22px 14px}.card h3{font-size:18px}}
 
 dialog{border:0;border-radius:22px;padding:0;max-width:940px;width:calc(100% - 32px);background:var(--paper);color:var(--ink)}
@@ -297,6 +318,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
     <nav class="nav" aria-label="Разделы">
       <a href="#prices">Цены</a>
       <a href="#fill">Начинки</a>
+      <a href="#wed">Свадебные</a>
       <a href="#cat">Каталог</a>
       <a href="#about">Обо мне</a>
       <a href="#deliv">Доставка</a>
@@ -365,9 +387,11 @@ footer.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
         <div class="prow"><span>Мармеладный букет</span><i></i><b>от 3 500 ₽</b></div>
         <div class="prow"><span>Клубника в шоколаде, 9 шт.</span><i></i><b>2 000 ₽</b></div>
         <div class="prow"><span>Мадлены, 9 шт.</span><i></i><b>1 080 ₽</b></div>
+        <div class="prow"><span>Эклеры, коробка 5 шт.</span><i></i><b>900 ₽</b></div>
+        <div class="prow"><span>Орешки со сгущёнкой<small>от 9 шт.</small></span><i></i><b>60 ₽/шт</b></div>
       </div>
     </div>
-    <p class="gift">Каждый торт обсуждаем подробно: начинку, декор, надпись. Перед работой я рисую эскиз, чтобы вы видели, каким будет торт.</p>
+    <p class="gift">Каждый торт обсуждаем подробно: начинку, декор, надпись. Я подберу декор и предложу несколько вариантов, а вы выберете свой.</p>
   </div>
 </section>
 
@@ -398,9 +422,31 @@ footer.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
           <span class="hint" id="kg-g">на 13 гостей</span>
         </div>
         <p class="sum" id="p-sum">6 000 ₽</p>
-        <p class="hint">Без учёта сложного декора. Окончательную цену назову после эскиза.</p>
+        <p class="hint">Без учёта сложного декора. Окончательную цену назову, когда подберём декор.</p>
         <button class="btn b-main" type="button" id="p-add">Добавить в заявку</button>
       </aside>
+    </div>
+  </div>
+</section>
+
+<section class="wed" id="wed">
+  <div class="wrap">
+    <div class="wed-head">
+      <div>
+        <h2>Свадебные торты</h2>
+        <div class="facts-w"><span>от 3,5 кг</span><span>3 500 ₽/кг</span><span>до 10 кг и больше</span><span>без мастики</span></div>
+      </div>
+      <p>Каждый ярус может быть со своей начинкой, чтобы каждый гость нашёл свой вкус. Украшаю живыми цветами, ягодами или цветами из пластичного шоколада. Вот несколько свадебных тортов, которые я уже делала.</p>
+    </div>
+    <ul class="wcakes">
+      <li class="wcake"><img src="img/w2582_0.jpg" alt="Трёхъярусный свадебный торт с кремовыми розами" loading="lazy" width="760" height="1013"><h3>Три яруса<small>10 кг</small></h3><ul class="tiers"><li><b>Верхний</b>сникерс</li><li><b>Средний</b>красный бархат с вишней</li><li><b>Нижний</b>молочная девочка с клубничным конфи</li></ul></li>
+      <li class="wcake"><img src="img/w2723_0.jpg" alt="Трёхъярусный свадебный торт с живыми цветами" loading="lazy" width="760" height="1013"><h3>Три вкуса</h3><ul class="tiers"><li><b>Верхний</b>шоколадный с карамелизированным бананом</li><li><b>Средний</b>баунти: кокосовый бисквит, карамель, арахис</li><li><b>Нижний</b>классическая молочная девочка</li></ul></li>
+      <li class="wcake"><img src="img/w2733_0.jpg" alt="Трёхъярусный свадебный торт с кремовым кружевом" loading="lazy" width="760" height="1013"><h3>Кружево из крема<small>8 кг</small></h3><ul class="tiers"><li><b>Все три яруса</b>молочная девочка с клубничным конфи</li></ul></li>
+      <li class="wcake"><img src="img/w2614_0.jpg" alt="Двухъярусный свадебный торт с цветами из шоколада" loading="lazy" width="760" height="1013"><h3>Два яруса<small>4 кг</small></h3><ul class="tiers"><li><b>Верхний</b>красный бархат с вишней</li><li><b>Нижний</b>молочная девочка с малиновым конфи</li></ul><p class="note">Цветы из пластичного шоколада, между ярусами мармеладные цветы</p></li>
+    </ul>
+    <div class="wed-cta">
+      <p>Напишите дату свадьбы и число гостей. Посчитаю вес, подберу начинки для ярусов и предложу варианты декора.</p>
+      <a class="btn b-main" href="#order" id="wed-go">Обсудить свадебный торт</a>
     </div>
   </div>
 </section>
@@ -448,7 +494,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
     <h2>Как заказать</h2>
     <ol>
       <li><h3>Напишите мне</h3><p>В WhatsApp, по телефону или через заявку на сайте. Расскажите про праздник, число гостей и дату.</p></li>
-      <li><h3>Выберем начинку</h3><p>Подберу бисквит, прослойку и вес. Нарисую эскиз декора и назову точную цену.</p></li>
+      <li><h3>Выберем начинку</h3><p>Подберу бисквит, прослойку и вес. Предложу варианты декора и назову точную цену.</p></li>
       <li><h3>Бронь даты</h3><p>Лучше за 3 дня и раньше. Срочный торт делаю за сутки, если день свободен.</p></li>
       <li><h3>Получение</h3><p>Привезу бесплатно по Щербинке и Остафьево или заберёте сами в Остафьево.</p></li>
     </ol>
@@ -512,7 +558,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
       <div class="contacts">
         <a class="btn b-main" href="https://wa.me/79776191724" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp</a>
         <a class="btn b-plum" href="tel:+79776191724"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>+7 977 619-17-24</a>
-        <a class="btn b-line" href="https://max.ru/join/QZ-aQ8QOVsMVGHJjqsx_73fWWgVrF21flLJ40KpEc1c" target="_blank" rel="noopener">Канал в MAX</a>
+        <a class="btn b-line" href="https://max.ru/channel_elena_cake_house" target="_blank" rel="noopener">Канал в MAX</a>
         <a class="btn b-line" href="https://vk.ru/tortiotlenyski" target="_blank" rel="noopener">Группа ВКонтакте</a>
         <a class="btn b-line" href="https://t.me/elena_cake_house87" target="_blank" rel="noopener">Telegram</a>
       </div>
@@ -673,6 +719,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
   $('p-add').onclick = () => { add({t: 'Торт «' + sel.title + '»', note: String(kg).replace('.', ',') + ' кг', price: Math.round(kg * sel.k), from: true}); $('p-add').textContent = 'Добавлено, смотрите заявку'; setTimeout(() => $('p-add').textContent = 'Добавить в заявку', 2200); };
 
   // ===== catalog =====
+  { const w = document.getElementById('wed-go'); if (w) w.addEventListener('click', () => { const r = document.querySelector('input[name=occ][value="Свадьба"]'); if (r) r.checked = true; }); }
   const CATS = ['Торты', 'Бенто и маленькие', 'Пряники', 'Подарки'];
   const ITEMS = [
     {c: 0, t: 'Торт на день рождения', p: 'от 3 500 ₽/кг', v: 7000, u: '2 кг', ph: ['w2734_0','w2714_0','w2718_0','w2613_0','w2667_0'], d: ['Бисквитный торт с любой начинкой из карты', 'Декор из крема чиз, ягод, пряников и шоколада', 'Минимальный вес 2 кг']},
@@ -686,7 +733,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
     {c: 1, t: 'Бенто-торт', p: 'от 2 500 ₽', v: 2500, u: '600 г', ph: ['w2724_0','w2722_0','w2710_0','w2620_0','w2646_0','w2620_4'], d: ['Маленький торт весом 600 г на 2–4 человека в коробочке', 'Смешная надпись или картинка на ваш выбор', 'Иногда есть готовые в наличии, спрашивайте']},
     {c: 1, t: 'Капкейки', p: '350 ₽/шт', v: 2100, u: '6 шт.', ph: ['w2720_0','w2706_0','w2644_0','w2657_0','p3969937_0'], d: ['Ванильные, шоколадные, красный бархат', 'Начинки: карамель, вишня, банан, шоколад, кокос', 'Минимальный заказ 6 шт.']},
     {c: 1, t: 'Трайфлы', p: '400 ₽/шт', v: 1600, u: '4 шт.', ph: ['w2688_0','p4692674_0','w2689_0'], d: ['Десерт в стаканчике: не нужно резать, удобно раздать гостям', 'Есть безглютеновые трайфлы на миндальном и кокосовом молоке', 'Минимальный заказ 4 шт.']},
-    {c: 1, t: 'Эклеры с кремом чиз', p: 'цену уточню', v: 0, u: 'набор', ph: ['w2623_0'], d: ['Заварное тесто и крем чиз', 'В подарочной коробке с лентой']},
+    {c: 1, t: 'Эклеры с кремом чиз', p: '900 ₽ за 5 шт.', v: 900, u: 'коробка 5 шт.', ph: ['w2623_0'], d: ['Заварное тесто и крем чиз', 'Коробка 5 шт. 900 ₽, с лентой']},
     {c: 1, t: 'Персики со сгущёнкой', p: '250 ₽/шт', v: 1500, u: '6 шт.', ph: ['w2588_0'], d: ['Тот самый десерт из детства', 'Варёная сгущёнка с грецким орехом внутри', 'Минимальный заказ 6 шт.']},
     {c: 2, t: 'Пряники с картинкой', p: '250 ₽/шт', v: 5000, u: '20 шт. по 230 ₽', ph: ['w2721_1','p4692666_0','p4692666_1','w2649_0','p4692666_3'], d: ['Пряники-визитки с вашим логотипом для компаний', 'Подарки в детский сад и школу', 'От 20 шт. по 230 ₽, каждый в пакетике с лентой']},
     {c: 2, t: 'Новогодние наборы', p: '650 ₽/коробка', v: 650, u: '1 коробка', ph: ['w2653_0','w2649_0'], d: ['Коробка с пряниками и картинкой на выбор', 'Можно с вашим логотипом', 'Заказы на декабрь до 20 числа']},
@@ -694,7 +741,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
     {c: 3, t: 'Мармеладный букет', p: 'от 3 500 ₽', v: 3500, u: '1 букет', ph: ['w2659_1','w2586_1','w2606_2','w2700_0','w2580_0'], d: ['Цветы из натурального мармелада', 'Вкусы: яблочный, вишнёвый, банановый, клубничный, на белом вине', 'Не вянет, а съедается']},
     {c: 3, t: 'Клубника в шоколаде', p: '2 000 ₽ за 9 шт.', v: 2000, u: '9 шт.', ph: ['p11408196_0'], d: ['9 шт. 2 000 ₽, 12 шт. 2 800 ₽', 'С голубикой: 9 шт. 2 500 ₽, 12 шт. 3 300 ₽']},
     {c: 3, t: 'Мадлены', p: '1 080 ₽ за 9 шт.', v: 1080, u: '9 шт.', ph: ['w2611_0','w2574_0'], d: ['Классические, красный бархат, шоколадные или ванильные с карамелью', '9 шт. 1 080 ₽, 12 шт. 1 440 ₽']},
-    {c: 3, t: 'Орешки со сгущёнкой', p: 'цену уточню', v: 0, u: 'коробка', ph: ['w2639_0','w2610_1','w2658_0'], d: ['Классика, ягодка, красный бархат, а-ля Рафаэлло, манго-маракуйя, а-ля Ферреро Роше', 'В подарочной коробке']},
+    {c: 3, t: 'Орешки со сгущёнкой', p: '60 ₽/шт', v: 540, u: '9 шт.', ph: ['w2639_0','w2610_1','w2658_0'], d: ['Классика, ягодка, красный бархат, а-ля Рафаэлло, манго-маракуйя, а-ля Ферреро Роше', '60 ₽ за штуку, заказ от 9 шт.', 'В подарочной коробке']},
     {c: 3, t: 'Подарочные наборы', p: 'от 2 500 ₽', v: 2500, u: '1 набор', ph: ['w2690_0','w2691_0'], d: ['Мадлены, орешки, курабье и мармеладные цветы в одной коробке', 'Собираю к 8 Марта, 23 февраля, Дню матери, Новому году']}
   ];
   let tab = 0;
