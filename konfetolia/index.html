@@ -249,6 +249,8 @@ p{margin:0}
 .st-row input:focus-visible+.st-sw{outline:2px solid var(--milk);outline-offset:2px}
 .st-act{position:sticky;bottom:-18px;display:flex;gap:10px;background:var(--paper);padding:14px 0 4px;margin-top:8px}
 .st-act .btn{flex:1}
+.st-msg{min-height:20px;margin:10px 0 0;font-size:13.5px;color:var(--milk)}
+.st-out{display:block;margin:6px auto 0}
 @media (max-width:900px){.st-fab{bottom:calc(92px + env(safe-area-inset-bottom))}.st-pan{padding:8px}}
 .buy{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-top:26px}
 .step{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:99px;height:48px;background:var(--paper)}
@@ -877,9 +879,11 @@ p{margin:0}
 </nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<script>document.write('<script src="data.js?t=' + Math.floor(Date.now() / 60000) + '"><\/script>');</script>
 <script>
 (function () {
   "use strict";
+  const MASTER_URL = "https://script.google.com/macros/s/AKfycbxZaMHZwzVzpt_emhsO3zEklltxR6bV5ppWjlwlcMu8FsO6KAMXkbU_4ZBrXjjKyuG3bA/exec";
   const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
   const $ = id => document.getElementById(id);
   const rub = n => n.toLocaleString("ru-RU").replace(/ /g, " ") + " ₽";
@@ -915,10 +919,13 @@ p{margin:0}
     {id: "coffee", n: "Кофе", c1: "#A06A48", c2: "#5A321D", deco: "groove", ov: 1, img: "f/coffee"}
   ];
   const byId = Object.fromEntries(FL.map(f => [f.id, f]));
-  // наличие: в макете отметки хранятся в браузере, после запуска в data.js сайта
-  const STOCK_KEY = "konf-stock-demo";
-  let OUT = {};
-  try { OUT = JSON.parse(localStorage.getItem(STOCK_KEY) || "{}") || {}; } catch (x) {}
+  // наличие: data.js (сохраняет мастер по паролю); без MASTER_URL демо в браузере
+  const SD = window.SITE_DATA || {}, STOCK_KEY = MASTER_URL ? "konf-own" : "konf-stock-demo";
+  let OUT = Object.assign({}, SD.out || {});
+  try {
+    const own = JSON.parse(localStorage.getItem(STOCK_KEY) || "null");
+    if (own && MASTER_URL ? own.rev > (SD.rev || 0) : own) OUT = MASTER_URL ? own.out : own;
+  } catch (x) {}
   const isOut = k => !!OUT[k];
   const bon = (f, x) => `<span class="bon${f.ov ? " ov" : ""}${f.deco ? " " + f.deco : ""}${x ? " " + x : ""}" style="--c1:${f.c1};--c2:${f.c2}${f.tex ? ";--tex:" + TEX[f.tex] : ""}" aria-hidden="true"></span>`;
 
@@ -1094,21 +1101,62 @@ p{margin:0}
       ["«Картошечка»", KF.map(([n]) => ["k:" + n, n])],
       ["Финики", DG.flatMap(g => g[3]).map(n => ["d:" + n, n])]
     ];
+    const TK = "konf-mt";
+    let tok = null;
+    try { const t = JSON.parse(localStorage.getItem(TK) || "null"); if (t && t.exp > Date.now()) tok = t.token; } catch (x) {}
     const fab = document.createElement("button");
     fab.type = "button"; fab.className = "st-fab"; fab.textContent = "Наличие";
     const pan = document.createElement("div");
     pan.className = "st-pan"; pan.hidden = true;
-    pan.innerHTML = `<div class="st-box" role="dialog" aria-modal="true" aria-label="Наличие"><h3>Что сейчас есть</h3><p class="st-demo">Выключите то, чего нет: на сайте этот вкус станет серым, и его не получится положить в набор. В макете отметки сохраняются только на этом телефоне. После запуска вы будете отмечать наличие так же, по паролю, и изменения увидят все покупатели.</p>${groups.map(([g, items]) => `<p class="st-g">${g}</p>` + items.map(([k, n]) => `<label class="st-row"><span>${esc(n)}</span><input type="checkbox" data-k="${esc(k)}"><span class="st-sw" aria-hidden="true"></span></label>`).join("")).join("")}<div class="st-act"><button type="button" class="btn btn-s btn-o" id="st-all">Всё есть</button><button type="button" class="btn btn-s" id="st-ok">Готово</button></div></div>`;
+    const info = MASTER_URL ? "Выключите то, чего нет: на сайте этот вкус станет зачёркнутым, и его не получится положить в набор. Всё сохраняется само, покупатели увидят изменения через минуту-две."
+      : "Выключите то, чего нет: на сайте этот вкус станет серым, и его не получится положить в набор. В макете отметки сохраняются только на этом телефоне.";
+    pan.innerHTML = `<div class="st-box" role="dialog" aria-modal="true" aria-label="Наличие">
+<form class="st-login" id="st-login" hidden><h3>Вход для мастера</h3><p class="st-demo">Введите пароль, который вам прислали. Телефон запомнит вход на 30 дней.</p><label class="fl"><span>Пароль</span><input type="password" id="st-pw" autocomplete="current-password" autocapitalize="off" spellcheck="false"></label><p class="st-msg" id="st-lmsg" role="alert"></p><div class="st-act"><button type="button" class="btn btn-s btn-o" id="st-cancel">Закрыть</button><button class="btn btn-s" id="st-go">Войти</button></div></form>
+<div id="st-main"><h3>Что сейчас есть</h3><p class="st-demo">${info}</p>${groups.map(([g, items]) => `<p class="st-g">${g}</p>` + items.map(([k, n]) => `<label class="st-row"><span>${esc(n)}</span><input type="checkbox" data-k="${esc(k)}"><span class="st-sw" aria-hidden="true"></span></label>`).join("")).join("")}<p class="st-msg" id="st-msg" role="status"></p><div class="st-act"><button type="button" class="btn btn-s btn-o" id="st-all">Всё есть</button><button type="button" class="btn btn-s" id="st-ok">Готово</button></div>${MASTER_URL ? '<button type="button" class="lnk st-out" id="st-out">Выйти</button>' : ""}</div></div>`;
     document.body.append(fab, pan);
+    const q = sel => pan.querySelector(sel), msg = t => q("#st-msg").textContent = t;
+    const view = () => { const need = MASTER_URL && !tok; q("#st-login").hidden = !need; q("#st-main").hidden = need; (need ? q("#st-pw") : q("#st-ok")).focus(); };
     const sync = () => pan.querySelectorAll("[data-k]").forEach(i => i.checked = !isOut(i.dataset.k));
-    const save = () => { try { localStorage.setItem(STOCK_KEY, JSON.stringify(OUT)); } catch (x) {} applyStock(); };
-    fab.onclick = () => { sync(); pan.hidden = false; pan.querySelector("#st-ok").focus(); };
-    pan.addEventListener("change", e => { const i = e.target.closest("[data-k]"); if (!i) return; if (i.checked) delete OUT[i.dataset.k]; else OUT[i.dataset.k] = 1; save(); });
-    pan.querySelector("#st-all").onclick = () => { OUT = {}; save(); sync(); };
-    const close = () => { pan.hidden = true; fab.focus(); };
-    pan.querySelector("#st-ok").onclick = close;
+    const api = async body => { const r = await fetch(MASTER_URL, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: JSON.stringify(body), signal: AbortSignal.timeout(40000)}); return r.json(); };
+    let timer = null, saving = null, dirty = false;
+    async function push() {
+      timer = null;
+      if (saving) { dirty = true; return; }
+      dirty = false; msg("Сохраняю...");
+      const snap = Object.assign({}, OUT);
+      saving = api({a: "save", token: tok, data: {v: 1, out: snap}}).catch(() => ({ok: false, err: "net"}));
+      const r = await saving; saving = null;
+      if (r.ok) {
+        try { localStorage.setItem(STOCK_KEY, JSON.stringify({rev: r.rev, out: snap})); } catch (x) {}
+        msg(dirty ? "Сохраняю..." : "Сохранено. Покупатели увидят через минуту-две");
+      } else if (r.err === "auth") { tok = null; try { localStorage.removeItem(TK); } catch (x) {} msg(""); view(); q("#st-lmsg").textContent = "Вход устарел, введите пароль ещё раз"; return; }
+      else msg("Не сохранилось, проверьте интернет. Попробую ещё раз при следующем изменении");
+      if (dirty) push();
+    }
+    const changed = () => {
+      applyStock();
+      if (!MASTER_URL) { try { localStorage.setItem(STOCK_KEY, JSON.stringify(OUT)); } catch (x) {} return; }
+      msg("Сохраняю..."); clearTimeout(timer); timer = setTimeout(push, 900);
+    };
+    fab.onclick = () => { sync(); pan.hidden = false; view(); };
+    pan.addEventListener("change", e => { const i = e.target.closest("[data-k]"); if (!i) return; if (i.checked) delete OUT[i.dataset.k]; else OUT[i.dataset.k] = 1; changed(); });
+    q("#st-all").onclick = () => { OUT = {}; sync(); changed(); };
+    q("#st-login").addEventListener("submit", async e => {
+      e.preventDefault();
+      const pw = q("#st-pw").value.trim(), lm = q("#st-lmsg");
+      if (!pw) return q("#st-pw").focus();
+      q("#st-go").disabled = true; lm.textContent = "Проверяю...";
+      const r = await api({a: "login", pw}).catch(() => ({ok: false, err: "net"}));
+      q("#st-go").disabled = false;
+      if (r.ok) { tok = r.token; try { localStorage.setItem(TK, JSON.stringify({token: r.token, exp: r.exp})); } catch (x) {} q("#st-pw").value = ""; lm.textContent = ""; sync(); view(); }
+      else lm.textContent = r.err === "bad_password" ? "Неверный пароль" : r.err === "locked" ? "Слишком много попыток, подождите 15 минут" : "Нет связи, попробуйте ещё раз";
+    });
+    if (MASTER_URL) q("#st-out").onclick = () => { tok = null; try { localStorage.removeItem(TK); } catch (x) {} view(); };
+    const close = () => { if (timer) { clearTimeout(timer); push(); } pan.hidden = true; fab.focus(); };
+    q("#st-ok").onclick = close; q("#st-cancel").onclick = close;
     pan.addEventListener("click", e => { if (e.target === pan) close(); });
     document.addEventListener("keydown", e => { if (e.key === "Escape" && !pan.hidden) close(); });
+    window.addEventListener("beforeunload", e => { if (timer || saving) { e.preventDefault(); e.returnValue = ""; } });
   }
 
   // ===== clips =====
