@@ -84,14 +84,31 @@ for (const button of document.querySelectorAll('[data-open]')) {
 
 const filters = document.querySelectorAll('.filters button');
 const pictures = document.querySelectorAll('.wall-grid figure');
+const showMore = document.querySelector('.wall-more');
+const previewCount = 12;
+
+function showPictures(category, expanded = false) {
+  const preview = category === 'Все' && !expanded;
+  pictures.forEach((picture, index) => {
+    picture.hidden = category === 'Все' ? preview && index >= previewCount : picture.dataset.category !== category;
+  });
+  showMore.hidden = !preview || pictures.length <= previewCount;
+  if (!showMore.hidden) showMore.textContent = 'Показать ещё ' + (pictures.length - previewCount);
+}
+
 for (const button of filters) {
   button.addEventListener('click', () => {
     for (const other of filters) other.setAttribute('aria-pressed', String(other === button));
-    for (const pic of pictures) {
-      pic.hidden = button.textContent !== 'Все' && pic.dataset.category !== button.textContent;
-    }
+    showPictures(button.textContent);
   });
 }
+showMore.addEventListener('click', () => {
+  showPictures('Все', true);
+  const firstNewPicture = pictures[previewCount];
+  firstNewPicture.tabIndex = -1;
+  firstNewPicture.focus({preventScroll: true});
+});
+showPictures('Все');
 
 const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
 const today = new Date();
