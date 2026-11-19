@@ -65,6 +65,15 @@ const decor = [
   {short:'Ярусы', name:'Ярусы и сложная геометрия', text:'Для многоярусной композиции Анна заранее обсудит с вами вес, форму и фото-пример.'}
 ];
 
+const decorLevels = {
+  simple: 'Простой декор · 3–5\u00a0дней',
+  complex: 'Сложный декор · 5–7\u00a0дней'
+};
+const tagColors = {
+  'Хит': 'rose', 'Классика': 'gold', 'Детский': 'sage',
+  'Шоколадный': 'cocoa', 'На свадьбу': 'rose', 'Гендер-пати': 'sage'
+};
+
 const scale = byId('scale-options');
 const decorSelect = byId('form-decor');
 let selectedDecor = 0;
@@ -82,7 +91,9 @@ function selectDecor(index, focus = false) {
       scale.scrollLeft += active.getBoundingClientRect().left - scale.getBoundingClientRect().left - (scale.clientWidth - active.offsetWidth) / 2;
     }
   }
-  byId('decor-time').textContent = index < 5 ? 'Простой декор · 3–5 дней' : 'Сложный декор · 5–7 дней';
+  const level = index < 5 ? 'simple' : 'complex';
+  byId('decor-time').dataset.level = level;
+  byId('decor-time').textContent = decorLevels[level];
   byId('decor-name').textContent = item.name;
   byId('decor-info').textContent = item.text;
   const photo = byId('decor-photo');
@@ -136,23 +147,23 @@ const customPrice = 'Цена по декору';
 const generalTerms = 'Праздничный торт от 1,7 кг. Простой декор заказывайте за 3–5 дней, сложный — за 5–7.';
 const categories = {
   'Торты': [
-    {name:'Таврический', photo:'tav', summary:'Венский бисквит и безе с фундуком', ingredients:'Венские бисквитные коржи, крем с варёной сгущёнкой и шоколадное безе с фундуком. Для оформления Анна использует бельгийский шоколад.'},
-    {name:'Молочная девочка с малиной', photo:'milk', summary:'Маскарпоне и малиновое конфи', ingredients:'Мягкие сливочные коржи на натуральном масле, крем-чиз с маскарпоне и конфи из свежей малины. Можно выбрать другую ягодную или фруктовую прослойку.', terms:'От 1,8 кг. Заказ за 2–3 дня, сроки оформления Анна уточнит отдельно.', min:1.8},
-    {name:'Эстерхази', photo:'ester', summary:'Миндальные коржи и заварной крем', ingredients:'Тонкие миндально-белковые коржи, заварной крем с коньячной нотой и венгерская глазурь с шоколадной паутинкой.'},
-    {name:'Чёрный лес', photo:'black', summary:'Шоколадные коржи и сливочный крем', ingredients:'Шоколадные коржи и лёгкий сливочный крем. Анна готовит этот вариант без вишни.', terms:'Изготовление до 3 дней. Вес и дополнительные украшения обсудите с Анной.'},
-    {name:'Наполеон', photo:'napoleon', summary:'Слоёные коржи и крем на выбор', ingredients:'Слоёные коржи и крем «Дипломат» из заварного крема и взбитых сливок. Второй вариант — крем с варёной сгущёнкой.', terms:'От 1 кг, около 6–8 порций. Заказ за 2–3 дня.', min:1},
-    {name:'Киевский', photo:'kiev', summary:'Крем «Шарлотт», фундук и ганаш', ingredients:'Крем «Шарлотт», фундук, шоколадный ганаш и обсыпка из дроблёного фундука. Сверху — шоколадное безе с кусочками орехов.'},
-    {name:'Вишня в шоколаде', photo:'cherry', summary:'Тёмный шоколад и вишнёвое конфи', ingredients:'Шоколадный бисквит, ганаш на тёмном шоколаде Callebaut, вишнёвое конфи и кусочки вишни.'},
-    {name:'Ламбет', photo:'lambeth', summary:'Кремовые цветы и рельефные бордюры', ingredients:'Светло-зелёный торт в стиле «Ламбет» с кремовыми цветами. Начинку Анна уточнит при заказе.'},
-    {name:'Торт с зайкой', photo:'bunny', summary:'Черника с лимоном и маскарпоне', ingredients:'Ванильный бисквит, чернично-лимонная начинка, крем на маскарпоне и ганаш на бельгийском шоколаде Callebaut. Зайка, шарики и бабочка съедобные.'},
-    {name:'Человек-паук', photo:'spider', summary:'Детский торт с тематическим декором', ingredients:'Синяя крошка, силуэт города и цифра для именинника. Состав начинки Анна уточнит при заказе.'},
-    {name:'Гендер-торт Baby', photo:'baby', cut:'babyCut', summary:'Белый крем и цветная середина', ingredients:'Белый торт в стиле «Ламбет» с надписью Baby. Цвет спрятан внутри до первого разреза. Вкус и оформление обсудите с Анной.'}
+    {name:'Таврический', photo:'tav', tag:'Хит', decorLevel:'complex', summary:'Венский бисквит и безе с фундуком', ingredients:'Венские бисквитные коржи, крем с варёной сгущёнкой и шоколадное безе с фундуком. Для оформления Анна использует бельгийский шоколад.'},
+    {name:'Молочная девочка с малиной', photo:'milk', tag:'Хит', decorLevel:'simple', summary:'Маскарпоне и малиновое конфи', ingredients:'Мягкие сливочные коржи на натуральном масле, крем-чиз с маскарпоне и конфи из свежей малины. Можно выбрать другую ягодную или фруктовую прослойку.', terms:'От 1,8 кг. Заказ за 2–3 дня, сроки оформления Анна уточнит отдельно.', min:1.8},
+    {name:'Эстерхази', photo:'ester', tag:'Классика', decorLevel:'simple', summary:'Миндальные коржи и заварной крем', ingredients:'Тонкие миндально-белковые коржи, заварной крем с коньячной нотой и венгерская глазурь с шоколадной паутинкой.'},
+    {name:'Чёрный лес', photo:'black', tag:'Шоколадный', decorLevel:'simple', summary:'Шоколадные коржи и сливочный крем', ingredients:'Шоколадные коржи и лёгкий сливочный крем. Анна готовит этот вариант без вишни.', terms:'Изготовление до 3 дней. Вес и дополнительные украшения обсудите с Анной.'},
+    {name:'Наполеон', photo:'napoleon', tag:'Классика', decorLevel:'simple', summary:'Слоёные коржи и крем на выбор', ingredients:'Слоёные коржи и крем «Дипломат» из заварного крема и взбитых сливок. Второй вариант — крем с варёной сгущёнкой.', terms:'От 1 кг, около 6–8 порций. Заказ за 2–3 дня.', min:1},
+    {name:'Киевский', photo:'kiev', tag:'', decorLevel:'simple', summary:'Крем «Шарлотт», фундук и ганаш', ingredients:'Крем «Шарлотт», фундук, шоколадный ганаш и обсыпка из дроблёного фундука. Сверху — шоколадное безе с кусочками орехов.'},
+    {name:'Вишня в шоколаде', photo:'cherry', tag:'Шоколадный', decorLevel:'simple', summary:'Тёмный шоколад и вишнёвое конфи', ingredients:'Шоколадный бисквит, ганаш на тёмном шоколаде Callebaut, вишнёвое конфи и кусочки вишни.'},
+    {name:'Ламбет', photo:'lambeth', tag:'На свадьбу', decorLevel:'simple', summary:'Кремовые цветы и рельефные бордюры', ingredients:'Светло-зелёный торт в стиле «Ламбет» с кремовыми цветами. Начинку Анна уточнит при заказе.'},
+    {name:'Торт с зайкой', photo:'bunny', tag:'Детский', decorLevel:'complex', summary:'Черника с лимоном и маскарпоне', ingredients:'Ванильный бисквит, чернично-лимонная начинка, крем на маскарпоне и ганаш на бельгийском шоколаде Callebaut. Зайка, шарики и бабочка съедобные.'},
+    {name:'Человек-паук', photo:'spider', tag:'Детский', decorLevel:'simple', summary:'Детский торт с тематическим декором', ingredients:'Синяя крошка, силуэт города и цифра для именинника. Состав начинки Анна уточнит при заказе.'},
+    {name:'Гендер-торт Baby', photo:'baby', tag:'Гендер-пати', decorLevel:'simple', cut:'babyCut', summary:'Белый крем и цветная середина', ingredients:'Белый торт в стиле «Ламбет» с надписью Baby. Цвет спрятан внутри до первого разреза. Вкус и оформление обсудите с Анной.'}
   ],
   'Рулеты': [
     {name:'Тыквенно-карамельный', price:'2 200 ₽/кг', photo:'pumpkin', summary:'Тыквенный бисквит и малина', ingredients:'Тыквенный бисквит с карамельным вкусом, крем на маскарпоне и домашнее малиновое конфи.', terms:'На фото рулет весом 1,2 кг. Дату согласуйте с Анной.'},
     {name:'Тирамису', price:'2 200 ₽/кг', photo:'tira', summary:'Кофейный бисквит и маскарпоне', ingredients:'Бисквит, пропитанный натуральным кофе, крем из итальянского маскарпоне и лёгкая какао-посыпка.', terms:'От 1,2 кг, на 8–10 порций. Хранение до 3 суток в холодильнике.', min:1.2},
     {name:'Шоколадный рулет', price:'2 500 ₽/кг', summary:'Какао, крем-чиз и черничное конфи', ingredients:'Шоколадный бисквит на какао Barry Callebaut, крем-чиз и кисло-сладкое черничное конфи с ягодами.', terms:'В витрине Анны указан пример весом 1,2 кг. Вес вашего рулета и дату можно обсудить при заказе.'},
-    {name:'Меренговый с малиной', price:'2 800 ₽', photo:'rasp', summary:'Воздушная меренга и свежая малина', ingredients:'Нежная меренга с начинкой из свежей малины.', terms:'Вес рулета из витрины — 1,2 кг. Дату и оформление уточните при заказе.'}
+    {name:'Меренговый с малиной', price:'2 800 ₽', photo:'rasp', position:'50% 8%', summary:'Воздушная меренга и свежая малина', ingredients:'Нежная меренга с начинкой из свежей малины.', terms:'Вес рулета из витрины — 1,2 кг. Дату и оформление уточните при заказе.'}
   ],
   'Эклеры и капкейки': [
     {name:'Капкейки', price:'300 ₽/шт.', photo:'cups', summary:'Бисквит, начинка и кремовые цветы', ingredients:'Ванильный, шоколадный или апельсиновый бисквит. Крем-чиз или маскарпоне. Начинки на выбор — шоколад, абрикос, черника, ваниль, апельсин, манго или вишня.', terms:'Наборы по 6 или 12 штук в подарочной коробке. Дату уточните при заказе.'},
@@ -190,16 +201,56 @@ function filterCatalog(category) {
   currentCategory = category;
   for (const el of byId('filters').children) el.setAttribute('aria-pressed', String(el.textContent === category));
   const cards = categories[category].map(item => {
-    const card = document.createElement('button');
-    card.type = 'button';
+    const card = document.createElement('article');
     card.className = 'product';
-    card.setAttribute('aria-haspopup','dialog');
-    if (item.photo) card.append(picture(item.photo, '', '(max-width:700px) 50vw, (max-width:950px) 31vw, 271px', true));
-    else card.append(span('recipe','Какао Barry Callebaut · крем-чиз · черника'));
-    const copy = span('product-copy','');
-    copy.append(span('product-name',item.name), span('product-summary', item.summary), span(item.price ? 'price' : 'price quote-price', item.price || customPrice));
-    card.append(copy);
-    card.addEventListener('click', () => showProduct(item));
+    const media = document.createElement('div');
+    media.className = 'product-media';
+    if (item.photo) {
+      const image = picture(item.photo, '', '(max-width:700px) 46vw, (max-width:950px) 31vw, 264px', true);
+      if (item.position) image.querySelector('img').style.objectPosition = item.position;
+      media.append(image);
+      media.dataset.photo = item.photo;
+    } else {
+      media.append(span('recipe','Какао Barry Callebaut · крем-чиз · черника'));
+    }
+    if (item.tag) {
+      const tag = span('product-tag ' + tagColors[item.tag], item.tag);
+      if (item.tag === 'Хит') {
+        const star = span('tag-star', '★');
+        star.setAttribute('aria-hidden', 'true');
+        tag.prepend(star);
+      }
+      media.append(tag);
+    }
+
+    const copy = document.createElement('div');
+    copy.className = 'product-copy';
+    const heading = document.createElement('h3');
+    const details = document.createElement('button');
+    details.type = 'button';
+    details.className = 'product-name';
+    details.textContent = item.name;
+    details.setAttribute('aria-haspopup', 'dialog');
+    details.addEventListener('click', () => showProduct(item));
+    heading.append(details);
+    copy.append(heading, span('product-summary', item.summary));
+    if (item.decorLevel) {
+      const footer = document.createElement('div');
+      footer.className = 'product-footer';
+      const level = span('decor-chip', decorLevels[item.decorLevel].replace(' декор', ''));
+      level.dataset.level = item.decorLevel;
+      const order = document.createElement('button');
+      order.type = 'button';
+      order.className = 'quick-order';
+      order.textContent = '+';
+      order.setAttribute('aria-label', 'Заказать ' + item.name);
+      order.addEventListener('click', () => orderProduct(item));
+      footer.append(level, span('price-note', 'цена по декору'), order);
+      copy.append(footer);
+    } else {
+      copy.append(span('price', item.price));
+    }
+    card.append(media, copy);
     return card;
   });
   byId('products').replaceChildren(...cards);
@@ -224,14 +275,15 @@ function setWeight(min) {
   weight.min = min ?? '0.1';
   weight.placeholder = min ? 'От ' + String(min).replace('.', ',') + ' кг' : 'По желанию';
 }
-byId('order-product').addEventListener('click', () => {
-  byId('filling').value = chosenProduct.name;
-  setWeight(chosenProduct.min ?? (currentCategory === 'Торты' ? 1.7 : null));
-  dialog.close();
+function orderProduct(item) {
+  byId('filling').value = item.name;
+  setWeight(item.min ?? (currentCategory === 'Торты' ? 1.7 : null));
+  if (dialog.open) dialog.close();
   location.hash = 'order';
   byId('order').scrollIntoView();
   form.elements.name.focus({preventScroll:true});
-});
+}
+byId('order-product').addEventListener('click', () => orderProduct(chosenProduct));
 byId('filling').addEventListener('input', () => {
   const query = byId('filling').value.trim().toLocaleLowerCase('ru');
   for (const [category, items] of Object.entries(categories)) {

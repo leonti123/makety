@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-201 -201 402 402" fill="none" stroke="#879f89" stroke-width="1.15">
+  <defs>
+    <g id="stitch" stroke-linejoin="round">
+      <path d="M-15.65 -179 Q-20 -190 -12 -193 Q-8 -199 -4 -196 Q0 -202 4 -196 Q8 -199 12 -193 Q20 -190 15.65 -179"/>
+      <path d="M-15.65 -179 Q-11 -195 0 -195 Q11 -195 15.65 -179 M0 -164 Q-20 -186 -7 -191 Q0 -192 0 -164 Q0 -192 7 -191 Q20 -186 0 -164Z"/>
+      <path d="M-14.3 -163.4 Q-9 -178 0 -182 Q9 -178 14.3 -163.4 M-14.3 -163.4 Q0 -153 14.3 -163.4 M-13 -149 Q-6 -158 0 -162 Q6 -158 13 -149"/>
+      <path d="M0 -146 Q-17 -127 0 -115 Q17 -127 0 -146Z M0 -115 Q-10 -102 0 -94 Q10 -102 0 -115Z"/>
+      <circle cy="-188" r="1.25" fill="#879f89" stroke="none"/>
+    </g>
+  </defs>
+  <g>
+    <use href="#stitch" transform="rotate(0)"/>
+    <use href="#stitch" transform="rotate(10)"/>
+    <use href="#stitch" transform="rotate(20)"/>
+    <use href="#stitch" transform="rotate(30)"/>
+    <use href="#stitch" transform="rotate(40)"/>
+    <use href="#stitch" transform="rotate(50)"/>
+    <use href="#stitch" transform="rotate(60)"/>
+    <use href="#stitch" transform="rotate(70)"/>
+    <use href="#stitch" transform="rotate(80)"/>
+    <use href="#stitch" transform="rotate(90)"/>
+    <use href="#stitch" transform="rotate(100)"/>
+    <use href="#stitch" transform="rotate(110)"/>
+    <use href="#stitch" transform="rotate(120)"/>
+    <use href="#stitch" transform="rotate(130)"/>
+    <use href="#stitch" transform="rotate(140)"/>
+    <use href="#stitch" transform="rotate(150)"/>
+    <use href="#stitch" transform="rotate(160)"/>
+    <use href="#stitch" transform="rotate(170)"/>
+    <use href="#stitch" transform="rotate(180)"/>
+    <use href="#stitch" transform="rotate(190)"/>
+    <use href="#stitch" transform="rotate(200)"/>
+    <use href="#stitch" transform="rotate(210)"/>
+    <use href="#stitch" transform="rotate(220)"/>
+    <use href="#stitch" transform="rotate(230)"/>
+    <use href="#stitch" transform="rotate(240)"/>
+    <use href="#stitch" transform="rotate(250)"/>
+    <use href="#stitch" transform="rotate(260)"/>
+    <use href="#stitch" transform="rotate(270)"/>
+    <use href="#stitch" transform="rotate(280)"/>
+    <use href="#stitch" transform="rotate(290)"/>
+    <use href="#stitch" transform="rotate(300)"/>
+    <use href="#stitch" transform="rotate(310)"/>
+    <use href="#stitch" transform="rotate(320)"/>
+    <use href="#stitch" transform="rotate(330)"/>
+    <use href="#stitch" transform="rotate(340)"/>
+    <use href="#stitch" transform="rotate(350)"/>
+  </g>
+  <circle r="149"/><circle r="146"/><circle r="114"/><circle r="92"/><circle r="89" stroke-dasharray="2 3"/>
+</svg>
