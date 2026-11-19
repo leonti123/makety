@@ -105,7 +105,7 @@ function orderDetails() {
   if (!document.getElementById('color-field').hidden && fields.color.value) {
     lines.push('Цвет крышки: ' + fields.color.value, 'Сердечки по кругу: ' + (fields.hearts.checked ? 'да' : 'нет'));
   }
-  return lines.join('\n');
+  return lines.join(', ');
 }
 
 leadForm.addEventListener('input', () => {
@@ -140,7 +140,7 @@ leadForm.addEventListener('submit', async event => {
       signal: AbortSignal.timeout(20000),
       body: JSON.stringify({
         site: location.hostname, name: fields.name.value.trim(), phone: fields.phone.value,
-        details: orderDetails(), comment: fields.comment.value.trim(), website: fields.website.value
+        details: orderDetails(), comment: fields.comment.value.trim().replace(/\s*\n\s*/g, '; '), website: fields.website.value
       })
     });
     ok = (await res.json()).ok === true;
