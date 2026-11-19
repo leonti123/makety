@@ -99,8 +99,8 @@ today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
 fields.date.min = today.toISOString().slice(0,10);
 
 function orderDetails() {
-  const date = new Date(fields.date.value + 'T12:00').toLocaleDateString('ru-RU');
-  const lines = ['Макет astezian', 'Десерт: ' + fields.product.selectedOptions[0].text, 'Дата: ' + date];
+  const lines = ['Макет astezian', 'Десерт: ' + fields.product.selectedOptions[0].text];
+  if (fields.date.value) lines.push('Дата: ' + new Date(fields.date.value + 'T12:00').toLocaleDateString('ru-RU'));
   if (fields.details.value.trim()) lines.push('Надпись: ' + fields.details.value.trim());
   if (!document.getElementById('color-field').hidden && fields.color.value) {
     lines.push('Цвет крышки: ' + fields.color.value, 'Сердечки по кругу: ' + (fields.hearts.checked ? 'да' : 'нет'));
