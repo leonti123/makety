@@ -100,3 +100,51 @@ if (form) {
     }
   });
 }
+
+const viewer = document.querySelector('#work-viewer');
+if (viewer) {
+  const image = viewer.querySelector('img');
+  const caption = viewer.querySelector('[data-caption]');
+  const previous = viewer.querySelector('[data-previous]');
+  const next = viewer.querySelector('[data-next]');
+  let photos = [];
+  let current = 0;
+
+  function showPhoto(index) {
+    current = (index + photos.length) % photos.length;
+    const link = photos[current];
+    image.src = link.href;
+    image.alt = link.querySelector('img').alt;
+    caption.textContent = image.alt + ' · ' + (current + 1) + ' из ' + photos.length;
+    previous.disabled = next.disabled = photos.length < 2;
+  }
+
+  for (const album of document.querySelectorAll('.work-album')) {
+    const links = [...album.querySelectorAll('.work-photo')];
+    links.forEach((link, index) => {
+      link.addEventListener('click', event => {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        photos = links;
+        showPhoto(index);
+        viewer.showModal();
+      });
+    });
+  }
+
+  previous.addEventListener('click', () => showPhoto(current - 1));
+  next.addEventListener('click', () => showPhoto(current + 1));
+  viewer.querySelector('[data-close]').addEventListener('click', () => viewer.close());
+  viewer.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      showPhoto(current + (event.key === 'ArrowLeft' ? -1 : 1));
+    }
+  });
+  viewer.addEventListener('click', event => {
+    if (event.target !== viewer) return;
+    const box = viewer.getBoundingClientRect();
+    if (event.clientX < box.left || event.clientX >= box.right ||
+        event.clientY < box.top || event.clientY >= box.bottom) viewer.close();
+  });
+}

@@ -89,10 +89,25 @@ td.price { white-space: nowrap; font-weight: 600 }
 .safe,.notice,footer { background: var(--anthracite); color: var(--pvc) }
 .safe a,.notice a,footer a { color: #c8e4e6 }
 .safe p { margin-bottom: 18px }
-.sample { display: grid; grid-template-columns: repeat(6,1fr); gap: 8px; padding: 9px; background: var(--pvc); border: 1px solid var(--rule); border-radius: 10px }
-.sample i { aspect-ratio: 1.1; border: 2px solid #607578; background: #bcd6d9; position: relative; overflow: hidden }
-.sample i::before { content: ''; position: absolute; width: 18%; height: 200%; left: 40%; top: -40%; background: rgb(255 255 255 / 23%); transform: rotate(36deg) }
-figcaption { margin-top: 12px }
+.work-albums { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px 32px; align-items: start }
+.work-album > p { margin: 8px 0 16px }
+.work-photos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; padding: 8px; border: 1px solid var(--rule); border-radius: 10px; background: var(--pvc) }
+.work-photo { display: block; border: 2px solid var(--seal); overflow: hidden }
+.work-photo:focus-visible { z-index: 1 }
+.work-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover }
+.work-photo:first-child { grid-column: 1 / -1 }
+.work-photo:first-child img { aspect-ratio: 16 / 9 }
+.pair-photos { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+.sash-photos { grid-template-columns: minmax(0, 1.79fr) minmax(0, 1fr) }
+.pair-photos .work-photo { grid-column: auto }
+.pair-photos .work-photo img { aspect-ratio: auto }
+#work-viewer { width: min(960px, calc(100% - 28px)); max-height: calc(100dvh - 28px); padding: 12px; border: 1px solid var(--rule); border-radius: 10px; color: var(--anthracite); background: var(--pvc) }
+#work-viewer::backdrop { background: rgb(23 27 30 / 88%) }
+#work-viewer img { display: block; width: 100%; height: min(65dvh, 650px); object-fit: contain; background: var(--seal) }
+.viewer-controls { display: flex; align-items: center; gap: 8px; margin-bottom: 10px }
+.viewer-controls [data-close] { margin-left: auto }
+.viewer-controls button { min-width: 46px }
+#work-viewer p { margin-top: 8px }
 details { border-block-start: 1px solid var(--rule) }
 details:last-child { border-bottom: 1px solid var(--rule) }
 summary { padding: 16px 4px; font-weight: 600 }
@@ -153,7 +168,7 @@ footer .bar { padding-block: 22px; font-size: 16px }
   tbody th,.work { grid-column: 1 / -1 }
   td:last-child { text-align: right }
   .mesh-list,.steps { gap: 22px 16px }
-  .sample { grid-template-columns: repeat(3,1fr) }
+  .work-albums { grid-template-columns: minmax(0, 1fr); gap: 32px }
   .fields { grid-template-columns: 1fr }
   footer .bar { align-items: flex-start; flex-direction: column; gap: 5px }
   .dock { position: fixed; z-index: 5; bottom: 0; left: 0; width: 100%; background: var(--pvc); display: grid; grid-template-columns: 1fr 1.4fr; gap: 9px; padding: 8px 16px calc(8px + env(safe-area-inset-bottom)); border-top: 1px solid var(--rule) }
