@@ -324,3 +324,7 @@ dialog::backdrop {background:rgb(36 46 39/.65)}
   .occasion-photos img {flex:0 0 145px; width:145px; scroll-snap-align:start}
   .order-photo {display:none}
 }
+
+.channel-links a {display:inline-flex; align-items:center; gap:6px}
+.faq-contact .channel-links {margin-top:16px}
+.occasion-photos picture {display:contents}
