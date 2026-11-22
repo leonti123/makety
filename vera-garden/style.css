@@ -171,3 +171,31 @@ body:has(dialog[open]){overflow:hidden}
 @media(max-width:700px){html{scroll-padding-top:73px}.wrap{width:calc(100% - 36px)}.section{padding-block:52px}.mast-inner{min-height:60px}.brand img{width:62px}.brand span{display:block;font-size:10px}.mast-actions .btn,.menu-toggle{width:37px;height:37px;min-height:0;padding:0}.mast-actions .call span,.mast-actions .max span{display:none}.max .icon{display:block}.mast-actions .icon{width:18px;height:18px}.mast-actions{gap:6px}.demo{font-size:10px}.hero-layout,.signature-layout,.wedding-layout,.delivery-layout,.florist-layout,.order-layout,.faq-layout,.review-layout{grid-template-columns:1fr;gap:26px}.hero{padding:26px 0 40px}.intro h1{max-width:13em;font-size:clamp(40px,9.7vw,59px)}.intro p{font-size:14px;line-height:1.48;margin:13px 0 17px}.intro .actions{gap:8px}.btn,.more{min-height:44px;padding:10px 16px;font-size:14px}.trust{margin-top:16px;grid-template-columns:1fr 1fr;gap:8px}.trust span{padding:10px 11px}.trust b{font-size:20px}.trust small{font-size:11.5px}.conservatory{width:100%;height:auto;aspect-ratio:1.13;max-height:420px}.conservatory .front{left:0;top:0;width:100%;height:100%;transform:none}.conservatory .back{display:none}.price-seal{width:73px;height:73px;font-size:21px;bottom:5%;left:auto;right:0}.b-right{width:146px;top:-60px;right:-55px}.b-left{width:178px;bottom:-50px;left:-65px}.benefit-row{padding-block:22px 30px;gap:15px 9px}.benefit-row>div{gap:7px}.benefit-row i{width:34px;height:34px;font-size:17px}.benefit-row b{font-size:13px}.benefit-row small{font-size:11px}.heading{gap:9px;margin-bottom:20px}.heading .leaf{width:33px;height:41px}.quote-side{position:relative;padding-right:81px}.quote-side .heading{margin-right:-81px}.quote-side blockquote{font-size:23px}.quote-side>p{font-size:12px;margin-top:9px}.quote-arch{position:absolute;width:65px;height:85px;right:3px;bottom:3px;margin:0;padding:3px}.picker{padding:17px;border-radius:15px}.swatches button{font-size:12px}.choices button,.categories button{font-size:12px}.matches{gap:7px}.match span:not(.match-photo){font-size:11px}.match b{font-size:13px}.catalog-grid,.gallery{grid-template-columns:1fr 1fr;gap:13px 10px}.categories{gap:5px}.categories button{padding:7px 10px}.catalog-tools{font-size:11px}.catalog-tools select{max-width:150px;font-size:12px}.product{border-radius:9px}.card-name{font-size:14px}.price{font-size:15px}.plant-shelf{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 15px;gap:12px}.plant{flex:0 0 144px;scroll-snap-align:start}.plant img{aspect-ratio:1}.hydrangeas{flex-wrap:wrap;gap:11px}.hydrangeas>.icon{display:none}.hydrangeas .btn{margin-left:0}.wedding h2 br{display:none}.wedding-photos{aspect-ratio:1.55}.steps ol{grid-template-columns:1fr 1fr;gap:20px 15px}.steps li p{font-size:14px}.florist .house{max-width:340px;justify-self:center}.rating{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 12px}.rating>span{font-size:37px}.rating p{font-size:13px}.rating .btn{width:fit-content;grid-column:1/-1;margin-top:9px}.faq{padding-bottom:54px}.faq-layout .heading,.order-layout .heading{margin-bottom:0}.fl{padding:16px;gap:12px}.fl label{font-size:13px}.footer-layout{grid-template-columns:1fr 1fr;gap:20px}.footer-layout>div:first-child{grid-column:1/-1}.footer-layout>div:first-child .leaf{display:none}footer a,footer p{font-size:13px}.dialog-copy .btn{width:100%}}
 @media(max-width:360px){.trust{grid-template-columns:1fr 1fr}.brand span{display:none}.swatches i{width:15px;height:15px}.fl{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* brighter palette 22.11 */
+:root{--mint:#bdf0dc;--mint-deep:#4fc79f;--peony:#e3266f;--blush:#ffd9e6;--sun:#ffd23f}
+.demo{background:linear-gradient(90deg,#e3266f,#ff7fa9,#2fb588)}
+.hero{background:
+ radial-gradient(circle at 93% 14%,#ffd23f 0 70px,transparent 71px),
+ radial-gradient(circle at 3% 90%,#ff9cc0 0 100px,transparent 101px),
+ linear-gradient(120deg,#ffe1ec 0%,#ffc2d6 38%,#c9f3e2 72%,#9fe6cb 100%)}
+.hero h1{color:#1d4a3c}
+.hero h1 .hl{font-style:normal;color:var(--peony);background:linear-gradient(transparent 64%,#ffe57a 64% 92%,transparent 92%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.btn{background:var(--peony);border-color:var(--peony);box-shadow:0 10px 22px #e3266f45}
+.btn:hover,.more:hover{background:var(--eucalyptus);border-color:var(--eucalyptus)}
+.btn.outline{box-shadow:none}
+.btn.pale{background:#ffd9e6;color:#8a1240;box-shadow:none}
+.trust span{background:#fff;box-shadow:0 10px 24px #e3266f22}
+.trust span:nth-child(2) b{color:var(--peony)}.trust span:nth-child(3) b{color:#1f9a70}.trust span:nth-child(4) b{color:#d98a00}
+.price-seal{background:var(--sun);color:#5a2a00;box-shadow:0 10px 22px #ff9a0055}
+.house{border-color:#fff;background:#fff}
+.benefit-row>div:nth-child(1) i{background:#ffd3e2;color:var(--peony)}
+.benefit-row>div:nth-child(2) i{background:#fff0b0;color:#c47a00}
+.benefit-row>div:nth-child(3) i{background:#c6f2e0;color:#1f8a64}
+.benefit-row>div:nth-child(4) i{background:#e2dcff;color:#5a3fb0}
+.mint{background:linear-gradient(160deg,#c9f3e2,#e6fbf2)}
+.blush{background:linear-gradient(160deg,#ffd6e5,#fff0d6)}
+.steps li:nth-child(1) span{background:#ffd3e2;border-color:#ff9cc0}.steps li:nth-child(2) span{background:#fff0b0;border-color:#ffd23f}.steps li:nth-child(3) span{background:#c6f2e0;border-color:#4fc79f}.steps li:nth-child(4) span{background:#e2dcff;border-color:#a99cf0}
+.florist{background:linear-gradient(150deg,#fff6d6,#ffe6ef)}
+.wedding-price b{color:#ffd23f}
+@media(max-width:700px){.hero{background:radial-gradient(circle at 97% 5%,#ffd23f 0 46px,transparent 47px),linear-gradient(165deg,#ffe1ec 0%,#ffc2d6 45%,#c9f3e2 100%)}}
