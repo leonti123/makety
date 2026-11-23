@@ -56,10 +56,23 @@ byId('fgrid').innerHTML = FILLINGS.map(f => `<article class="f"><div class="laye
   <span class="tag">${f.tag}</span><h3>${f.name}</h3><p>${f.text}</p></article>`).join('');
 
 /* gallery */
-const GAL = ['p030.jpg','p017.jpg','p029.jpg','p025.jpg','p028.jpg','p023.jpg','p046.jpg','p044.jpg','p020.jpg'];
+const galleryPhotos = [
+  {img:'cupcakes-strawberries.webp', title:'Подарочный набор капкейков с клубникой'},
+  {img:'berry-cake.webp', title:'Торт со свежими ягодами и кремовым бортиком'},
+  {img:'chocolate-cake.webp', title:'Шоколадный торт с глазурью и розетками крема'},
+  {img:'cupcakes-raspberries.webp', title:'Шесть капкейков со светлым кремом и ягодами'},
+  ...['choco', 'macaron', 'berry', 'cup-bright', 'number', 'cup-berry', 'cup-red', 'cup-oreo', 'drip']
+    .map(id => PRODUCTS.find(product => product.id === id))
+];
 const gal = byId('gal');
-gal.innerHTML = GAL.map(g => `<button data-src="img/${g}" aria-label="Открыть фото"><img src="img/${g}" alt="Работа кондитера" loading="lazy"></button>`).join('');
-gal.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; byId('lbImg').src = b.dataset.src; byId('lb').showModal(); });
+gal.innerHTML = galleryPhotos.map(photo => `<button aria-label="Открыть фото: ${photo.title}"><img src="img/${photo.img}" alt="${photo.title}" loading="lazy"></button>`).join('');
+gal.addEventListener('click', event => {
+  const image = event.target.closest('button')?.querySelector('img');
+  if (!image) return;
+  byId('lbImg').src = image.src;
+  byId('lbImg').alt = image.alt;
+  byId('lb').showModal();
+});
 byId('lbX').onclick = () => byId('lb').close();
 
 /* slicer */
