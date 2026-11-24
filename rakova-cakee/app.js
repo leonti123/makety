@@ -45,7 +45,7 @@
 
   /* tier builder */
   const svg = $('#cake'), NS = 'http://www.w3.org/2000/svg';
-  const st = {guests: 40, rate: 3600, kind: 'wed', kindName: 'Свадьба', c: '#FFFDF8', p: '#E2C49C', decor: 'Кремовый декор', dp: 3000};
+  const st = {guests: 40, rate: +$('#kind .on').dataset.rate, kind: 'wed', kindName: 'Свадьба', c: '#FFFDF8', p: '#E2C49C', decor: 'Кремовый декор'};
   const tiersFor = kg => kg < 5 ? 1 : kg <= 8 ? 2 : kg <= 14 ? 3 : kg <= 20 ? 4 : kg <= 35 ? 5 : kg <= 45 ? 6 : 7;
   const word = n => n === 1 ? 'ярус' : n < 5 ? 'яруса' : 'ярусов';
   function draw(n) {
@@ -81,21 +81,21 @@
     $('#gOut').textContent = st.guests;
     $('#rKg').textContent = String(kg).replace('.', ',') + ' кг';
     $('#rTier').textContent = n + ' ' + word(n);
-    $('#rCake').textContent = fmt(cake) + ' ₽';
-    $('#rDec').textContent = st.dp ? (st.decor === 'Ягоды' ? '1 000 ₽ + ягоды' : (st.decor === 'Вафельная бумага' ? 'от ' : '≈ ') + fmt(st.dp) + ' ₽') : 'по эскизу';
-    $('#rSum').textContent = (st.dp ? '' : 'от ') + fmt(cake + st.dp) + ' ₽';
+    const basePrice = cake ? fmt(cake) + ' ₽' : 'по эскизу';
+    $('#rCake').textContent = cake && st.kind === 'wed' ? 'от ' + basePrice : basePrice;
+    $('#rSum').textContent = cake ? 'от ' + basePrice : basePrice;
     draw(n);
-    return {kg, n, sum: cake + st.dp};
+    return {kg, n, estimate: cake ? `от ${basePrice}, декор отдельно` : 'стоимость по эскизу'};
   }
   $('#guests').addEventListener('input', e => { st.guests = +e.target.value; calc(); });
   $$('#kind button').forEach(b => b.addEventListener('click', () => { $$('#kind button').forEach(x => x.classList.toggle('on', x === b)); st.rate = +b.dataset.rate; st.kind = b.dataset.v; st.kindName = b.textContent; calc(); }));
   $$('#tone button').forEach(b => b.addEventListener('click', () => { $$('#tone button').forEach(x => x.classList.toggle('on', x === b)); st.c = b.dataset.c; st.p = b.dataset.p; st.tone = b.getAttribute('aria-label'); calc(); }));
-  $$('#decor button').forEach(b => b.addEventListener('click', () => { $$('#decor button').forEach(x => x.classList.toggle('on', x === b)); st.decor = b.dataset.v; st.dp = +b.dataset.p; calc(); }));
+  $$('#decor button').forEach(b => b.addEventListener('click', () => { $$('#decor button').forEach(x => x.classList.toggle('on', x === b)); st.decor = b.dataset.v; calc(); }));
   calc();
   $('#toOrder').addEventListener('click', () => {
     const r = calc();
     $('#fWhat').value = st.kind === 'wed' ? 'Свадебный торт' : st.kind === 'kids' ? 'Детский торт' : 'Торт на день рождения или юбилей';
-    $('#fCom').value = `Расчёт с сайта: ${st.guests} гостей, ${String(r.kg).replace('.', ',')} кг, ${r.n} ${word(r.n)}, цвет ${(st.tone || 'Белый').toLowerCase()}, ${st.decor.toLowerCase()}, примерно ${fmt(r.sum)} ₽`;
+    $('#fCom').value = `Расчёт с сайта: ${st.guests} гостей, ${String(r.kg).replace('.', ',')} кг, ${r.n} ${word(r.n)}, цвет ${(st.tone || 'Белый').toLowerCase()}, ${st.decor.toLowerCase()}, ${r.estimate}`;
   });
   $$('[data-what]').forEach(a => a.addEventListener('click', () => { $('#fWhat').value = a.dataset.what; }));
 
@@ -135,8 +135,8 @@
     ph.value = '+7' + (p[0] ? ` (${p[0]}` : '') + (p[0].length === 3 ? ')' : '') + (p[1] ? ` ${p[1]}` : '') + (p[2] ? `-${p[2]}` : '') + (p[3] ? `-${p[3]}` : '');
   });
 
-  /* lead form (demo script, mockup) */
-  const LEAD_URL = 'https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec';
+  /* lead form */
+  const LEAD_URL = 'https://script.google.com/macros/s/AKfycbzP-LCnxvaXIbNtZofDIUvSiRAhfvu2zqd4zuxVJ3NItMJUQKN_COpTcqNGw89cgj3K/exec';
   const form = $('#form'), err = $('#err'), btn = $('#submit');
   form.addEventListener('submit', async e => {
     e.preventDefault();
@@ -146,7 +146,7 @@
     if (!f.consent.checked) return err.textContent = 'Отметьте согласие на обработку данных';
     err.textContent = ''; $('#fallback').hidden = true;
     const date = f.date.value ? new Date(f.date.value + 'T12:00').toLocaleDateString('ru-RU', {day: 'numeric', month: 'long'}) : 'не указана';
-    const details = ['Макет rakova-cakee', `Что: ${f.what.value}`, `Дата: ${date}`, `Связь: ${f.via.value}`].join(', ');
+    const details = ['Сайт Rakova Cake', `Что: ${f.what.value}`, `Дата: ${date}`, `Связь: ${f.via.value}`].join(', ');
     btn.disabled = true; btn.textContent = 'Отправляем...';
     let ok = false;
     try {
