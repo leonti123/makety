@@ -525,6 +525,8 @@ p{margin:0}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
+.fruit{margin-top:64px}.fruit-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;margin:24px 0}.fruit-gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px}.bu-weight select{font:inherit;padding:8px;border-radius:8px}.bu-weight{white-space:nowrap}
+@media(max-width:550px){.fruit-gallery{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -576,8 +578,8 @@ p{margin:0}
   <div class="wrap">
     <div class="sec-h rv"><p class="kick">Меню Конфетолии</p><h2>Что приготовить для&nbsp;вас</h2></div>
     <div class="tiles">
-      <a class="tile t-big rv" href="#corpus"><img src="img/f/assorti.webp" alt="Корпусные десерты: голубика, клубника, персик, манго, ваниль" loading="lazy"><span class="tag">14 вкусов</span><span class="tb"><b>Корпусные десерты</b><i>набор из 4 — 1 990 ₽, из 6 — 2 790 ₽, из 9 — 4 190 ₽</i></span></a>
-      <a class="tile rv" href="#bueno"><img src="img/bueno-stack.webp" alt="Киндер Буэно оверсайз в разрезе" loading="lazy"><span class="tag">Хит</span><span class="tb"><b>Киндер Буэно оверсайз</b><i>500 г · 2 450 ₽</i></span></a>
+      <a class="tile t-big rv" href="#corpus"><img src="img/f/assorti.webp" alt="Корпусные десерты: голубика, клубника, персик, манго, ваниль" loading="lazy"><span class="tag">18 вкусов</span><span class="tb"><b>Корпусные десерты</b><i>набор из 4 — 1 990 ₽, из 6 — 2 790 ₽, из 9 — 4 190 ₽</i></span></a>
+      <a class="tile rv" href="#bueno"><img src="img/bueno-sizes.webp" alt="Два размера Киндер Буэно" loading="lazy"><span class="tag">Хит</span><span class="tb"><b>Киндер Буэно оверсайз</b><i>500 г · 2 190 ₽ / 1 кг · 3 990 ₽</i></span></a>
       <a class="tile rv" href="#kart"><img src="img/kart-gold.webp" alt="Премиум «Картошечка» на золотом блюде" loading="lazy"><span class="tb"><b>Премиум «Картошечка»</b><i>2 шт — 800 ₽, 6 шт — 2 000 ₽</i></span></a>
       <a class="tile rv" href="#dates"><img src="img/dates-box.webp" alt="Финики в бельгийском шоколаде в коробке" loading="lazy"><span class="tb"><b>Королевские финики</b><i>в бельгийском шоколаде · 200 ₽ за шт</i></span></a>
       <a class="tile rv" href="#gifts"><img src="img/v-c10.webp" alt="Коробка фиников и открытка «Послание от Вселенной»" loading="lazy" style="object-position:50% 40%"><span class="tb"><b>Шоколадные подарки</b><i>финики с посланием и наборы к праздникам</i></span></a>
@@ -635,7 +637,7 @@ p{margin:0}
   <div class="wrap bu-in">
     <div class="bu-ph rv">
       <img class="bu-1" src="img/bueno-stack.webp" alt="Киндер Буэно оверсайз в разрезе: две начинки и шоколадная подложка" loading="lazy">
-      <img class="bu-2" src="img/bueno-board.webp" alt="Киндер Буэно оверсайз целиком" loading="lazy">
+      <img class="bu-2" src="img/bueno-xxl.webp" alt="Буэно XXL весом 1 кг" loading="lazy">
       <span class="bu-badge">которого нигде нет</span>
     </div>
     <div class="bu-txt rv">
@@ -643,13 +645,13 @@ p{margin:0}
       <h2>Киндер Буэно оверсайз</h2>
       <p class="bu-lead">Тот самый гигантский корпусный Киндер Буэно. Самый любимый вкус всех возрастов — идеально для подарка девушке, парню или ребёнку.</p>
       <ul class="bu-list">
-        <li><b>2</b>сочные начинки — повторяют вкус оригинального батончика</li>
-        <li><b>+2</b>дополнительных слоя-подложки</li>
-        <li><b>500 г</b>как полноценный торт ручной работы из натуральных ингредиентов</li>
+        <li><b>500 г</b>Сливочная начинка, фундучный крем, хрустящий слой и бисквит в молочном шоколаде.</li>
+        <li><b>1 кг</b>Буэно XXL с фундучным ганашем, молочно-фундучным муссом, кремю, фундучным хрустом и бисквитом.</li>
       </ul>
       <p class="bu-note" id="bunote">Если есть в наличии — сразу оформим, под заказ приготовлю быстро или к вашей дате.</p>
       <div class="buy">
-        <span class="price">2 450 ₽</span>
+        <label class="bu-weight">Вес <select id="bu-weight"><option value="2190">500 г</option><option value="3990">1 кг</option></select></label>
+        <span class="price" id="bu-price">2 190 ₽</span>
         <span class="step"><button type="button" data-d="-1" aria-label="Меньше">−</button><output id="buq">1</output><button type="button" data-d="1" aria-label="Больше">+</button></span>
         <button type="button" class="btn" id="bu-add">В заказ</button>
       </div>
@@ -668,7 +670,7 @@ p{margin:0}
         <button type="button" role="radio" aria-checked="true" data-n="4" data-p="1500"><span><i></i><i></i><i></i><i></i></span><b>1 500 ₽</b><small>4 пирожных</small></button>
         <button type="button" role="radio" aria-checked="false" data-n="6" data-p="2000"><span><i></i><i></i><i></i><i></i><i></i><i></i></span><b>2 000 ₽</b><small>6 пирожных</small></button>
       </div>
-      <p class="k-lbl">Вкусы <span>— отметьте любимые или оставьте выбор мне</span></p>
+      <p class="k-lbl">Вкусы под заказ <span>— отметьте любимые или оставьте выбор мне</span></p>
       <div class="pchips" id="kchips"></div>
       <div class="k-buy"><span class="price" id="kprice">1 500 ₽</span><button type="button" class="btn" id="k-add">Добавить в заказ</button></div>
     </div>
@@ -677,6 +679,12 @@ p{margin:0}
       <img src="img/kart-pansy.webp" alt="Картошечка с фиалкой" loading="lazy">
       <img src="img/kart-nuts.webp" alt="Картошечка с орехами и ягодами" loading="lazy">
     </div>
+  </div>
+  <div class="wrap fruit">
+    <p class="kick">Новинка под заказ</p>
+    <h2>Фруктовая коллекция «Картошечки»</h2>
+    <div class="fruit-gallery"><img src="img/fruit-7.webp" loading="lazy" alt="Фруктовая коллекция в коробке"><img src="img/fruit-1.webp" loading="lazy" alt="Пирожное в форме фрукта в разрезе"><img src="img/fruit-2.webp" loading="lazy" alt="Апельсиновая форма и начинка в разрезе"><img src="img/fruit-3.webp" loading="lazy" alt="Жёлтое пирожное в разрезе"><img src="img/fruit-4.webp" loading="lazy" alt="Пирожное в форме яблока"><img src="img/fruit-5.webp" loading="lazy" alt="Пирожное в форме персика"><img src="img/fruit-6.webp" loading="lazy" alt="Белое пирожное в кокосовой стружке"><img src="img/fruit-0.webp" loading="lazy" alt="Подарочная коробка Конфетолии"></div>
+    <button type="button" class="btn" data-gift="Фруктовая коллекция «Картошечки»">В заказ · цена по запросу</button>
   </div>
 </section>
 
@@ -903,6 +911,10 @@ p{margin:0}
     mango: "radial-gradient(circle at 72% 30%,rgba(242,120,80,.55),transparent 50%)"
   };
   const FL = [
+    {id: "blackberry", n: "Ежевика", c1: "#644162", c2: "#311e37", tex: "bumps"},
+    {id: "cocoa", n: "Какао-боб", c1: "#965f44", c2: "#603523", deco: "groove", ov: 1},
+    {id: "banana", n: "Банан", c1: "#fae18c", c2: "#e5b249", ov: 1},
+    {id: "passion", n: "Маракуйя", c1: "#c68181", c2: "#8a435d", tex: "pores"},
     {id: "malina", n: "Малина", c1: "#E8506A", c2: "#A3122F", tex: "bumps"},
     {id: "blueberry", n: "Голубика", c1: "#5D6FA2", c2: "#27325A", deco: "crown", img: "f/blueberry"},
     {id: "peanut", n: "Арахис", c1: "#E6BF90", c2: "#B07E4C", tex: "pea", ov: 1, img: "f/peanut"},
@@ -933,7 +945,7 @@ p{margin:0}
   const cards = [];
   cards.push(`<article class="fc fc-hit rv"><div class="fc-ph"><img src="img/v-c295.webp" alt="Корпусная малина" loading="lazy"></div><div class="fc-b"><span class="badge">Один из самых популярных вкусов</span><h3>Малина</h3><p>Нежнейший ванильный ганаш на белом шоколаде, сочный малиновый гель и свежие ягоды — идеальное вкусовое сочетание.</p><button type="button" class="fc-add" data-f="malina">+ в набор</button></div></article>`);
   FL.filter(f => f.img).forEach(f => cards.push(`<article class="fc rv"><div class="fc-ph"><img src="img/${f.img}.webp" alt="Корпусный десерт «${f.n}»: целый и в разрезе" loading="lazy"></div><div class="fc-b"><h3>${f.n}</h3><button type="button" class="fc-add" data-f="${f.id}">+ в набор</button></div></article>`));
-  cards.push(`<article class="fc fc-more rv"><h3>И ещё три вкуса</h3><p>Их тоже можно положить в любой набор.</p><div class="more-row">${["cherry", "matcha", "coconut"].map(id => `<button type="button" data-f="${id}">${bon(byId[id])}${byId[id].n} <b>+</b></button>`).join("")}</div></article>`);
+  cards.push(`<article class="fc fc-more rv"><h3>Ещё вкусы под заказ</h3><p>Их тоже можно положить в любой набор.</p><div class="more-row">${["cherry", "matcha", "coconut", "blackberry", "cocoa", "banana", "passion"].map(id => `<button type="button" data-f="${id}">${bon(byId[id])}${byId[id].n} <b>+</b></button>`).join("")}</div></article>`);
   $("flv").innerHTML = cards.join("");
 
   // ===== toast =====
@@ -1033,14 +1045,19 @@ p{margin:0}
 
   // ===== bueno =====
   stepper($("buq"), 1, 10);
+  const buWeight = $("bu-weight");
+  buWeight.onchange = () => { $("bu-price").textContent = rub(Number(buWeight.value)); };
   $("bu-add").onclick = () => {
     const q = +$("buq").textContent;
-    addItem({key: "bueno", unit: 2450, qty: q, price: 2450 * q, mk: n => "Киндер Буэно оверсайз" + (n > 1 ? " ×" + n : ""), title: "Киндер Буэно оверсайз" + (q > 1 ? " ×" + q : ""), desc: "500 г"});
+    const unit = Number(buWeight.value);
+    const weight = buWeight.selectedOptions[0].textContent;
+    const mk = n => "Киндер Буэно, " + weight + (n > 1 ? " ×" + n : "");
+    addItem({key: "bueno:" + weight, unit, qty: q, price: unit * q, mk, title: mk(q)});
     $("buq").textContent = 1;
   };
 
   // ===== kartoshechka =====
-  const KF = [["Фисташка-малина"], ["Черничный фреш"], ["Рафаэлло"], ["Тропики"], ["Лимонный пирог", 1], ["Дубайская маракуйя", 1], ["Медовик с клюквой", 1], ["Брауни вишня", 1]];
+  const KF = [["Сочные тропики"], ["Фисташка-малина"], ["Черничный фреш"], ["Раффаэлло"], ["Яблоко-виски"], ["Кантучини-амаретто-малина"], ["Латте-попкорн"], ["Брауни-вишня"], ["Дубай-лотус"], ["Фундук-маракуйя"], ["Морковная"], ["Пекан-Irish-криспи"], ["Лимонный пирог"], ["Киндер"], ["Дубай-сникерс"], ["Фисташка-апельсин-оливковое масло"], ["Орео"], ["Солёный банан-нутелла"], ["Медовая с клюквой"]];
   $("kchips").innerHTML = KF.map(([n]) => `<label class="pchip"><input type="checkbox" name="kf" value="${n}"><span>${n}</span></label>`).join("");
   let kset = {n: 4, p: 1500};
   $("ksets").addEventListener("click", e => {
@@ -1057,10 +1074,10 @@ p{margin:0}
 
   // ===== dates =====
   const DG = [
-    ["01", "Детство", "Как любимый шоколадный батончик", ["Марс", "Сникерс", "Баунти", "Милки Вэй", "Киндер Кантри", "Ферреро"]],
-    ["02", "Дегустация", "Сыры, как к бокалу вина", ["Дор блю", "Бри", "Камамбер, вяленая груша и мёд"]],
-    ["03", "Лето", "Ягоды и фрукты", ["Рикотта и малина", "Рикотта и клубника", "Рикотта и маракуйя", "Нежный кокос"]],
-    ["04", "Орехи", "Цельные орехи и пасты", ["Миндаль", "Фисташка", "Кешью", "Фундук", "Арахис", "Ореховая паста", "Дубайская"]]
+    ["01", "Детство", "Как любимый шоколадный батончик", ["Марс", "Сникерс", "Баунти", "Милки Вэй", "Ферреро"]],
+    ["02", "Дегустация", "Сыры, как к бокалу вина", ["Дор блю", "Бри с грушей"]],
+    ["03", "Лето", "Ягоды и фрукты", ["Рикотта с сублимированными ягодами", "Рикотта с сублимированными фруктами"]],
+    ["04", "Орехи", "Орехи и ореховые пасты", ["Миндаль", "Кешью", "Фундук", "Арахис", "Дубайский с катаифи и фисташкой"]]
   ];
   $("dcards").innerHTML = DG.map(([n, h, p, list]) => `<div class="dc"><span class="dc-n">${n}</span><h3>${h}</h3><p>${p}</p><div class="pchips">${list.map(x => `<label class="pchip"><input type="checkbox" name="df" value="${x}"><span>${x}</span></label>`).join("")}</div></div>`).join("");
   const dq = $("dq");
