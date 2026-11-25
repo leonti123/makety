@@ -115,11 +115,12 @@ section{padding:88px 0;position:relative}
   radial-gradient(45% 55% at 70% 50%,rgba(217,178,92,.16),transparent 70%),
   linear-gradient(180deg,#22183A,var(--velvet2));color:#fff;overflow:hidden}
 .wheel-box{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative}
-.card-cta{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:12px;padding:28px 24px;text-decoration:none;color:#fff;background:radial-gradient(60% 50% at 80% 10%,rgba(217,178,92,.25),transparent 70%),linear-gradient(160deg,var(--velvet2),var(--velvet));border-color:transparent}
+.card-cta{grid-column:span 3;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:12px;padding:28px 24px;text-decoration:none;color:#fff;background:radial-gradient(60% 50% at 80% 10%,rgba(217,178,92,.25),transparent 70%),linear-gradient(160deg,var(--velvet2),var(--velvet));border-color:transparent}
 .card-cta svg{width:44px;height:32px;color:var(--gold-l)}
 .card-cta h3{font-size:24px;margin:0;color:#fff}
 .card-cta p{font-size:15px;color:#D9CFE4;line-height:1.5}
 .card-cta .btn{margin-top:6px}
+@media (max-width:600px){.card-cta{grid-column:auto}}
 .builder{display:grid;gap:26px}
 .b-step{border:0;padding:0}
 .b-step legend{display:flex;align-items:center;gap:12px;font-family:var(--display);font-size:24px;margin-bottom:14px;color:#fff}
