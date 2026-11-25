@@ -31,7 +31,7 @@
     </a>
     <nav id="nav" class="nav" aria-label="Разделы">
       <a href="#works">Работы</a>
-      <a href="#totem">Тотемы</a>
+      <a href="#podbor">Подбор</a>
       <a href="#wear">Как носить</a>
       <a href="#wedding">Свадьба</a>
       <a href="#about">О Лилии</a>
@@ -48,7 +48,7 @@
   <div class="wrap hero-in">
     <div class="hero-txt">
       <p class="kicker"><svg aria-hidden="true"><use href="#spark"/></svg>Ручная работа, Мурино и Санкт-Петербург</p>
-      <h1>Броши-цветы из&nbsp;золота, серебра и&nbsp;нежных оттенков</h1>
+      <h1>Броши-цветы из&nbsp;золота и&nbsp;серебра</h1>
       <p class="lead">Лилия Агзамова создаёт ирисы, лилии и свадебные букеты из ткани. Ни один цветок не повторяется: форму лепестков и цвет она подбирает под ваш образ.</p>
       <div class="hero-btns">
         <a class="btn btn-gold" href="#order">Заказать брошь</a>
@@ -57,13 +57,13 @@
       <ul class="chips">
         <li><b>1</b><span>экземпляр каждого цветка</span></li>
         <li><b>с 2025</b><span>работает в технике</span></li>
-        <li><b>3</b><span>металла: золото, серебро, роза</span></li>
+        <li><b>2</b><span>металла: золото и серебро</span></li>
         <li><b>Мурино</b><span>самовывоз у мастера</span></li>
       </ul>
     </div>
     <div class="hero-art">
       <figure class="arch-frame">
-        <img src="img/hero.webp" alt="Лилия Агзамова в чёрном пальто с пудровой брошью-цветком" width="640" height="960" fetchpriority="high">
+        <img src="img/lilia-red.webp" alt="Лилия Агзамова в красном пальто с брошью-цветком" width="640" height="960" fetchpriority="high">
       </figure>
       <figure class="medal">
         <img src="img/lily-gold-sq.webp" alt="Двухцветная лилия, золото и серебро" width="520" height="520">
@@ -113,32 +113,34 @@
   </div>
 </section>
 
-<section id="totem" class="totem">
+<section id="podbor" class="totem">
   <div class="stars" aria-hidden="true"></div>
   <div class="wrap">
     <div class="head head-light">
-      <h2>Ваш цветок-тотем по знаку зодиака</h2>
-      <p>Лилия готовит новую линию: цветок для каждого знака, который носят как брошь, на ободке, заколке или в серьгах. Выберите свой знак и запишитесь на первые эскизы.</p>
+      <h2>Соберите свою брошь</h2>
+      <p>Выберите цветок, металл и повод, и вы сразу увидите, какой получится брошь. Лилия получит готовую идею и сделает цветок в единственном экземпляре.</p>
     </div>
     <div class="wheel-box">
-      <div id="wheel" class="wheel" role="radiogroup" aria-label="Знак зодиака"></div>
+      <div class="builder">
+        <fieldset class="b-step"><legend><i>1</i>Цветок</legend><div class="b-opts" data-k="fl"></div></fieldset>
+        <fieldset class="b-step"><legend><i>2</i>Металл</legend><div class="b-opts" data-k="mt"></div></fieldset>
+        <fieldset class="b-step"><legend><i>3</i>Для кого</legend><div class="b-opts" data-k="fr"></div></fieldset>
+      </div>
       <div class="totem-card" aria-live="polite">
         <svg id="flower" class="flower" viewBox="-110 -110 220 220" aria-hidden="true">
           <defs>
             <radialGradient id="gGold" cx="50%" cy="35%" r="75%"><stop offset="0" stop-color="#FFF0BF"/><stop offset=".45" stop-color="#E2B85A"/><stop offset="1" stop-color="#8C6420"/></radialGradient>
             <radialGradient id="gSilver" cx="50%" cy="35%" r="75%"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#C9CDD8"/><stop offset="1" stop-color="#6C7184"/></radialGradient>
-            <radialGradient id="gRose" cx="50%" cy="35%" r="75%"><stop offset="0" stop-color="#FFE9EF"/><stop offset=".45" stop-color="#E9A5B8"/><stop offset="1" stop-color="#9C4E68"/></radialGradient>
           </defs>
           <g id="petals"></g>
-          <circle r="13" fill="#FFF7E6"/>
+          <circle id="core" r="13" fill="#FFF7E6"/>
           <g id="dots" fill="#FFF7E6"></g>
         </svg>
         <p class="t-dates" id="tDates"></p>
         <h3 id="tName"></h3>
-        <p class="t-flower" id="tFlower"></p>
         <p class="t-text" id="tText"></p>
-        <button id="tOrder" class="btn btn-gold" type="button">Хочу эскиз</button>
-        <p class="t-note">Подборка цветов предварительная, окончательный цветок и металл Лилия обсудит с вами.</p>
+        <button id="tOrder" class="btn btn-gold" type="button">Заказать такую брошь</button>
+        <p class="t-note">Рисунок условный: настоящий цветок Лилия собирает вручную, форму и размер обсудит с вами.</p>
       </div>
     </div>
   </div>
@@ -151,7 +153,7 @@
       <p>Брошь крепится булавкой на любую ткань. Она подчёркивает характер и делает простой образ праздничным, а большой цветок становится главным украшением наряда.</p>
     </div>
     <div class="wear-grid">
-      <figure class="w-tile"><img src="img/hero.webp" alt="Пудровая брошь на чёрном пальто" loading="lazy" width="640" height="960" style="object-position:62% 38%"><figcaption><b>На пальто</b>Крупный цветок у ворота оживляет тёмную верхнюю одежду</figcaption></figure>
+      <figure class="w-tile"><img src="img/lilia-red.webp" alt="Брошь-цветок на красном пальто" loading="lazy" width="640" height="960" style="object-position:50% 30%"><figcaption><b>На пальто</b>Крупный цветок у ворота оживляет тёмную верхнюю одежду</figcaption></figure>
       <figure class="w-tile"><img src="img/lapel.webp" alt="Золотая брошь на лацкане чёрного пиджака" loading="lazy" width="900" height="1200"><figcaption><b>На лацкане</b>Золотая лилия делает деловой пиджак вечерним</figcaption></figure>
       <figure class="w-tile"><img src="img/mama.webp" alt="Золотая брошь на светлом свитере" loading="lazy" width="900" height="1200"><figcaption><b>На платье и свитере</b>Брошь ближе к плечу, как носит мама Лилии</figcaption></figure>
       <div class="w-tile w-text">
@@ -202,7 +204,7 @@
         <li><b>11 октября 2025</b><span>Первый мастер-класс по цветам у мастера Марины и первый золотой ирис</span></li>
         <li><b>Лето 2026</b><span>Первый свадебный букет по картинке невесты</span></li>
         <li><b>9 ноября 2026</b><span>Открыла «Королевство цветов» и первые заказы на броши</span></li>
-        <li><b>Скоро</b><span>Цветы-тотемы по знакам зодиака, ободки, серьги и заколки</span></li>
+        <li><b>Скоро</b><span>Ободки, серьги и заколки с цветами</span></li>
       </ol>
     </div>
   </div>
@@ -239,7 +241,7 @@
     </div>
     <ol class="steps-row">
       <li><b>Выберите работу или опишите идею</b>Пришлите фото платья, пальто или картинку, которая нравится.</li>
-      <li><b>Лилия подберёт цветок</b>Предложит форму, размер и металл: золото, серебро или розовый.</li>
+      <li><b>Лилия подберёт цветок</b>Предложит форму, размер и металл: золото, серебро или оба сразу.</li>
       <li><b>Создание цветка</b>Каждый лепесток формируется вручную, срок Лилия назовёт заранее.</li>
       <li><b>Получение</b>Самовывоз в Мурино или доставка по Петербургу и области.</li>
     </ol>
@@ -283,7 +285,7 @@
         <div class="pills">
           <label><input type="radio" name="metal" value="Золото" checked><span>Золото</span></label>
           <label><input type="radio" name="metal" value="Серебро"><span>Серебро</span></label>
-          <label><input type="radio" name="metal" value="Розовый"><span>Розовый</span></label>
+          <label><input type="radio" name="metal" value="Золото и серебро"><span>Золото и серебро</span></label>
           <label><input type="radio" name="metal" value="Подскажите"><span>Подскажите</span></label>
         </div>
       </fieldset>
