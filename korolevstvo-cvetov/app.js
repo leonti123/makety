@@ -26,7 +26,7 @@ $("#grid").innerHTML = CATALOG.map(x => `
     <p class="meta">${x.kind}, ручная работа</p>
     <p class="pr"><span class="metal" style="--m:${METAL[x.m][1]}">${METAL[x.m][0]}</span><span>Подробнее</span></p>
   </button>`).join("") + `
-  <a class="card card-cta" href="#podbor"><svg aria-hidden="true"><use href="#crown"/></svg><h3>Не нашли свою брошь?</h3><p>Соберите цветок, металл и повод, Лилия сделает брошь в единственном экземпляре</p><span class="btn btn-gold">Собрать брошь</span></a>`;
+  <a class="card card-cta" href="#podbor"><svg aria-hidden="true"><use href="#crown"/></svg><h3>Не нашли свою брошь?</h3><p>Выберите цветок, цвет и повод, Лилия сделает брошь в единственном экземпляре</p><span class="btn btn-gold">Собрать брошь</span></a>`;
 
 function toOrder(text) {
   $("#kind").value = text;
@@ -124,7 +124,7 @@ form.addEventListener("submit", async e => {
   if (!/^(?:[78]\d{10}|\d{10})$/.test(digits)) f.phone.setCustomValidity("Проверьте номер телефона.");
   if (!form.reportValidity()) return;
   const comment = f.comment.value.trim().replace(/\s*\n\s*/g, "; ");
-  const details = ["Макет korolevstvo-cvetov", f.kind.value.trim(), "металл: " + f.metal.value, f.how.value, comment].filter(Boolean).join(", ");
+  const details = ["Макет korolevstvo-cvetov", f.kind.value.trim(), "цвет: " + f.metal.value, f.how.value, comment].filter(Boolean).join(", ");
   const payload = {site: location.hostname, name: f.name.value.trim(), phone: f.phone.value.trim(), details, comment, website: f.website.value};
   sendBtn.disabled = true; sendBtn.textContent = "Отправляем…"; sent.hidden = failed.hidden = true;
   try {
