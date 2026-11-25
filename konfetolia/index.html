@@ -681,10 +681,13 @@ p{margin:0}
     </div>
   </div>
   <div class="wrap fruit">
-    <p class="kick">Новинка под заказ</p>
+    <p class="kick">Все вкусы в наличии</p>
     <h2>Фруктовая коллекция «Картошечки»</h2>
     <div class="fruit-gallery"><img src="img/fruit-7.webp" loading="lazy" alt="Фруктовая коллекция в коробке"><img src="img/fruit-1.webp" loading="lazy" alt="Пирожное в форме фрукта в разрезе"><img src="img/fruit-2.webp" loading="lazy" alt="Апельсиновая форма и начинка в разрезе"><img src="img/fruit-3.webp" loading="lazy" alt="Жёлтое пирожное в разрезе"><img src="img/fruit-4.webp" loading="lazy" alt="Пирожное в форме яблока"><img src="img/fruit-5.webp" loading="lazy" alt="Пирожное в форме персика"><img src="img/fruit-6.webp" loading="lazy" alt="Белое пирожное в кокосовой стружке"><img src="img/fruit-0.webp" loading="lazy" alt="Подарочная коробка Конфетолии"></div>
-    <button type="button" class="btn" data-gift="Фруктовая коллекция «Картошечки»">В заказ · цена по запросу</button>
+    <div class="k-buy">
+      <label class="bu-weight">Набор <select id="fruit-size"></select></label>
+      <button type="button" class="btn" id="fruit-add">Добавить в заказ</button>
+    </div>
   </div>
 </section>
 
@@ -1071,6 +1074,18 @@ p{margin:0}
     const fl = [...document.querySelectorAll("[name=kf]:checked")].map(i => i.value);
     addItem({title: `Премиум «Картошечка», ${kset.n} шт`, desc: fl.length ? fl.join(", ") : "вкусы на выбор Ольги", price: kset.p});
     document.querySelectorAll("[name=kf]:checked").forEach(i => i.checked = false);
+  };
+
+  const fruitSize = $("fruit-size");
+  for (const box of $("ksets").querySelectorAll("button")) {
+    const option = new Option(box.dataset.n + " шт · " + rub(+box.dataset.p), box.dataset.n);
+    option.dataset.price = box.dataset.p;
+    fruitSize.add(option);
+    if (box.getAttribute("aria-checked") === "true") option.selected = true;
+  }
+  $("fruit-add").onclick = () => {
+    const box = fruitSize.selectedOptions[0];
+    addItem({title: "Фруктовая коллекция «Картошечки», " + box.value + " шт", price: Number(box.dataset.price)});
   };
 
   // ===== dates =====
