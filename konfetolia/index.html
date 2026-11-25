@@ -916,9 +916,9 @@ p{margin:0}
   };
   const FL = [
     {id: "blackberry", n: "Ежевика", c1: "#644162", c2: "#311e37", tex: "bumps"},
-    {id: "cocoa", n: "Какао-боб", c1: "#965f44", c2: "#603523", deco: "groove", ov: 1},
+    {id: "cocoa", n: "Какао-боб", c1: "#965f44", c2: "#603523", deco: "groove", ov: 1, img: "f/cocoa"},
     {id: "banana", n: "Банан", c1: "#fae18c", c2: "#e5b249", ov: 1},
-    {id: "passion", n: "Маракуйя", c1: "#c68181", c2: "#8a435d", tex: "pores"},
+    {id: "passion", n: "Маракуйя", c1: "#c68181", c2: "#8a435d", tex: "pores", img: "f/passion"},
     {id: "malina", n: "Малина", c1: "#E8506A", c2: "#A3122F", tex: "bumps"},
     {id: "blueberry", n: "Голубика", c1: "#5D6FA2", c2: "#27325A", deco: "crown", img: "f/blueberry"},
     {id: "peanut", n: "Арахис", c1: "#E6BF90", c2: "#B07E4C", tex: "pea", ov: 1, img: "f/peanut"},
@@ -949,7 +949,7 @@ p{margin:0}
   const cards = [];
   cards.push(`<article class="fc fc-hit rv"><div class="fc-ph"><img src="img/v-c295.webp" alt="Корпусная малина" loading="lazy"></div><div class="fc-b"><span class="badge">Один из самых популярных вкусов</span><h3>Малина</h3><p>Нежнейший ванильный ганаш на белом шоколаде, сочный малиновый гель и свежие ягоды — идеальное вкусовое сочетание.</p><button type="button" class="fc-add" data-f="malina">+ в набор</button></div></article>`);
   FL.filter(f => f.img).forEach(f => cards.push(`<article class="fc rv"><div class="fc-ph"><img src="img/${f.img}.webp" alt="Корпусный десерт «${f.n}»: целый и в разрезе" loading="lazy"></div><div class="fc-b"><h3>${f.n}</h3><button type="button" class="fc-add" data-f="${f.id}">+ в набор</button></div></article>`));
-  cards.push(`<article class="fc fc-more rv"><h3>Ещё вкусы под заказ</h3><p>Их тоже можно положить в любой набор.</p><div class="more-row">${["cherry", "matcha", "coconut", "blackberry", "cocoa", "banana", "passion"].map(id => `<button type="button" data-f="${id}">${bon(byId[id])}${byId[id].n} <b>+</b></button>`).join("")}</div></article>`);
+  cards.push(`<article class="fc fc-more rv"><h3>Ещё вкусы под заказ</h3><p>Их тоже можно положить в любой набор.</p><div class="more-row">${["cherry", "matcha", "coconut", "blackberry", "banana"].map(id => `<button type="button" data-f="${id}">${bon(byId[id])}${byId[id].n} <b>+</b></button>`).join("")}</div></article>`);
   $("flv").innerHTML = cards.join("");
 
   // ===== toast =====
