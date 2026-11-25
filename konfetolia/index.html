@@ -261,7 +261,7 @@ p{margin:0}
 .kart{background:var(--pink-xl);position:relative}
 .k-in{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
 .k-txt>p{color:var(--ink-2);font-size:17px;margin-top:16px}
-.k-sets{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:28px 0 24px}
+.k-sets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:28px 0 24px}
 .k-sets button{border:1.5px solid rgba(44,26,20,.16);background:var(--paper);border-radius:18px;padding:14px 8px 12px;text-align:center}
 .k-sets button span{display:flex;justify-content:center;gap:3px;height:18px;margin-bottom:6px}
 .k-sets button span i{width:14px;height:14px;border-radius:50% 50% 45% 45%;background:radial-gradient(circle at 35% 30%,#F4B9C8,#C9637F 75%)}
@@ -580,7 +580,7 @@ p{margin:0}
     <div class="tiles">
       <a class="tile t-big rv" href="#corpus"><img src="img/f/assorti.webp" alt="Корпусные десерты: голубика, клубника, персик, манго, ваниль" loading="lazy"><span class="tag">18 вкусов</span><span class="tb"><b>Корпусные десерты</b><i>набор из 4 — 1 990 ₽, из 6 — 2 790 ₽, из 9 — 4 190 ₽</i></span></a>
       <a class="tile rv" href="#bueno"><img src="img/bueno-sizes.webp" alt="Два размера Киндер Буэно" loading="lazy"><span class="tag">Хит</span><span class="tb"><b>Киндер Буэно оверсайз</b><i>500 г · 2 190 ₽ / 1 кг · 3 990 ₽</i></span></a>
-      <a class="tile rv" href="#kart"><img src="img/kart-gold.webp" alt="Премиум «Картошечка» на золотом блюде" loading="lazy"><span class="tb"><b>Премиум «Картошечка»</b><i>2 шт — 800 ₽, 6 шт — 2 000 ₽</i></span></a>
+      <a class="tile rv" href="#kart"><img src="img/kart-gold.webp" alt="Премиум «Картошечка» на золотом блюде" loading="lazy"><span class="tb"><b>Премиум «Картошечка»</b><i>2 шт — 800 ₽, 9 шт — 2 800 ₽</i></span></a>
       <a class="tile rv" href="#dates"><img src="img/dates-box.webp" alt="Финики в бельгийском шоколаде в коробке" loading="lazy"><span class="tb"><b>Королевские финики</b><i>в бельгийском шоколаде · 200 ₽ за шт</i></span></a>
       <a class="tile rv" href="#gifts"><img src="img/v-c10.webp" alt="Коробка фиников и открытка «Послание от Вселенной»" loading="lazy" style="object-position:50% 40%"><span class="tb"><b>Шоколадные подарки</b><i>финики с посланием и наборы к праздникам</i></span></a>
     </div>
@@ -668,7 +668,8 @@ p{margin:0}
       <div class="k-sets" id="ksets" role="radiogroup" aria-label="Набор картошечки">
         <button type="button" role="radio" aria-checked="false" data-n="2" data-p="800"><span><i></i><i></i></span><b>800 ₽</b><small>2 пирожных</small></button>
         <button type="button" role="radio" aria-checked="true" data-n="4" data-p="1500"><span><i></i><i></i><i></i><i></i></span><b>1 500 ₽</b><small>4 пирожных</small></button>
-        <button type="button" role="radio" aria-checked="false" data-n="6" data-p="2000"><span><i></i><i></i><i></i><i></i><i></i><i></i></span><b>2 000 ₽</b><small>6 пирожных</small></button>
+        <button type="button" role="radio" aria-checked="false" data-n="6" data-p="2100"><span><i></i><i></i><i></i><i></i><i></i><i></i></span><b>2 100 ₽</b><small>6 пирожных</small></button>
+        <button type="button" role="radio" aria-checked="false" data-n="9" data-p="2800"><span><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><b>2 800 ₽</b><small>9 пирожных</small></button>
       </div>
       <p class="k-lbl">Вкусы под заказ <span>— отметьте любимые или оставьте выбор мне</span></p>
       <div class="pchips" id="kchips"></div>
